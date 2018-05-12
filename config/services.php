@@ -34,5 +34,20 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+    'github' => [
+        'client_id' => '55b22053f6a99e78c14c',         // Your GitHub Client ID
+        'client_secret' =>'b04c664105ba4671d9c9cf9b1c4bd47d4f1942a0', // Your GitHub Client Secret
+        'redirect' => 'http://localhost:8000/auth/github/callback',
+    ],
+    'twitter' => [
+        'client_id' => 'h74fV6J17ti5Var8BlLATxL42',         // Your GitHub Client ID
+        'client_secret' =>'4RECZf5zcsYhymuJaSOBdxQFbYkzJkQs6zk8zTfeKcX7HViFLc', // Your GitHub Client Secret
+        'redirect' => 'http://localhost:8000/auth/twitter/callback',
+    ],
+    'google' => [
+        'client_id' => '599726757093-n5prf7jrrtf248vafj9ihmna7ddrgun1.apps.googleusercontent.com',         // Your GitHub Client ID
+        'client_secret' => 'd4766WsCns-5twyGJQPJj1OT', // Your GitHub Client Secret
+        'redirect' => 'http://localhost:8000/auth/google/callback',
+    ],
 
 ];

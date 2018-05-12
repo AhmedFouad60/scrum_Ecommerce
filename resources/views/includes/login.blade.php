@@ -6,9 +6,10 @@
             <div class="header header-primary text-center">
                 <h4>Sign In</h4>
                 <div class="social-line">
-                    <a href="#" class="btn btn-simple btn-just-icon"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                    <a href="#" class="btn btn-simple btn-just-icon"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    <a href="#" class="btn btn-simple btn-just-icon"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                    <a href="/auth/twitter" class="btn btn-simple btn-just-icon"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a href="/auth/google" class="btn btn-simple btn-just-icon"><i class="fa fa-google" aria-hidden="true"></i></a>
+                    <a href="/auth/github" class="btn btn-simple btn-just-icon"><i class="fa fa-github" aria-hidden="true"></i></a>
+
                     {{--<a href="{!!trans_url($guard . '/login/linkedin')!!}" class="btn btn-simple btn-just-icon"><i class="fa fa-linkedin" aria-hidden="true"></i></a><a href="{!!trans_url($guard . '/login/facebook')!!}" class="btn btn-simple btn-just-icon"><i class="fa fa-facebook" aria-hidden="true"></i></a>--}}
                     {{--<a href="{!!trans_url($guard . '/login/twitter')!!}" class="btn btn-simple btn-just-icon"><i class="fa fa-twitter" aria-hidden="true"></i></a>--}}
                     {{--<a href="{!!trans_url($guard . '/login/google')!!}" class="btn btn-simple btn-just-icon"><i class="fa fa-google-plus" aria-hidden="true"></i></a>--}}
