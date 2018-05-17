@@ -14477,7 +14477,7 @@
                 po.top += this.scrollParent.scrollTop();
             }
 
-            // This needs to be actually done for all browsers, since pageX/pageY includes this information
+            // This needs to be actually done for all browsers, since pageX/pageY Partials this information
             // with an ugly IE fix
             if( this.offsetParent[0] === this.document[0].body || (this.offsetParent[0].tagName && this.offsetParent[0].tagName.toLowerCase() === "html" && $.ui.ie)) {
                 po = { top: 0, left: 0 };
@@ -18131,7 +18131,7 @@ if (typeof jQuery === 'undefined') {
         var width  = $tip[0].offsetWidth
         var height = $tip[0].offsetHeight
 
-        // manually read margins because getBoundingClientRect includes difference
+        // manually read margins because getBoundingClientRect Partials difference
         var marginTop = parseInt($tip.css('margin-top'), 10)
         var marginLeft = parseInt($tip.css('margin-left'), 10)
 

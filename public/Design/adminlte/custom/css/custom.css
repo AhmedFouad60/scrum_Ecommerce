@@ -1,0 +1,22 @@
+.category-tree {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.category-tree > li > .actions {
+    float: right;
+    opacity: 0;
+    transition: opacity 100ms ease-in;
+}
+.category-tree > li > .actions > a {
+    text-decoration: none;
+}
+.category-tree > li:hover > .actions {
+    opacity: 1;
+}
+.category-tree > li > .category-tree {
+    margin-left: 15px;
+}
+.category-tree > li.active > .title {
+    font-weight: bold;
+}

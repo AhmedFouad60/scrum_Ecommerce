@@ -47,6 +47,10 @@ class LoginController extends Controller
 
         }
     }
+    public function showLoginForm()
+    {
+        return view('Website.Users.auth.login');
+    }
 
 
 }

@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @include('includes.register')
+    @include('Website.Users.Partials.register')
 @endsection
 
 

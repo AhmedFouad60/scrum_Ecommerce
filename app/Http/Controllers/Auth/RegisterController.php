@@ -79,4 +79,8 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+    public function showRegistrationForm()
+    {
+        return view('Website.Users.auth.register');
+    }
 }
