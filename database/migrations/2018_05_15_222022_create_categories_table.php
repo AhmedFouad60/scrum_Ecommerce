@@ -15,8 +15,15 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('slug');
-            $table->string('status');
+            $table->string('title');
+            $table->string('image',255)->nullable();
+            $table->enum('status',['approve','waitting','rejected'])->nullable();
+
+            $table->integer('user_id')->nullable();
+            $table->string('user_type',50)->nullable();
+            $table->string('upload_folder',100)->nullable();
+            $table->softDeletes();
+            \Kalnoy\Nestedset\NestedSet::columns($table);
             $table->timestamps();
         });
     }
