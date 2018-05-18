@@ -1,4 +1,7 @@
     @extends('Admin.Categories.layout')
+    @section('title')
+        All categories
+    @overwrite
     @section('breadcrumb')
         <section class="content-header">
 
@@ -10,6 +13,5 @@
     @endsection
 
     @section('body')
-
-
+        <p>Please, select a category from menu to the right.</p>
     @endsection

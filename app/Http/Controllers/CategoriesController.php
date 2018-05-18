@@ -68,8 +68,8 @@ class CategoriesController extends Controller
      */
         public function show($id)
     {
-        $category=$this->category->find($id);
         $categories=$this->category->all();
+        $category=$this->category->findBy('id',$id);
         return view('Admin.Categories.show',compact(['categories','category']));
 
     }
