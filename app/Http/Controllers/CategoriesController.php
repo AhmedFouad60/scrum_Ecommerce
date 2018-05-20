@@ -28,8 +28,10 @@ class CategoriesController extends Controller
 
         //$this->category->pushCriteria(new ModulePulicCriteria());
                // return \Response::json($this->category->all());
-        $categories=$this->category->all();
-        return \view('Admin.Categories.index',compact('categories'));
+        $categories=Categories::get()->toTree();
+        return view('Admin.Categories.index',compact('categories'));
+
+        return view('Admin.Categories.index');
     }
 
     /**
@@ -68,9 +70,10 @@ class CategoriesController extends Controller
      */
         public function show($id)
     {
-        $categories=$this->category->all();
+        $categories=$this->category->all()->toTree();
         $category=$this->category->findBy('id',$id);
-        return view('Admin.Categories.show',compact(['categories','category']));
+
+        return view('Admin.Categories.show',compact(['category','categories']));
 
     }
     /**
@@ -112,6 +115,7 @@ class CategoriesController extends Controller
      */
     protected function makeOptions(Collection $items)
     {
+
         $options = [ '' => 'Root' ];
 
         foreach ($items as $item)
@@ -140,4 +144,5 @@ class CategoriesController extends Controller
 
         return $this->makeOptions($query->get());
     }
+
 }

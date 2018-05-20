@@ -1,6 +1,10 @@
 @unless ($categories->isEmpty())
+{{--    {{dd($categories)}}--}}
     <ul class="category-tree">
         @foreach ($categories as $category)
+            {{--@if($category->parent_id !=null)--}}
+                {{--@continue--}}
+                {{--@endif--}}
             <li>
                 <span class="actions">
                     <a href="{{ route('categories.edit', [ $category->getKey() ]) }}" title="Edit this category">
@@ -18,6 +22,7 @@
 
                 @include('Admin.Categories.Partials.tree', [ 'categories' => $category->children ])
             </li>
+
         @endforeach
     </ul>
 @endunless
