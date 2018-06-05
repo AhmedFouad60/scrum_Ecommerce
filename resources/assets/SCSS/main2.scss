@@ -1,0 +1,25 @@
+/*
+  Templete:  Ecommerce website
+  Author :   Ahmed Fouad
+  Version:   0.0.1
+*/
+
+/* Base - Base styles, variables, mixins, etc  mean common things in the templete*/
+@import 'base/_variables.scss';
+@import 'base/_base.scss';
+@import 'base/_mixins.scss';
+@import 'base/_normalize.scss';
+
+/* MoDULES - Individual site components*/
+@import 'modules/_blocks.scss';
+@import 'modules/_buttons.scss';
+@import 'modules/_components.scss';
+@import 'modules/_sections.scss';
+@import 'modules/_typography.scss';
+@import 'modules/_forms.scss';
+
+/* LAYOUTS -page layouts*/
+@import 'layouts/_header.scss';
+@import 'layouts/_footer.scss';
+@import 'layouts/_nav.scss';
+@import 'layouts/_blog.scss';
