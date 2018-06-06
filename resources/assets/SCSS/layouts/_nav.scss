@@ -1,0 +1,35 @@
+  //nav
+  .navbar{
+    width:90%;
+    margin:auto;
+    @include add-border(1px,#e7e7e7,'right-left');
+    border-color:#e7e7e7;
+    min-height:60px;
+    background:#FFF;
+    margin-bottom:30px;
+    a{
+      color:$primary-color;
+      font-size:20px;
+      padding-bottom:24px !important;
+      letter-spacing:-0.5px;
+      padding-top:20px !important;
+    }
+  }
+  .navbar-nav > .active > a,  .navbar-nav > .active > a:hover,  .navbar-nav > .active > a:focus{
+    background:$primary-color;
+    color:#FFF;
+  }
+  .navbar-nav > li > a:hover, .navbar-nav > li > a:focus{
+    background:$secondary-color;
+    color:#FFF;
+  }
+  .navbar-toggle{
+    background:$primary-color;
+    color:#FFF;
+  }
+  .navbar-toggle > span{
+    background:#FFF;
+  }
+  .navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse{
+    max-height:none;
+  }

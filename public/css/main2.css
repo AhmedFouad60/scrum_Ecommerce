@@ -6,7 +6,313 @@
 
 /* Base - Base styles, variables, mixins, etc  mean common things in the templete*/
 
+/*start font color*/
+
+/*End font color*/
+
+/*Start background colors*/
+
+/*End background colors*/
+
+/* start showcase area*/
+
+/*End showcase area*/
+
+body {
+  font-family: "Segoe UI", "Segoe WP", "Segoe Regular", "sans-serif";
+  font-size: 15px;
+  color: #666666;
+}
+
+a {
+  color: #00aff0;
+}
+
+/*start add background*/
+
+/*End add background*/
+
+/* start background-size prefixes*/
+
+/* End background-size prefixes*/
+
+/*start add-border*/
+
+/*End add-border*/
+
+.img-xs {
+  width: 100px;
+}
+
+.img-sm {
+  width: 200px;
+  height: 200px;
+}
+
+.img-lg {
+  width: 400px;
+  height: 400px;
+}
+
+.img-xlg {
+  width: 700px;
+  height: 700px;
+}
+
 /* MoDULES - Individual site components*/
 
+.block,
+.block-primary,
+.block-secondary,
+.block-light,
+.block-dark {
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.block h3,
+.block-primary h3,
+.block-secondary h3,
+.block-light h3,
+.block-dark h3 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.block-primary {
+  background: #00aff0;
+  color: #FFF;
+}
+
+.block-secondary {
+  background: #7fba00;
+  color: #FFF;
+}
+
+.block-light {
+  background: #e4eef2;
+  color: #666666;
+}
+
+.block-light i {
+  color: #00aff0;
+}
+
+.block-dark {
+  background: #2b5464;
+  color: #FFF;
+}
+
+.block-border {
+  border: 1px solid #cccccc;
+}
+
+.block-primary-head {
+  margin-bottom: 20px;
+}
+
+.block-primary-head h3 {
+  padding: 15px 5px 15px 10px;
+  background: #00aff0;
+  color: #FFF;
+  margin: 0;
+  font-size: 18px;
+}
+
+.block-primary-head .block-content {
+  border: 1px solid #00aff0;
+  padding: 10px;
+}
+
+.btn-primary {
+  background: #00aff0;
+  color: #FFF;
+  border: 2px solid #FFF;
+}
+
+.btn-primary:hover {
+  background: #008abd;
+  border: 2px solid #FFF;
+}
+
+.carousel {
+  margin-bottom: 20px;
+}
+
+.carousel img {
+  padding: 3px;
+  border: 1px solid #cccccc;
+}
+
+/*Tabs*/
+
+.tab-pane {
+  padding: 20px 10px;
+  margin-bottom: 20px;
+}
+
+.tab-primary .tab-pane,
+.tab-primary .nav-tabs > li.active > a,
+.tab-primary .nav-tabs > li.active > a:hover,
+.tab-primary .nav-tabs > li.active > a:focus {
+  background: #00aff0;
+  color: #FFF;
+  color: #FFF;
+}
+
+.tab-secondary .tab-pane,
+.tab-secondary .nav-tabs > li.active > a,
+.tab-secondary .nav-tabs > li.active > a:hover,
+.tab-secondary .nav-tabs > li.active > a:focus {
+  background: #7fba00;
+  color: #FFF;
+  color: #FFF;
+}
+
+.tab-dark .tab-pane,
+.tab-dark .nav-tabs > li.active > a,
+.tab-dark .nav-tabs > li.active > a:hover,
+.tab-dark .nav-tabs > li.active > a:focus {
+  background: #2b5464;
+  color: #FFF;
+  color: #FFF;
+}
+
+.tab-light .tab-pane,
+.tab-light .nav-tabs > li.active > a,
+.tab-light .nav-tabs > li.active > a:hover,
+.tab-light .nav-tabs > li.active > a:focus {
+  background: #e4eef2;
+  color: #666666;
+  color: #FFF;
+}
+
+/*device small*/
+
+.dev-small {
+  margin-bottom: -34px;
+}
+
+/*End device small*/
+
+/*start iframe*/
+
+iframe {
+  width: 337px;
+  height: 300px;
+  border: 0;
+}
+
+/*End iframe*/
+
+.search {
+  width: 100%;
+}
+
+.search input[type="search"] {
+  border: 0;
+  height: 49px;
+  padding: 10px;
+  width: 80%;
+  border: 2px solid #00aff0;
+}
+
+.search button {
+  border: 0;
+  padding: 0;
+  margin-left: -5px;
+}
+
+.search img {
+  height: 49px;
+  width: 56px;
+}
+
 /* LAYOUTS -page layouts*/
+
+footer {
+  background: #2b5464;
+  color: #FFF;
+  border-top: 4px solid #7fba00;
+  min-height: 200px;
+  padding: 30px 0;
+  z-index: 10000000;
+}
+
+footer li {
+  line-height: 1.8em;
+}
+
+footer h4 {
+  color: #7fba00;
+}
+
+.navbar {
+  width: 90%;
+  margin: auto;
+  border-right: 1px solid #e7e7e7;
+  border-left: 1px solid #e7e7e7;
+  border-color: #e7e7e7;
+  min-height: 60px;
+  background: #FFF;
+  margin-bottom: 30px;
+}
+
+.navbar a {
+  color: #00aff0;
+  font-size: 20px;
+  padding-bottom: 24px !important;
+  letter-spacing: -0.5px;
+  padding-top: 20px !important;
+}
+
+.navbar-nav > .active > a,
+.navbar-nav > .active > a:hover,
+.navbar-nav > .active > a:focus {
+  background: #00aff0;
+  color: #FFF;
+}
+
+.navbar-nav > li > a:hover,
+.navbar-nav > li > a:focus {
+  background: #7fba00;
+  color: #FFF;
+}
+
+.navbar-toggle {
+  background: #00aff0;
+  color: #FFF;
+}
+
+.navbar-toggle > span {
+  background: #FFF;
+}
+
+.navbar-fixed-top .navbar-collapse,
+.navbar-fixed-bottom .navbar-collapse {
+  max-height: none;
+}
+
+.blog-post {
+  border-top: 1px solid #cccccc;
+  border-right: 1px solid #cccccc;
+  border-left: 1px solid #cccccc;
+  padding: 30px;
+}
+
+.blog-post h2.page-header {
+  margin-top: 5px !important;
+}
+
+.blog-post .blog-featured {
+  float: left;
+  margin-right: 15px;
+}
+
+.post-meta {
+  background: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  margin-bottom: 20px;
+}
 

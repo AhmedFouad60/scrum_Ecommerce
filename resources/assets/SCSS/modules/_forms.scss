@@ -1,0 +1,20 @@
+  //forms
+  .search{
+    width:100%;
+    input[type="search"]{
+      border:0;
+      height:49px;
+      padding:10px;
+      width:80%;
+      border:2px solid $primary-color;
+    }
+    button{
+      border:0;
+      padding:0;
+      margin-left:-5px;
+    }
+    img{
+      height:49px;
+      width:56px;
+    }
+  }
