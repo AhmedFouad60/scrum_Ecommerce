@@ -3,21 +3,13 @@
   Author :   Ahmed Fouad
   Version:   0.0.1
 */
-
 /* Base - Base styles, variables, mixins, etc  mean common things in the templete*/
-
 /*start font color*/
-
 /*End font color*/
-
 /*Start background colors*/
-
 /*End background colors*/
-
 /* start showcase area*/
-
 /*End showcase area*/
-
 body {
   font-family: "Segoe UI", "Segoe WP", "Segoe Regular", "sans-serif";
   font-size: 15px;
@@ -29,17 +21,11 @@ a {
 }
 
 /*start add background*/
-
 /*End add background*/
-
 /* start background-size prefixes*/
-
 /* End background-size prefixes*/
-
 /*start add-border*/
-
 /*End add-border*/
-
 .img-xs {
   width: 100px;
 }
@@ -60,21 +46,12 @@ a {
 }
 
 /* MoDULES - Individual site components*/
-
-.block,
-.block-primary,
-.block-secondary,
-.block-light,
-.block-dark {
+.block, .block-primary, .block-secondary, .block-light, .block-dark {
   padding: 15px;
   margin-bottom: 15px;
 }
 
-.block h3,
-.block-primary h3,
-.block-secondary h3,
-.block-light h3,
-.block-dark h3 {
+.block h3, .block-primary h3, .block-secondary h3, .block-light h3, .block-dark h3 {
   margin-top: 0;
   padding-top: 0;
 }
@@ -145,7 +122,6 @@ a {
 }
 
 /*Tabs*/
-
 .tab-pane {
   padding: 20px 10px;
   margin-bottom: 20px;
@@ -188,15 +164,12 @@ a {
 }
 
 /*device small*/
-
 .dev-small {
   margin-bottom: -34px;
 }
 
 /*End device small*/
-
 /*start iframe*/
-
 iframe {
   width: 337px;
   height: 300px;
@@ -204,7 +177,125 @@ iframe {
 }
 
 /*End iframe*/
+section {
+  padding: 30px 0;
+}
 
+.extra-pa {
+  padding: 80px 0;
+}
+
+.showcase-section {
+  height: 400px;
+  background: url("../images/showcase.jpg");
+  -ms-background-size: cover;
+  background-size: cover;
+}
+
+.showcase-section h1 {
+  color: #00aff0;
+}
+
+.showcase-section img {
+  margin-bottom: 10px;
+}
+
+.section-primary, .section-primary-a, .section-primary-b {
+  background: #00aff0;
+  color: #FFF;
+}
+
+.section-primary-a {
+  border-top: 4px solid #7fba00;
+}
+
+.section-primary-b {
+  border-bottom: 4px solid #7fba00;
+}
+
+.section-light {
+  background: #e4eef2;
+  color: #666666;
+}
+
+.section-dark {
+  background: #2b5464;
+  color: #FFF;
+}
+
+/* start list*/
+.list, .list-feature {
+  margin-bottom: 30px;
+}
+
+.list-feature {
+  padding: 0;
+  width: 80%;
+}
+
+.list-feature li {
+  line-height: 3.6em;
+  border-bottom: 1px solid #cccccc;
+}
+
+.list-feature li i {
+  color: #00aff0;
+  font-size: 30px;
+}
+
+/* End list*/
+/*Start Heading*/
+.heading-primary, .heading-primary-a {
+  color: #00aff0;
+}
+
+.heading-primary-a {
+  border-bottom: 2px solid #00aff0;
+}
+
+.heading-secondary, .heading-secondary-a {
+  color: #7fba00;
+}
+
+.heading-secondary-a {
+  border-bottom: 2px solid #7fba00;
+}
+
+.heading-light, .heading-light-a {
+  color: #e4eef2;
+}
+
+.heading-light-a {
+  border-bottom: 2px solid #e4eef2;
+}
+
+.heading-dark, .heading-dark-a {
+  color: #2b5464;
+}
+
+.heading-dark-a {
+  border-bottom: 2px solid #e4eef2;
+}
+
+/*End Heading*/
+/*start emphasis Text*/
+.em-primary {
+  color: #00aff0;
+}
+
+.em-secondary {
+  color: #7fba00;
+}
+
+.em-light {
+  color: #e4eef2;
+}
+
+.em-dark {
+  color: #2b5464;
+}
+
+/*End emphasis Text*/
 .search {
   width: 100%;
 }
@@ -229,7 +320,6 @@ iframe {
 }
 
 /* LAYOUTS -page layouts*/
-
 footer {
   background: #2b5464;
   color: #FFF;
@@ -245,52 +335,6 @@ footer li {
 
 footer h4 {
   color: #7fba00;
-}
-
-.navbar {
-  width: 90%;
-  margin: auto;
-  border-right: 1px solid #e7e7e7;
-  border-left: 1px solid #e7e7e7;
-  border-color: #e7e7e7;
-  min-height: 60px;
-  background: #FFF;
-  margin-bottom: 30px;
-}
-
-.navbar a {
-  color: #00aff0;
-  font-size: 20px;
-  padding-bottom: 24px !important;
-  letter-spacing: -0.5px;
-  padding-top: 20px !important;
-}
-
-.navbar-nav > .active > a,
-.navbar-nav > .active > a:hover,
-.navbar-nav > .active > a:focus {
-  background: #00aff0;
-  color: #FFF;
-}
-
-.navbar-nav > li > a:hover,
-.navbar-nav > li > a:focus {
-  background: #7fba00;
-  color: #FFF;
-}
-
-.navbar-toggle {
-  background: #00aff0;
-  color: #FFF;
-}
-
-.navbar-toggle > span {
-  background: #FFF;
-}
-
-.navbar-fixed-top .navbar-collapse,
-.navbar-fixed-bottom .navbar-collapse {
-  max-height: none;
 }
 
 .blog-post {
@@ -315,4 +359,3 @@ footer h4 {
   border: 1px solid #cccccc;
   margin-bottom: 20px;
 }
-

@@ -16,6 +16,9 @@
         Auth::routes();
 
         Route::resource('categories','CategoriesController');
+        Route::get('product',function (){
+           return view('Admin.products.index');
+        });
 
 
 
