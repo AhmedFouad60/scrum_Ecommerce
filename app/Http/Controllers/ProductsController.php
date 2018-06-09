@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\productDatatable;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
@@ -11,9 +12,9 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(productDatatable $productDatatable)
     {
-        //
+        return $productDatatable->render('Admin.products.index',['title'=>'test yajara datatabbles']);
     }
 
     /**

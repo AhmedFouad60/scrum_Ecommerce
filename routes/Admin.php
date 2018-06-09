@@ -16,10 +16,13 @@
         Auth::routes();
 
         Route::resource('categories','CategoriesController');
-        Route::get('product',function (){
-           return view('Admin.products.index');
-        });
 
+//        Route::get('product',function (){
+//           return view('Admin.products.index');
+//        });
+
+
+        Route::resource('products',"ProductsController");
 
 
 

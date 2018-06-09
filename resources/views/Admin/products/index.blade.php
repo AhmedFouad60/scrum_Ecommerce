@@ -12,74 +12,57 @@
     </section>
 @endsection
 
+@section('header')
+    <!-- DataTables -->
+    {!! Html::style('Design/adminlte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')!!}
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+    </style>
+
+@endsection
+
+
 @section('body')
-    <p>Please, insert new product </p>
-    <h3 class="page-header heading-primary-a">services</h3>
-    <!-- start nav-taps -->
 
-    <div class="row">
+<div class="box">
 
-        <div class="tab">
+    <div class="box-header">
+        <h3 class="box-title">hover data table</h3>
+    </div>
 
-            <ul id="myTab" class="nav nav-tabs" role="tablist">
-
-                <li  class="active"><a href="#general" role="tab" data-toggle="tab">General</a></li>
-                <li><a href="#links" role="tab" data-toggle="tab">links</a></li>
-                <li><a href="#attribute" role="tab" data-toggle="tab">Attribute</a></li>
-                <li><a href="#optional" role="tab" data-toggle="tab">Optional</a></li>
-                <li><a href="#image" role="tab" data-toggle="tab">Images</a></li>
-
-            </ul>
-
-        </div>
-
-            <div id="myTabContent" class="tab-content">
-
-                {!! Form::open(['url' => 'admin/product']) !!}
-
-
-                <div class="tab-pane fade in active" id="general">
-                    @include('Admin.products.partials.form',['tap_form'=>'general'])
-                </div>
-
-
-                <div class="tab-pane fade " id="links">
-                    @include('Admin.products.partials.form',['tap_form'=>'links'])
-                </div>
-
-                <div class="tab-pane fade " id="attribute">
-                    @include('Admin.products.partials.form',['tap_form'=>'attribute'])
-                </div>
-
-                <div class="tab-pane fade " id="optional">
-                    @include('Admin.products.partials.form',['tap_form'=>'optional'])
-                </div>
-
-                <div class="tab-pane fade " id="image">
-                    @include('Admin.products.partials.form',['tap_form'=>'image'])
-                </div>
-
-            </div>
+    <div class="box-body">
+        {!! $dataTable->table([
+       'class'=>'table table-bordered table-hover'
+   ]) !!}
 
     </div>
 
 
-    {{--I'll make this button as save button above next  + and ->--}}
+</div>
 
 
-    <div class="col-md-12">
-        <div class="form-group">
-            {!! Form::submit('Create', [ 'class' => 'btn btn-primary' ]) !!}
-        </div>
-    </div>
-    {!! Form::close() !!}
+@section('footer')
+    <!-- DataTables -->
+    {!! Html::script('Design/adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js')!!}
+    {!! Html::script('Design/adminlte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')!!}
+    {!! Html::script('Design/adminlte/bower_components/datatables.net-bs/js/dataTables.buttons.min.js')!!}
+
+    <script src="/vendor/datatables/buttons.server-side.js"></script>
+
+    @push('js')
+        {!! $dataTable->scripts() !!}
+    @endpush
+
+@endsection
 
 
 
 
+        {{--@section('script')--}}
 
-        @section('script')
-
-         @endsection
+            {{--{!! $dataTable->scripts() !!}--}}
+         {{--@endsection--}}
 
 @endsection
