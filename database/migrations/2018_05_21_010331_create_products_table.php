@@ -16,6 +16,7 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('quantity')->nullable();
+            $table->string('title','50');
             $table->string('small-description','50')->nullable();
             $table->longText('large_description')->nullable();
             $table->text('image');
@@ -26,6 +27,7 @@ class CreateProductsTable extends Migration
             $table->enum('outofstock_status',['in stock','out of stock','pre-order'])->nullable();
             $table->dateTime('date_available')->nullable();
             $table->enum('weight_class',['kilogram','gram','pound'])->nullable();
+            $table->float('weight')->nullable();
             $table->enum('length_class',['centimeter','millimeter','inch'])->nullable();
             $table->text('dimensions')->nullable();
             $table->text('manufacturer')->nullable();

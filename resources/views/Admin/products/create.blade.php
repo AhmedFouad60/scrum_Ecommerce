@@ -15,13 +15,32 @@
 
 
 @section('buttons')
+
+    {{--  i opened the form here to allow the two buttons to submit the form  --}}
+    {{--  ...this may be stupied but i did it till know the best practise--}}
+
+
+    {{--i decided to remove the button below because this may be miss leading to the user--}}
+
+
+
+
+    {!! Form::open(['url' => 'admin/products','method'=>'post']) !!}
+
+
+
+    {{--the buttons in the page --}}
+
     <div class="row" style="margin-top: 50px">
         <div class="pull-right">
 
-            <div class="btn btn-success">
-                <i class="fa fa-save"></i>
-                    save
-            </div>
+            {!! Form::submit('Save', [ 'class' => 'btn btn-primary' ,'name'=>'newProduct' ]) !!}
+
+
+            <a class="btn btn-default" href="/admin/products">
+                ->
+            </a>
+
 
 
 
@@ -35,8 +54,9 @@
 
 @section('body')
 
-    <p>Please, insert new product </p>
-    <h3 class="page-header heading-primary-a">services</h3>
+    {{--<p>Please, insert new product </p>--}}
+    <h3 class="page-header heading-primary-a">+ New product</h3>
+
     <!-- start nav-taps -->
 
     <div class="row">
@@ -57,28 +77,28 @@
 
         <div id="myTabContent" class="tab-content">
 
-            {!! Form::open(['url' => 'admin/product']) !!}
+            {!! Form::open(['url' => 'admin/products','method'=>'post']) !!}
 
 
             <div class="tab-pane fade in active" id="general">
-                @include('Admin.products.partials.form',['tap_form'=>'general'])
+                @include('Admin.products.partials.form',['tap_name'=>'general'])
             </div>
 
 
             <div class="tab-pane fade " id="links">
-                @include('Admin.products.partials.form',['tap_form'=>'links'])
+                @include('Admin.products.partials.form',['tap_name'=>'links'])
             </div>
 
             <div class="tab-pane fade " id="attribute">
-                @include('Admin.products.partials.form',['tap_form'=>'attribute'])
+                @include('Admin.products.partials.form',['tap_name'=>'attribute'])
             </div>
 
             <div class="tab-pane fade " id="optional">
-                @include('Admin.products.partials.form',['tap_form'=>'optional'])
+                @include('Admin.products.partials.form',['tap_name'=>'optional'])
             </div>
 
             <div class="tab-pane fade " id="image">
-                @include('Admin.products.partials.form',['tap_form'=>'image'])
+                @include('Admin.products.partials.form',['tap_name'=>'image'])
             </div>
 
         </div>
@@ -86,14 +106,19 @@
     </div>
 
 
-    {{--I'll make this button as save button above next  + and ->--}}
 
 
-    <div class="col-md-12">
-        <div class="form-group">
-            {!! Form::submit('Create', [ 'class' => 'btn btn-primary' ]) !!}
-        </div>
-    </div>
+
+{{--This button may be miss leading for the user--}}
+
+    {{--<div class="col-md-12">--}}
+        {{--<div class="form-group">--}}
+            {{--{!! Form::submit('Save', [ 'class' => 'btn btn-primary' ,'name'=>'newProduct']) !!}--}}
+        {{--</div>--}}
+    {{--</div>--}}
+
+
+
     {!! Form::close() !!}
 
 

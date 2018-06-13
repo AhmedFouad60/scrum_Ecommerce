@@ -3,10 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\productDatatable;
+use App\Http\Requests\productRequest;
+use App\Models\products;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
+
+    /**
+     * @var Product
+     */
+    private $product;
+
+    public function __construct(products $product) {
+
+        $this->product = $product;
+    }
+
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -33,9 +49,12 @@ class ProductsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(productRequest $input)
     {
-        //
+        $prodcut=$this->product->create($input->all());
+        return redirect()
+            ->route('products.index')
+            ->with('success','Category successfully created');
     }
 
     /**

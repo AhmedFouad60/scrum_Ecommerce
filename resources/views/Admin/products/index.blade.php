@@ -33,7 +33,7 @@
 @section('buttons')
     <div class="row">
     <div class="pull-right">
-        <i class="btn btn-primary"> +</i>
+        <a class="btn btn-primary" href="products\create"> +</a>
 
         {{--<i class="btn btn-default">-> </i>--}}
 
