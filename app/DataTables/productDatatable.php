@@ -40,10 +40,25 @@ class productDatatable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    ->addAction(['width' => '80px'])
-                    ->parameters($this->getBuilderParameters());
+            ->columns($this->getColumns())
+            ->minifiedAjax()
+            //->addAction(['width' => '80px','title' => 'التحكم'])
+            //->parameters($this->getBuilderParameters());
+            ->parameters([
+                'dom' => 'Blfrtip',
+                'buttons' => [
+                    // ['extend'=>'csv','text'=>'test'],
+                    [ 'extend'=>'excel','text'=>'<i class="fa fa-file-excel-o"  style="margin-bottom: 20px;cursor: pointer;"></i>&nbsp;XL '],
+                    //  ['extend'=> 'pdf','text'=>'test'],
+                    [ 'extend'=>'print','text'=>'<i class="fa fa-print" style="margin-bottom: 20px;cursor: pointer;"></i>&nbsp;print  ']
+                    //   ,['extend'=> 'reset','text'=>'test'],
+                    // [ 'extend'=>'reload','text'=>'test']
+                ],
+                'lengthMenu'=> [
+                    [25, 50, 100, 200, -1],
+                    [25, 50, 100, 200, "All"]
+                ],
+            ]);
     }
 
     /**

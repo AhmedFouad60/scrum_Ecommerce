@@ -11,14 +11,8 @@
         <div class="row">
 
             <div class="col-md-12">
-                <h2>@yield('title')</h2>
-                <div class="pull-right">
-                    <i class="btn btn-primary"> +</i>
-
-                    <i class="btn btn-default">-> </i>
-
-
-                </div>
+{{--                <h2>@yield('title')</h2>--}}
+                @yield('buttons')
 
 
                 @yield('body')

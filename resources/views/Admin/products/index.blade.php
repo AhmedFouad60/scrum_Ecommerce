@@ -1,16 +1,5 @@
 @extends('Admin.products.layout')
-@section('title')
-    All products
-@overwrite
-@section('breadcrumb')
-    <section class="content-header">
 
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">products</li>
-        </ol>
-    </section>
-@endsection
 
 @section('header')
     <!-- DataTables -->
@@ -24,24 +13,65 @@
 @endsection
 
 
+    @section('title') All products @endsection
+
+
+
+@section('breadcrumb')
+    <section class="content-header" style="margin-bottom: 27px;">
+
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">products</li>
+        </ol>
+    </section>
+
+
+@endsection
+
+
+@section('buttons')
+    <div class="row">
+    <div class="pull-right">
+        <i class="btn btn-primary"> +</i>
+
+        {{--<i class="btn btn-default">-> </i>--}}
+
+
+    </div>
+
+    </div>
+@endsection
+
+
 @section('body')
 
-<div class="box">
+{{--this class to perform the padding to show the + and --> buttons in the layout.blade.php--}}
 
-    <div class="box-header">
-        <h3 class="box-title">hover data table</h3>
+
+
+
+    <div class="box">
+
+        {{--.....Render the Datatables of the products--}}
+
+        <div class="box-header">
+            <h3 class="box-title">All Products</h3>
+        </div>
+
+        <div class="box-body">
+
+            {!! $dataTable->table([
+           'class'=>'table table-bordered table-hover'
+       ]) !!}
+
+        </div>
+
+
     </div>
+    @endsection
 
-    <div class="box-body">
-        {!! $dataTable->table([
-       'class'=>'table table-bordered table-hover'
-   ]) !!}
-
-    </div>
-
-
-</div>
-
+    {{--Required libraries for datatables--}}
 
 @section('footer')
     <!-- DataTables -->
@@ -49,7 +79,11 @@
     {!! Html::script('Design/adminlte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')!!}
     {!! Html::script('Design/adminlte/bower_components/datatables.net-bs/js/dataTables.buttons.min.js')!!}
 
+    {{--File that contain button of ..print pdf,xlsheet ...--}}
     <script src="/vendor/datatables/buttons.server-side.js"></script>
+
+
+    {{--To trigger the server side--}}
 
     @push('js')
         {!! $dataTable->scripts() !!}
@@ -57,12 +91,3 @@
 
 @endsection
 
-
-
-
-        {{--@section('script')--}}
-
-            {{--{!! $dataTable->scripts() !!}--}}
-         {{--@endsection--}}
-
-@endsection

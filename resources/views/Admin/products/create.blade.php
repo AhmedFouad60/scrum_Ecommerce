@@ -1,7 +1,8 @@
 @extends('Admin.products.layout')
-@section('title')
-    All products
+@section('title') All products
+
 @overwrite
+
 @section('breadcrumb')
     <section class="content-header">
 
@@ -12,7 +13,28 @@
     </section>
 @endsection
 
+
+@section('buttons')
+    <div class="row" style="margin-top: 50px">
+        <div class="pull-right">
+
+            <div class="btn btn-success">
+                <i class="fa fa-save"></i>
+                    save
+            </div>
+
+
+
+        </div>
+
+    </div>
+@endsection
+
+
+
+
 @section('body')
+
     <p>Please, insert new product </p>
     <h3 class="page-header heading-primary-a">services</h3>
     <!-- start nav-taps -->
