@@ -8,7 +8,8 @@
 
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">products</li>
+            <li class=""><a href="/admin/products">products</a></li>
+            <li class="active"><a href="#">New product</a></li>
         </ol>
     </section>
 @endsection

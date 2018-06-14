@@ -31,10 +31,11 @@
                         {!! Form::text('manufacture', null, [ 'class' => 'form-control']) !!}
                         {!! $errors->first('manufacture') !!}
                 </div>
+
                 <div class="form-group">
-                        {!! Form::label('category', 'Category:') !!}
-                        {!! Form::text('category', null, [ 'class' => 'form-control']) !!}
-                        {!! $errors->first('category') !!}
+                    {!! Form::label('category', 'Category') !!}
+                    {!! Form::select('category', $categories, null, [ 'class' => 'form-control' ]) !!}
+                    {!! $errors->first('category') !!}
                 </div>
 
         @elseif($tap_name=='attribute')

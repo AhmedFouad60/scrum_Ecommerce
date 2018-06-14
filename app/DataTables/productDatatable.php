@@ -70,9 +70,10 @@ class productDatatable extends DataTable
     {
         return [
             'id',
+            'title',
             'quantity',
-            'created_at',
-            'updated_at'
+            'weight'
+
         ];
     }
 

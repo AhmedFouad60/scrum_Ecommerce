@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\DataTables\productDatatable;
 use App\Http\Requests\productRequest;
+use App\Models\Categories;
 use App\Models\products;
 use Illuminate\Http\Request;
+use Kalnoy\Nestedset\Collection;
+
 
 class ProductsController extends Controller
 {
@@ -39,8 +42,11 @@ class ProductsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
+
     {
-        return view('Admin.products.create');
+        $categories = $this->getCategoryOptions();
+        return view('Admin.products.create', compact( 'categories'));
+
     }
 
     /**
@@ -51,10 +57,8 @@ class ProductsController extends Controller
      */
     public function store(productRequest $input)
     {
-        $prodcut=$this->product->create($input->all());
-        return redirect()
-            ->route('products.index')
-            ->with('success','Category successfully created');
+
+
     }
 
     /**
@@ -101,4 +105,57 @@ class ProductsController extends Controller
     {
         //
     }
+
+
+
+    /**
+     * @param Collection $items
+     *
+     * @return static
+     */
+    protected function makeOptions(Collection $items)
+    {
+
+        $options = [ '' => 'Category' ];
+
+        foreach ($items as $item)
+        {
+            $options[$item->getKey()] = str_repeat('‒', $item->depth + 1).' '.$item->title;
+        }
+
+        return $options;
+    }
+
+
+
+
+    /**
+     * @param Category $except
+     *
+     * @return CategoriesController
+     */
+    protected function getCategoryOptions($except = null)
+    {
+
+        /** @var \Kalnoy\Nestedset\QueryBuilder $query */
+        $query = Categories::select('id', 'title')->withDepth();
+
+        if ($except)
+        {
+            $query->whereNotDescendantOf($except)->where('id', '<>', $except->id);
+        }
+
+        return $this->makeOptions($query->get());
+    }
+
+
+
+
+
+
+
+
+
+
+
 }
