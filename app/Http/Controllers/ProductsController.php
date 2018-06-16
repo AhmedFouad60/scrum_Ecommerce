@@ -56,7 +56,16 @@ class ProductsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(productRequest $input)
+
     {
+
+        $product=$this->product->create($input->all());
+        $category=$input->category;
+        if($product){
+
+            $productCat=$this->product->find($product->id);
+            $productCat->categories()->attach($category);
+        }
 
 
     }
