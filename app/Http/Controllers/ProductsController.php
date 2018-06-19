@@ -58,6 +58,7 @@ class ProductsController extends Controller
     public function store(productRequest $input)
 
     {
+        dd($input->attribute);
 
         $product=$this->product->create($input->all());
         $category=$input->category;
@@ -65,6 +66,8 @@ class ProductsController extends Controller
 
             $productCat=$this->product->find($product->id);
             $productCat->categories()->attach($category);
+            return redirect()->route('products.index');
+
         }
 
 

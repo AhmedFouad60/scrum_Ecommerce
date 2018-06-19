@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class products extends Model
 {
     protected $table = 'products';
+    protected $primaryKey = 'id';
 
     protected $fillable = [
        'quantity','manufacturer','title','price','weight'
@@ -15,7 +16,7 @@ class products extends Model
 
 
     public function categories(){
-        return $this->belongsToMany('App\Models\Categories','products_categories','category_id','product_id');
+        return $this->belongsToMany('App\Models\Categories','products_categories','product_id','category_id');
     }
 
     public function user(){

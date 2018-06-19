@@ -25,6 +25,7 @@ class productRequest extends FormRequest
     {
         return [
             'title' => 'required',
+            'photo[]' => 'image|mimes:jpeg,bmp,png|size:2000'
 
         ];
     }

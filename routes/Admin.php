@@ -15,14 +15,14 @@
         })->middleware('admin');
         Auth::routes();
 
-        Route::resource('categories','CategoriesController');
+        Route::resource('categories','CategoriesController')->middleware('admin');
 
 //        Route::get('product',function (){
 //           return view('Admin.products.index');
 //        });
 
 
-        Route::resource('products',"ProductsController");
+        Route::resource('products',"ProductsController")->middleware('admin');
 
 
 

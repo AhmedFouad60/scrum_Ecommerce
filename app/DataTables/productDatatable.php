@@ -55,8 +55,8 @@ class productDatatable extends DataTable
                     // [ 'extend'=>'reload','text'=>'test']
                 ],
                 'lengthMenu'=> [
-                    [25, 50, 100, 200, -1],
-                    [25, 50, 100, 200, "All"]
+                    [5, 10, 20, 25, -1],
+                    [5, 10, 20, 25, "All"]
                 ],
             ]);
     }

@@ -1,4 +1,5 @@
 @extends('Admin.products.layout')
+
 @section('title') All products
 
 @overwrite
@@ -69,8 +70,8 @@
                 <li  class="active"><a href="#general" role="tab" data-toggle="tab">General</a></li>
                 <li><a href="#links" role="tab" data-toggle="tab">links</a></li>
                 <li><a href="#attribute" role="tab" data-toggle="tab">Attribute</a></li>
-                <li><a href="#optional" role="tab" data-toggle="tab">Optional</a></li>
                 <li><a href="#image" role="tab" data-toggle="tab">Images</a></li>
+                <li><a href="#location" role="tab" data-toggle="tab">Location</a></li>
 
             </ul>
 
@@ -94,8 +95,8 @@
                 @include('Admin.products.partials.form',['tap_name'=>'attribute'])
             </div>
 
-            <div class="tab-pane fade " id="optional">
-                @include('Admin.products.partials.form',['tap_name'=>'optional'])
+            <div class="tab-pane fade " id="location">
+                @include('Admin.products.partials.form',['tap_name'=>'location'])
             </div>
 
             <div class="tab-pane fade " id="image">
@@ -122,12 +123,17 @@
 
     {!! Form::close() !!}
 
+    @push('js')
+        <script src="{{URL::to('js/select2.min.js')}}"></script>
+
+        <script type="text/javascript">
+
+            $(".js-example-tags").select2({
+                tags: true
+            });
+        </script>
+    @endpush
 
 
-
-
-@section('script')
-
-@endsection
 
 @endsection
