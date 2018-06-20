@@ -30,7 +30,7 @@
 @endsection
 
 
-@section('buttons')
+@section('Buttons')
     <div class="row">
     <div class="pull-right">
         <a class="btn btn-primary" href="products\create"> +</a>
@@ -46,7 +46,7 @@
 
 @section('body')
 
-{{--this class to perform the padding to show the + and --> buttons in the layout.blade.php--}}
+{{--this class to perform the padding to show the + and --> Buttons in the layout.blade.php--}}
 
 
 
@@ -77,7 +77,7 @@
     <!-- DataTables -->
     {!! Html::script('Design/adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js')!!}
     {!! Html::script('Design/adminlte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')!!}
-    {!! Html::script('Design/adminlte/bower_components/datatables.net-bs/js/dataTables.buttons.min.js')!!}
+    {!! Html::script('Buttons')!!}
 
     {{--File that contain button of ..print pdf,xlsheet ...--}}
     <script src="/vendor/datatables/buttons.server-side.js"></script>

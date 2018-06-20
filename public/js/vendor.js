@@ -3730,10 +3730,10 @@
                 allButtons = this.element.find( this.options.items ),
                 existingButtons = allButtons.filter( ":ui-button" );
 
-            // Initialize new buttons
+            // Initialize new Buttons
             allButtons.not( ":ui-button" ).button();
 
-            // Refresh existing buttons
+            // Refresh existing Buttons
             existingButtons.button( "refresh" );
 
             this.buttons = allButtons
@@ -8533,7 +8533,7 @@
             this.uiButtonSet.empty();
 
             if ( $.isEmptyObject( buttons ) || ($.isArray( buttons ) && !buttons.length) ) {
-                this.uiDialog.removeClass( "ui-dialog-buttons" );
+                this.uiDialog.removeClass( "ui-dialog-Buttons" );
                 return;
             }
 
@@ -8559,7 +8559,7 @@
                     .button( buttonOptions )
                     .appendTo( that.uiButtonSet );
             });
-            this.uiDialog.addClass( "ui-dialog-buttons" );
+            this.uiDialog.addClass( "ui-dialog-Buttons" );
             this.uiDialogButtonPane.appendTo( this.uiDialog );
         },
 
@@ -14913,7 +14913,7 @@
             "mousedown .ui-spinner-button": function( event ) {
                 var previous;
 
-                // We never want the buttons to have focus; whenever the user is
+                // We never want the Buttons to have focus; whenever the user is
                 // interacting with the spinner, the focus should be on the input.
                 // If the input is focused then this.previous is properly set from
                 // when the input first received focus. If the input is not focused
@@ -14978,7 +14978,7 @@
                 .attr( "autocomplete", "off" )
                 .wrap( this._uiSpinnerHtml() )
                 .parent()
-                // add buttons
+                // add Buttons
                 .append( this._buttonHtml() );
 
             this.element.attr( "role", "spinbutton" );
@@ -14989,7 +14989,7 @@
                 .button()
                 .removeClass( "ui-corner-all" );
 
-            // IE 6 doesn't understand height: 50% for the buttons
+            // IE 6 doesn't understand height: 50% for the Buttons
             // unless the wrapper has an explicit height
             if ( this.buttons.height() > Math.ceil( uiSpinner.height() * 0.5 ) &&
                 uiSpinner.height() > 0 ) {
@@ -16848,7 +16848,7 @@ if (typeof jQuery === 'undefined') {
 
     Button.prototype.toggle = function () {
         var changed = true
-        var $parent = this.$element.closest('[data-toggle="buttons"]')
+        var $parent = this.$element.closest('[data-toggle="Buttons"]')
 
         if ($parent.length) {
             var $input = this.$element.find('input')
@@ -32737,13 +32737,13 @@ if (typeof jQuery === 'undefined') {
 
 
         /**
-         * DataTables features four different built-in options for the buttons to
+         * DataTables features four different built-in options for the Buttons to
          * display for pagination control:
          *
-         * * `simple` - 'Previous' and 'Next' buttons only
-         * * 'simple_numbers` - 'Previous' and 'Next' buttons, plus page numbers
-         * * `full` - 'First', 'Previous', 'Next' and 'Last' buttons
-         * * `full_numbers` - 'First', 'Previous', 'Next' and 'Last' buttons, plus
+         * * `simple` - 'Previous' and 'Next' Buttons only
+         * * 'simple_numbers` - 'Previous' and 'Next' Buttons, plus page numbers
+         * * `full` - 'First', 'Previous', 'Next' and 'Last' Buttons
+         * * `full_numbers` - 'First', 'Previous', 'Next' and 'Last' Buttons, plus
          *   page numbers
          *
          * Further methods can be added using {@link DataTable.ext.oPagination}.
@@ -32859,7 +32859,7 @@ if (typeof jQuery === 'undefined') {
          * a table. These renderers can be added or modified by plug-ins to
          * generate suitable mark-up for a site. For example the Bootstrap
          * integration plug-in for DataTables uses a paging button renderer to
-         * display pagination buttons in the mark-up required by Bootstrap.
+         * display pagination Buttons in the mark-up required by Bootstrap.
          *
          * For further information about the renderers available see
          * DataTable.ext.renderer
@@ -34698,7 +34698,7 @@ if (typeof jQuery === 'undefined') {
     DataTable.ext = _ext = {
         /**
          * Buttons. For use with the Buttons extension for DataTables. This is
-         * defined here so other extensions can define buttons regardless of load
+         * defined here so other extensions can define Buttons regardless of load
          * order. It is _not_ used by DataTables core.
          *
          *  @type object
@@ -34902,11 +34902,11 @@ if (typeof jQuery === 'undefined') {
         /**
          * Pagination plug-in methods.
          *
-         * Each entry in this object is a function and defines which buttons should
+         * Each entry in this object is a function and defines which Buttons should
          * be shown by the pagination rendering method that is used for the table:
          * {@link DataTable.ext.renderer.pageButton}. The renderer addresses how the
-         * buttons are displayed in the document, while the functions here tell it
-         * what buttons to display. This is done by returning an array of button
+         * Buttons are displayed in the document, while the functions here tell it
+         * what Buttons to display. This is done by returning an array of button
          * descriptions (what each button will do).
          *
          * Pagination types (the four built in options and any additional plug-in
@@ -34939,7 +34939,7 @@ if (typeof jQuery === 'undefined') {
          *  @default {}
          *
          *  @example
-         *    // Show previous, next and current page buttons only
+         *    // Show previous, next and current page Buttons only
          *    $.fn.dataTableExt.oPagination.current = function ( page, pages ) {
 		 *      return [ 'previous', page, 'next' ];
 		 *    };
@@ -35225,7 +35225,7 @@ if (typeof jQuery === 'undefined') {
         "sTable": "dataTable",
         "sNoFooter": "no-footer",
 
-        /* Paging buttons */
+        /* Paging Buttons */
         "sPageButton": "paginate_button",
         "sPageButtonActive": "current",
         "sPageButtonDisabled": "disabled",
@@ -35299,7 +35299,7 @@ if (typeof jQuery === 'undefined') {
         var _headerFooter = _empty + 'fg-toolbar ui-toolbar ui-widget-header ui-helper-clearfix';
 
         $.extend( DataTable.ext.oJUIClasses, DataTable.ext.classes, {
-            /* Full numbers paging buttons */
+            /* Full numbers paging Buttons */
             "sPageButton":         "fg-button ui-button "+_stateDefault,
             "sPageButtonActive":   "ui-state-disabled",
             "sPageButtonDisabled": "ui-state-disabled",
@@ -35397,7 +35397,7 @@ if (typeof jQuery === 'undefined') {
         // For testing and plug-ins to use
         _numbers: _numbers,
 
-        // Number of number buttons (including ellipsis) to show. _Must be odd!_
+        // Number of number Buttons (including ellipsis) to show. _Must be odd!_
         numbers_length: 7
     } );
 
@@ -36711,7 +36711,7 @@ if (typeof jQuery === 'undefined') {
                 var validator = this,
                     rulesCache = {};
 
-                // select all valid inputs inside the form (no submit or reset buttons)
+                // select all valid inputs inside the form (no submit or reset Buttons)
                 return $( this.currentForm )
                     .find( "input, select, textarea" )
                     .not( ":submit, :reset, :image, [disabled], [readonly]" )
@@ -38086,7 +38086,7 @@ if (typeof jQuery === 'undefined') {
                 var modal = _sweetAlertInitialize$getModal$getOverlay$getInput$setFocusStyle$openModal$resetInput$fixVerticalPosition.getModal();
 
                 /*
-   * Make sure all modal buttons respond to all events
+   * Make sure all modal Buttons respond to all events
    */
                 var $buttons = modal.querySelectorAll('button');
                 var buttonEvents = ['onclick', 'onmouseover', 'onmouseout', 'onmousedown', 'onmouseup', 'onfocus'];
@@ -38873,7 +38873,7 @@ if (typeof jQuery === 'undefined') {
                 // Input errors
                 "<div class=\"sa-error-container\">\n      <div class=\"icon\">!</div>\n      <p>Not valid!</p>\n    </div>" +
 
-                // Cancel and confirm buttons
+                // Cancel and confirm Buttons
                 "<div class=\"sa-button-container\">\n      <button class=\"cancel\" tabIndex=\"2\">Cancel</button>\n      <button class=\"confirm\" tabIndex=\"1\">OK</button>\n    </div>" +
 
                 // End of modal
@@ -39054,7 +39054,7 @@ if (typeof jQuery === 'undefined') {
                 }
 
                 /*
-   * Custom text on cancel/confirm buttons
+   * Custom text on cancel/confirm Buttons
    */
                 if (params.cancelButtonText) {
                     $cancelBtn.innerHTML = _hasClass$addClass$removeClass$escapeHtml$_show$show$_hide$hide.escapeHtml(params.cancelButtonText);
@@ -39149,7 +39149,7 @@ if (typeof jQuery === 'undefined') {
             };
 
             /*
- * Set hover, active and focus-states for buttons
+ * Set hover, active and focus-states for Buttons
  * (source: http://www.sitepoint.com/javascript-generate-lighter-darker-color)
  */
             var colorLuminance = function colorLuminance(hex, lum) {
@@ -45203,7 +45203,7 @@ if (typeof jQuery === 'undefined') {
         };
 
         /**
-         * activate buttons exclude codeview
+         * activate Buttons exclude codeview
          * @param {jQuery} $toolbar
          */
         this.activate = function ($toolbar) {
@@ -45213,7 +45213,7 @@ if (typeof jQuery === 'undefined') {
         };
 
         /**
-         * deactivate buttons exclude codeview
+         * deactivate Buttons exclude codeview
          * @param {jQuery} $toolbar
          */
         this.deactivate = function ($toolbar) {
@@ -47679,7 +47679,7 @@ if (typeof jQuery === 'undefined') {
      *
      * // add a button
      * $.summernote.addPlugin({
-   *     buttons : {
+   *     Buttons : {
    *        // "hello"  is button's namespace.
    *        "hello" : function(lang, options) {
    *            // make icon button by template function
@@ -47716,7 +47716,7 @@ if (typeof jQuery === 'undefined') {
      *
      *
      * @param {Object} plugin
-     * @param {Object} [plugin.buttons] define plugin button. for detail, see to Renderer.addButtonInfo
+     * @param {Object} [plugin.Buttons] define plugin button. for detail, see to Renderer.addButtonInfo
      * @param {Object} [plugin.dialogs] define plugin dialog. for detail, see to Renderer.addDialogInfo
      * @param {Object} [plugin.events] add event in $.summernote.pluginEvents
      * @param {Object} [plugin.langs] update $.summernote.lang

@@ -46,7 +46,7 @@ class productDatatable extends DataTable
             //->parameters($this->getBuilderParameters());
             ->parameters([
                 'dom' => 'Blfrtip',
-                'buttons' => [
+                'Buttons' => [
                     // ['extend'=>'csv','text'=>'test'],
                     [ 'extend'=>'excel','text'=>'<i class="fa fa-file-excel-o"  style="margin-bottom: 20px;cursor: pointer;"></i>&nbsp;XL '],
                     //  ['extend'=> 'pdf','text'=>'test'],

@@ -10,7 +10,7 @@ class products extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-       'quantity','manufacturer','title','price','weight'
+       'quantity','manufacturer','title','price','weight','small-description','large_description'
     ];
 
 

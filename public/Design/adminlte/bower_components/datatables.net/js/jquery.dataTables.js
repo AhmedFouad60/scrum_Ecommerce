@@ -11105,7 +11105,7 @@
 		 *    $(document).ready( function() {
 		 *      $('#example').dataTable( {
 		 *        "serverSide": true,
-		 *        "ajax": "scripts/server_processing.php",
+		 *        "ajax": "Scripts/server_processing.php",
 		 *        "deferLoading": 57
 		 *      } );
 		 *    } );
@@ -11115,7 +11115,7 @@
 		 *    $(document).ready( function() {
 		 *      $('#example').dataTable( {
 		 *        "serverSide": true,
-		 *        "ajax": "scripts/server_processing.php",
+		 *        "ajax": "Scripts/server_processing.php",
 		 *        "deferLoading": [ 57, 100 ],
 		 *        "search": {
 		 *          "search": "my_filter"
@@ -11857,15 +11857,15 @@
 	
 	
 		/**
-		 * DataTables features six different built-in options for the buttons to
+		 * DataTables features six different built-in options for the Buttons to
 		 * display for pagination control:
 		 *
-		 * * `numbers` - Page number buttons only
-		 * * `simple` - 'Previous' and 'Next' buttons only
-		 * * 'simple_numbers` - 'Previous' and 'Next' buttons, plus page numbers
-		 * * `full` - 'First', 'Previous', 'Next' and 'Last' buttons
-		 * * `full_numbers` - 'First', 'Previous', 'Next' and 'Last' buttons, plus page numbers
-		 * * `first_last_numbers` - 'First' and 'Last' buttons, plus page numbers
+		 * * `numbers` - Page number Buttons only
+		 * * `simple` - 'Previous' and 'Next' Buttons only
+		 * * 'simple_numbers` - 'Previous' and 'Next' Buttons, plus page numbers
+		 * * `full` - 'First', 'Previous', 'Next' and 'Last' Buttons
+		 * * `full_numbers` - 'First', 'Previous', 'Next' and 'Last' Buttons, plus page numbers
+		 * * `first_last_numbers` - 'First' and 'Last' Buttons, plus page numbers
 		 *  
 		 * Further methods can be added using {@link DataTable.ext.oPagination}.
 		 *  @type string
@@ -11980,7 +11980,7 @@
 		 * a table. These renderers can be added or modified by plug-ins to
 		 * generate suitable mark-up for a site. For example the Bootstrap
 		 * integration plug-in for DataTables uses a paging button renderer to
-		 * display pagination buttons in the mark-up required by Bootstrap.
+		 * display pagination Buttons in the mark-up required by Bootstrap.
 		 *
 		 * For further information about the renderers available see
 		 * DataTable.ext.renderer
@@ -13811,7 +13811,7 @@
 	DataTable.ext = _ext = {
 		/**
 		 * Buttons. For use with the Buttons extension for DataTables. This is
-		 * defined here so other extensions can define buttons regardless of load
+		 * defined here so other extensions can define Buttons regardless of load
 		 * order. It is _not_ used by DataTables core.
 		 *
 		 *  @type object
@@ -14015,11 +14015,11 @@
 		/**
 		 * Pagination plug-in methods.
 		 * 
-		 * Each entry in this object is a function and defines which buttons should
+		 * Each entry in this object is a function and defines which Buttons should
 		 * be shown by the pagination rendering method that is used for the table:
 		 * {@link DataTable.ext.renderer.pageButton}. The renderer addresses how the
-		 * buttons are displayed in the document, while the functions here tell it
-		 * what buttons to display. This is done by returning an array of button
+		 * Buttons are displayed in the document, while the functions here tell it
+		 * what Buttons to display. This is done by returning an array of button
 		 * descriptions (what each button will do).
 		 *
 		 * Pagination types (the four built in options and any additional plug-in
@@ -14052,7 +14052,7 @@
 		 *  @default {}
 		 *
 		 *  @example
-		 *    // Show previous, next and current page buttons only
+		 *    // Show previous, next and current page Buttons only
 		 *    $.fn.dataTableExt.oPagination.current = function ( page, pages ) {
 		 *      return [ 'previous', page, 'next' ];
 		 *    };
@@ -14338,7 +14338,7 @@
 		"sTable": "dataTable",
 		"sNoFooter": "no-footer",
 	
-		/* Paging buttons */
+		/* Paging Buttons */
 		"sPageButton": "paginate_button",
 		"sPageButtonActive": "current",
 		"sPageButtonDisabled": "disabled",
@@ -14461,7 +14461,7 @@
 		// For testing and plug-ins to use
 		_numbers: _numbers,
 	
-		// Number of number buttons (including ellipsis) to show. _Must be odd!_
+		// Number of number Buttons (including ellipsis) to show. _Must be odd!_
 		numbers_length: 7
 	} );
 	

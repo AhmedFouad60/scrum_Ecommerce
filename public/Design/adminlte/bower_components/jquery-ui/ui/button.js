@@ -374,10 +374,10 @@ $.widget( "ui.buttonset", {
 			allButtons = this.element.find( this.options.items ),
 			existingButtons = allButtons.filter( ":ui-button" );
 
-		// Initialize new buttons
+		// Initialize new Buttons
 		allButtons.not( ":ui-button" ).button();
 
-		// Refresh existing buttons
+		// Refresh existing Buttons
 		existingButtons.button( "refresh" );
 
 		this.buttons = allButtons

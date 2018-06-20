@@ -1,8 +1,16 @@
 @extends('Admin.products.layout')
 
+@push('css')
+
+@endpush
+
+
+
 @section('title') All products
 
 @overwrite
+
+
 
 @section('breadcrumb')
     <section class="content-header">
@@ -16,39 +24,10 @@
 @endsection
 
 
-@section('buttons')
 
-    {{--  i opened the form here to allow the two buttons to submit the form  --}}
-    {{--  ...this may be stupied but i did it till know the best practise--}}
-
-
-    {{--i decided to remove the button below because this may be miss leading to the user--}}
-
-
-
-
-    {!! Form::open(['url' => 'admin/products','method'=>'post']) !!}
-
-
-
-    {{--the buttons in the page --}}
-
-    <div class="row" style="margin-top: 50px">
-        <div class="pull-right">
-
-            {!! Form::submit('Save', [ 'class' => 'btn btn-primary' ,'name'=>'newProduct' ]) !!}
-
-
-            <a class="btn btn-default" href="/admin/products">
-                ->
-            </a>
-
-
-
-
-        </div>
-
-    </div>
+{{--Add and back buttons--}}
+@section('Buttons')
+    @include('Admin.products.partials.Buttons.buttons')
 @endsection
 
 
@@ -68,6 +47,7 @@
             <ul id="myTab" class="nav nav-tabs" role="tablist">
 
                 <li  class="active"><a href="#general" role="tab" data-toggle="tab">General</a></li>
+                <li><a href="#des" role="tab" data-toggle="tab">Description</a></li>
                 <li><a href="#links" role="tab" data-toggle="tab">links</a></li>
                 <li><a href="#attribute" role="tab" data-toggle="tab">Attribute</a></li>
                 <li><a href="#image" role="tab" data-toggle="tab">Images</a></li>
@@ -84,6 +64,10 @@
 
             <div class="tab-pane fade in active" id="general">
                 @include('Admin.products.partials.form',['tap_name'=>'general'])
+            </div>
+
+            <div class="tab-pane fade" id="des">
+                @include('Admin.products.partials.Editor')
             </div>
 
 
@@ -107,33 +91,10 @@
 
     </div>
 
-
-
-
-
-{{--This button may be miss leading for the user--}}
-
-    {{--<div class="col-md-12">--}}
-        {{--<div class="form-group">--}}
-            {{--{!! Form::submit('Save', [ 'class' => 'btn btn-primary' ,'name'=>'newProduct']) !!}--}}
-        {{--</div>--}}
-    {{--</div>--}}
-
-
-
     {!! Form::close() !!}
 
-    @push('js')
-        <script src="{{URL::to('js/select2.min.js')}}"></script>
 
-        <script type="text/javascript">
-
-            $(".js-example-tags").select2({
-                tags: true
-            });
-        </script>
-    @endpush
-
-
+{{--scripts for ... select2 lib ,html editors--}}
+    @include('Admin.products.partials.Scripts.scripts')
 
 @endsection

@@ -488,7 +488,7 @@ module.exports = function (grunt) {
   // task for building customizer
   grunt.registerTask('build-customizer', ['build-customizer-html', 'build-raw-files']);
   grunt.registerTask('build-customizer-html', 'pug');
-  grunt.registerTask('build-raw-files', 'Add scripts/less files to customizer.', function () {
+  grunt.registerTask('build-raw-files', 'Add Scripts/less files to customizer.', function () {
     var banner = grunt.template.process('<%= banner %>');
     generateRawFiles(grunt, banner);
   });

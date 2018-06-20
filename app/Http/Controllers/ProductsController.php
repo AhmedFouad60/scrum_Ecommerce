@@ -6,8 +6,11 @@ use App\DataTables\productDatatable;
 use App\Http\Requests\productRequest;
 use App\Models\Categories;
 use App\Models\products;
+use App\Models\ProductsPhoto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Kalnoy\Nestedset\Collection;
+
 
 
 class ProductsController extends Controller
@@ -58,14 +61,34 @@ class ProductsController extends Controller
     public function store(productRequest $input)
 
     {
-        dd($input->attribute);
 
+        //save the product
         $product=$this->product->create($input->all());
+        //save the product's category to use it in the pivot table
         $category=$input->category;
-        if($product){
 
+        if($product){
+            //get the product
             $productCat=$this->product->find($product->id);
+            //attach the category to the product in the pivot table
             $productCat->categories()->attach($category);
+
+
+            //save the images of the product in productsPhoto table
+            foreach($input->photo as $photo){
+                $storageFile='products/'.Auth::user()->id.'/'.$productCat->id;
+//                dd($storageFile);
+                $filename=$photo->store($storageFile); //make dir for the user.. and his products
+                //put the photo in pivot table productsPhoto
+                ProductsPhoto::create([
+                    'product_id'=>$product->id,
+                    'filename'=>$filename
+                ]);
+            }
+
+
+
+
             return redirect()->route('products.index');
 
         }

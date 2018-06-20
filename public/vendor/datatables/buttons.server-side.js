@@ -72,7 +72,7 @@
     };
 
     DataTable.ext.buttons.excel = {
-        className: 'buttons-excel',
+        className: 'Buttons-excel',
 
         text: function (dt) {
             return '<i class="fa fa-file-excel-o"></i> ' + dt.i18n('buttons.excel', 'Excel');
@@ -85,7 +85,7 @@
     };
 
     DataTable.ext.buttons.postExcel = {
-        className: 'buttons-excel',
+        className: 'Buttons-excel',
 
         text: function (dt) {
             return '<i class="fa fa-file-excel-o"></i> ' + dt.i18n('buttons.excel', 'Excel');
@@ -102,7 +102,7 @@
     DataTable.ext.buttons.export = {
         extend: 'collection',
 
-        className: 'buttons-export',
+        className: 'Buttons-export',
 
         text: function (dt) {
             return '<i class="fa fa-download"></i> ' + dt.i18n('buttons.export', 'Export') + '&nbsp;<span class="caret"/>';
@@ -112,7 +112,7 @@
     };
 
     DataTable.ext.buttons.csv = {
-        className: 'buttons-csv',
+        className: 'Buttons-csv',
 
         text: function (dt) {
             return '<i class="fa fa-file-excel-o"></i> ' + dt.i18n('buttons.csv', 'CSV');
@@ -125,7 +125,7 @@
     };
 
     DataTable.ext.buttons.postCsv = {
-        className: 'buttons-csv',
+        className: 'Buttons-csv',
 
         text: function (dt) {
             return '<i class="fa fa-file-excel-o"></i> ' + dt.i18n('buttons.csv', 'CSV');
@@ -140,7 +140,7 @@
     };
 
     DataTable.ext.buttons.pdf = {
-        className: 'buttons-pdf',
+        className: 'Buttons-pdf',
 
         text: function (dt) {
             return '<i class="fa fa-file-pdf-o"></i> ' + dt.i18n('buttons.pdf', 'PDF');
@@ -153,7 +153,7 @@
     };
 
     DataTable.ext.buttons.postPdf = {
-        className: 'buttons-pdf',
+        className: 'Buttons-pdf',
 
         text: function (dt) {
             return '<i class="fa fa-file-pdf-o"></i> ' + dt.i18n('buttons.pdf', 'PDF');
@@ -168,7 +168,7 @@
     };
 
     DataTable.ext.buttons.print = {
-        className: 'buttons-print',
+        className: 'Buttons-print',
 
         text: function (dt) {
             return  '<i class="fa fa-print"></i> ' + dt.i18n('buttons.print', 'Print');
@@ -181,7 +181,7 @@
     };
 
     DataTable.ext.buttons.reset = {
-        className: 'buttons-reset',
+        className: 'Buttons-reset',
 
         text: function (dt) {
             return '<i class="fa fa-undo"></i> ' + dt.i18n('buttons.reset', 'Reset');
@@ -195,7 +195,7 @@
     };
 
     DataTable.ext.buttons.reload = {
-        className: 'buttons-reload',
+        className: 'Buttons-reload',
 
         text: function (dt) {
             return '<i class="fa fa-refresh"></i> ' + dt.i18n('buttons.reload', 'Reload');
@@ -207,7 +207,7 @@
     };
 
     DataTable.ext.buttons.create = {
-        className: 'buttons-create',
+        className: 'Buttons-create',
 
         text: function (dt) {
             return '<i class="fa fa-plus"></i> ' + dt.i18n('buttons.create', 'Create');

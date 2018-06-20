@@ -943,7 +943,7 @@
             }
 
             /**
-             * Returns a function to use in pseudos for buttons
+             * Returns a function to use in pseudos for Buttons
              * @param {String} type
              */
             function createButtonPseudo( type ) {
@@ -2704,7 +2704,7 @@
                     if ( match[1] ) {
                         context = context instanceof jQuery ? context[0] : context;
 
-                        // scripts is true for back-compat
+                        // Scripts is true for back-compat
                         // Intentionally let the error be thrown if parseHTML is not present
                         jQuery.merge( this, jQuery.parseHTML(
                             match[1],
@@ -3389,7 +3389,7 @@
             // we once tried to use readyState "interactive" here, but it caused issues like the one
             // discovered by ChrisS here: http://bugs.jquery.com/ticket/12282#comment:15
             if ( document.readyState === "complete" ) {
-                // Handle it asynchronously to allow scripts the opportunity to delay ready
+                // Handle it asynchronously to allow Scripts the opportunity to delay ready
                 setTimeout( jQuery.ready );
 
             } else {
@@ -4453,7 +4453,7 @@
         },
 
         mouseHooks: {
-            props: "button buttons clientX clientY offsetX offsetY pageX pageY screenX screenY toElement".split(" "),
+            props: "button Buttons clientX clientY offsetX offsetY pageX pageY screenX screenY toElement".split(" "),
             filter: function( event, original ) {
                 var eventDoc, doc, body,
                     button = original.button;
@@ -4896,7 +4896,7 @@
         return elem;
     }
 
-// Mark scripts as having already been evaluated
+// Mark Scripts as having already been evaluated
     function setGlobalEval( elems, refElements ) {
         var i = 0,
             l = elems.length;
@@ -5333,7 +5333,7 @@
                         if ( i !== iNoClone ) {
                             node = jQuery.clone( node, true, true );
 
-                            // Keep references to cloned scripts for later restoration
+                            // Keep references to cloned Scripts for later restoration
                             if ( hasScripts ) {
                                 // Support: QtWebKit
                                 // jQuery.merge because push.apply(_, arraylike) throws
@@ -5347,17 +5347,17 @@
                     if ( hasScripts ) {
                         doc = scripts[ scripts.length - 1 ].ownerDocument;
 
-                        // Reenable scripts
+                        // Reenable Scripts
                         jQuery.map( scripts, restoreScript );
 
-                        // Evaluate executable scripts on first document insertion
+                        // Evaluate executable Scripts on first document insertion
                         for ( i = 0; i < hasScripts; i++ ) {
                             node = scripts[ i ];
                             if ( rscriptType.test( node.type || "" ) &&
                                 !data_priv.access( node, "globalEval" ) && jQuery.contains( doc, node ) ) {
 
                                 if ( node.src ) {
-                                    // Optional AJAX dependency, but won't run scripts if not present
+                                    // Optional AJAX dependency, but won't run Scripts if not present
                                     if ( jQuery._evalUrl ) {
                                         jQuery._evalUrl( node.src );
                                     }
@@ -8715,7 +8715,7 @@
 
 // data: string of html
 // context (optional): If specified, the fragment will be created in this context, defaults to document
-// keepScripts (optional): If true, will include scripts passed in the html string
+// keepScripts (optional): If true, will include Scripts passed in the html string
     jQuery.parseHTML = function( data, context, keepScripts ) {
         if ( !data || typeof data !== "string" ) {
             return null;
@@ -8793,7 +8793,7 @@
                     self.html( selector ?
 
                         // If a selector was specified, locate the right elements in a dummy div
-                        // Exclude scripts to avoid IE 'Permission Denied' errors
+                        // Exclude Scripts to avoid IE 'Permission Denied' errors
                         jQuery("<div>").append( jQuery.parseHTML( responseText ) ).find( selector ) :
 
                         // Otherwise use the full result

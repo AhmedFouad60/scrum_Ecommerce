@@ -26,7 +26,7 @@ For licensing, see LICENSE.md or https://ckeditor.com/license
 	float: left;
 }
 
-/* Removes bottom margins from buttons/combos so only '.cke_balloon_content' padding decides about balloon toolbar padding. */
+/* Removes bottom margins from Buttons/combos so only '.cke_balloon_content' padding decides about balloon toolbar padding. */
 .cke_balloon.cke_balloontoolbar .cke_toolgroup,
 .cke_balloon.cke_balloontoolbar .cke_combo_button {
 	margin-bottom: 0px;

@@ -399,7 +399,7 @@
             this.container.find('.ranges').prependTo( this.container.find('.calendar.left').parent() );
         }
 
-        //apply CSS classes and labels to buttons
+        //apply CSS classes and labels to Buttons
         this.container.find('.applyBtn, .cancelBtn').addClass(this.buttonClasses);
         if (this.applyClass.length)
             this.container.find('.applyBtn').addClass(this.applyClass);

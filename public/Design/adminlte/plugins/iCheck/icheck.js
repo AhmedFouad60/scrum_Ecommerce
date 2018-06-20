@@ -54,7 +54,7 @@
       // Normalize method's name
       options = options.toLowerCase();
 
-      // Find checkboxes and radio buttons
+      // Find checkboxes and radio Buttons
       walker(this);
 
       return stack.each(function() {
@@ -355,7 +355,7 @@
     // Prevent unnecessary actions
     if (node[state] !== true) {
 
-      // Toggle assigned radio buttons
+      // Toggle assigned radio Buttons
       if (!keep && state == _checked && node[_type] == _radio && node.name) {
         var form = input.closest('form'),
           inputs = 'input[name="' + node.name + '"]';

@@ -451,7 +451,7 @@ jQuery.extend({
 		// Catch cases where $(document).ready() is called after the
 		// browser event has already occurred.
 		if ( document.readyState === "complete" ) {
-			// Handle it asynchronously to allow scripts the opportunity to delay ready
+			// Handle it asynchronously to allow Scripts the opportunity to delay ready
 			return setTimeout( jQuery.ready, 1 );
 		}
 
@@ -3370,7 +3370,7 @@ jQuery.event = {
 	},
 
 	mouseHooks: {
-		props: "button buttons clientX clientY fromElement offsetX offsetY pageX pageY screenX screenY toElement".split(" "),
+		props: "button Buttons clientX clientY fromElement offsetX offsetY pageX pageY screenX screenY toElement".split(" "),
 		filter: function( event, original ) {
 			var eventDoc, doc, body,
 				button = original.button,
@@ -6176,7 +6176,7 @@ function cloneFixAttributes( src, dest ) {
 	} else if ( nodeName === "input" || nodeName === "textarea" ) {
 		dest.defaultValue = src.defaultValue;
 
-	// IE blanks contents when cloning scripts
+	// IE blanks contents when cloning Scripts
 	} else if ( nodeName === "script" && dest.text !== src.text ) {
 		dest.text = src.text;
 	}
@@ -6292,7 +6292,7 @@ function findInputs( elem ) {
 	var nodeName = ( elem.nodeName || "" ).toLowerCase();
 	if ( nodeName === "input" ) {
 		fixDefaultChecked( elem );
-	// Skip scripts, get other children
+	// Skip Scripts, get other children
 	} else if ( nodeName !== "script" && typeof elem.getElementsByTagName !== "undefined" ) {
 		jQuery.grep( elem.getElementsByTagName("input"), fixDefaultChecked );
 	}
@@ -7179,7 +7179,7 @@ jQuery.fn.extend({
 					self.html( selector ?
 						// Create a dummy div to hold the results
 						jQuery("<div>")
-							// inject the contents of the document in, removing the scripts
+							// inject the contents of the document in, removing the Scripts
 							// to avoid any 'Permission Denied' errors in IE
 							.append(responseText.replace(rscript, ""))
 

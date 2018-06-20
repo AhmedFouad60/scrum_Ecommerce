@@ -12513,7 +12513,7 @@ exports.default = Iterator;
 Object.defineProperty(exports, "__esModule", { value: true });
 var $ = __webpack_require__(3);
 var util_1 = __webpack_require__(4);
-/* Toolbar with buttons and title
+/* Toolbar with Buttons and title
 ----------------------------------------------------------------------------------------------------------------------*/
 var Toolbar = /** @class */ (function () {
     function Toolbar(calendar, toolbarOptions) {
@@ -12630,7 +12630,7 @@ var Toolbar = /** @class */ (function () {
                                 buttonAriaAttr +
                                 '>' + buttonInnerHtml + '</button>')
                                 .click(function (ev) {
-                                // don't process clicks for disabled buttons
+                                // don't process clicks for disabled Buttons
                                 if (!buttonEl.hasClass(theme.getClass('stateDisabled'))) {
                                     buttonClick(ev);
                                     // after the click action, if the button becomes the "active" tab, or disabled,
@@ -12643,7 +12643,7 @@ var Toolbar = /** @class */ (function () {
                             })
                                 .mousedown(function () {
                                 // the *down* effect (mouse pressed in).
-                                // only on buttons that are not the "active" tab, or disabled
+                                // only on Buttons that are not the "active" tab, or disabled
                                 buttonEl
                                     .not('.' + theme.getClass('stateActive'))
                                     .not('.' + theme.getClass('stateDisabled'))
@@ -12655,7 +12655,7 @@ var Toolbar = /** @class */ (function () {
                             })
                                 .hover(function () {
                                 // the *hover* effect.
-                                // only on buttons that are not the "active" tab, or disabled
+                                // only on Buttons that are not the "active" tab, or disabled
                                 buttonEl
                                     .not('.' + theme.getClass('stateActive'))
                                     .not('.' + theme.getClass('stateDisabled'))
@@ -12856,13 +12856,13 @@ var ViewSpecManager = /** @class */ (function () {
         return cache[viewType] || (cache[viewType] = this.buildViewSpec(viewType));
     };
     // Given a duration singular unit, like "week" or "day", finds a matching view spec.
-    // Preference is given to views that have corresponding buttons.
+    // Preference is given to views that have corresponding Buttons.
     ViewSpecManager.prototype.getUnitViewSpec = function (unit) {
         var viewTypes;
         var i;
         var spec;
         if ($.inArray(unit, util_1.unitsDesc) !== -1) {
-            // put views that have buttons first. there will be duplicates, but oh well
+            // put views that have Buttons first. there will be duplicates, but oh well
             viewTypes = this._calendar.header.getViewsWithButtons(); // TODO: include footer as well?
             $.each(ViewRegistry_1.viewHash, function (viewType) {
                 viewTypes.push(viewType);

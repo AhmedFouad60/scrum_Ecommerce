@@ -949,7 +949,7 @@ function createInputPseudo( type ) {
 }
 
 /**
- * Returns a function to use in pseudos for buttons
+ * Returns a function to use in pseudos for Buttons
  * @param {String} type
  */
 function createButtonPseudo( type ) {

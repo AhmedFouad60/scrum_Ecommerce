@@ -71,7 +71,7 @@ function completed() {
 if ( document.readyState === "complete" ||
 	( document.readyState !== "loading" && !document.documentElement.doScroll ) ) {
 
-	// Handle it asynchronously to allow scripts the opportunity to delay ready
+	// Handle it asynchronously to allow Scripts the opportunity to delay ready
 	window.setTimeout( jQuery.ready );
 
 } else {

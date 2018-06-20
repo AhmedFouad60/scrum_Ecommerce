@@ -460,7 +460,7 @@ return $.widget( "ui.dialog", {
 		this.uiButtonSet.empty();
 
 		if ( $.isEmptyObject( buttons ) || ($.isArray( buttons ) && !buttons.length) ) {
-			this.uiDialog.removeClass( "ui-dialog-buttons" );
+			this.uiDialog.removeClass( "ui-dialog-Buttons" );
 			return;
 		}
 
@@ -486,7 +486,7 @@ return $.widget( "ui.dialog", {
 				.button( buttonOptions )
 				.appendTo( that.uiButtonSet );
 		});
-		this.uiDialog.addClass( "ui-dialog-buttons" );
+		this.uiDialog.addClass( "ui-dialog-Buttons" );
 		this.uiDialogButtonPane.appendTo( this.uiDialog );
 	},
 

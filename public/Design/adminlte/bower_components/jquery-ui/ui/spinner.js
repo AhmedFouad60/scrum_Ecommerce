@@ -142,7 +142,7 @@ return $.widget( "ui.spinner", {
 		"mousedown .ui-spinner-button": function( event ) {
 			var previous;
 
-			// We never want the buttons to have focus; whenever the user is
+			// We never want the Buttons to have focus; whenever the user is
 			// interacting with the spinner, the focus should be on the input.
 			// If the input is focused then this.previous is properly set from
 			// when the input first received focus. If the input is not focused
@@ -207,7 +207,7 @@ return $.widget( "ui.spinner", {
 			.attr( "autocomplete", "off" )
 			.wrap( this._uiSpinnerHtml() )
 			.parent()
-				// add buttons
+				// add Buttons
 				.append( this._buttonHtml() );
 
 		this.element.attr( "role", "spinbutton" );
@@ -218,7 +218,7 @@ return $.widget( "ui.spinner", {
 			.button()
 			.removeClass( "ui-corner-all" );
 
-		// IE 6 doesn't understand height: 50% for the buttons
+		// IE 6 doesn't understand height: 50% for the Buttons
 		// unless the wrapper has an explicit height
 		if ( this.buttons.height() > Math.ceil( uiSpinner.height() * 0.5 ) &&
 				uiSpinner.height() > 0 ) {

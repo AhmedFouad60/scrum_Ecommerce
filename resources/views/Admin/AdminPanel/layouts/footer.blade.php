@@ -237,6 +237,6 @@ $.widget.bridge('uibutton', $.ui.button);
 
 @yield('footer')
 @stack('js')
-@stack('css')
+
 </body>
 </html>

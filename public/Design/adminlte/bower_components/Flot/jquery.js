@@ -127,7 +127,7 @@ jQuery.fn = jQuery.prototype = {
 					context = context instanceof jQuery ? context[0] : context;
 					doc = ( context && context.nodeType ? context.ownerDocument || context : document );
 
-					// scripts is true for back-compat
+					// Scripts is true for back-compat
 					selector = jQuery.parseHTML( match[1], doc, true );
 					if ( rsingleTag.test( match[1] ) && jQuery.isPlainObject( context ) ) {
 						this.attr.call( selector, context, true );
@@ -479,7 +479,7 @@ jQuery.extend({
 
 	// data: string of html
 	// context (optional): If specified, the fragment will be created in this context, defaults to document
-	// scripts (optional): If true, will include scripts passed in the html string
+	// Scripts (optional): If true, will include Scripts passed in the html string
 	parseHTML: function( data, context, scripts ) {
 		var parsed;
 		if ( !data || typeof data !== "string" ) {
@@ -848,7 +848,7 @@ jQuery.ready.promise = function( obj ) {
 		// we once tried to use readyState "interactive" here, but it caused issues like the one
 		// discovered by ChrisS here: http://bugs.jquery.com/ticket/12282#comment:15
 		if ( document.readyState === "complete" ) {
-			// Handle it asynchronously to allow scripts the opportunity to delay ready
+			// Handle it asynchronously to allow Scripts the opportunity to delay ready
 			setTimeout( jQuery.ready, 1 );
 
 		// Standards-based browsers support DOMContentLoaded
@@ -3096,7 +3096,7 @@ jQuery.event = {
 	},
 
 	mouseHooks: {
-		props: "button buttons clientX clientY fromElement offsetX offsetY pageX pageY screenX screenY toElement".split(" "),
+		props: "button Buttons clientX clientY fromElement offsetX offsetY pageX pageY screenX screenY toElement".split(" "),
 		filter: function( event, original ) {
 			var eventDoc, doc, body,
 				button = original.button,
@@ -3953,7 +3953,7 @@ function createInputPseudo( type ) {
 	};
 }
 
-// Returns a function to use in pseudos for buttons
+// Returns a function to use in pseudos for Buttons
 function createButtonPseudo( type ) {
 	return function( elem ) {
 		var name = elem.nodeName.toLowerCase();
@@ -6122,7 +6122,7 @@ function cloneFixAttributes( src, dest ) {
 	} else if ( nodeName === "input" || nodeName === "textarea" ) {
 		dest.defaultValue = src.defaultValue;
 
-	// IE blanks contents when cloning scripts
+	// IE blanks contents when cloning Scripts
 	} else if ( nodeName === "script" && dest.text !== src.text ) {
 		dest.text = src.text;
 	}
@@ -6391,7 +6391,7 @@ jQuery.extend({
 			handleScript = function( elem ) {
 				// Check if we consider it executable
 				if ( !elem.type || rscriptType.test( elem.type ) ) {
-					// Detach the script and store it in the scripts array (if provided) or the fragment
+					// Detach the script and store it in the Scripts array (if provided) or the fragment
 					// Return truthy to indicate that it has been handled
 					return scripts ?
 						scripts.push( elem.parentNode ? elem.parentNode.removeChild( elem ) : elem ) :
@@ -6402,13 +6402,13 @@ jQuery.extend({
 			for ( i = 0; (elem = ret[i]) != null; i++ ) {
 				// Check if we're done after handling an executable script
 				if ( !( jQuery.nodeName( elem, "script" ) && handleScript( elem ) ) ) {
-					// Append to fragment and handle embedded scripts
+					// Append to fragment and handle embedded Scripts
 					fragment.appendChild( elem );
 					if ( typeof elem.getElementsByTagName !== "undefined" ) {
 						// handleScript alters the DOM, so use jQuery.merge to ensure snapshot iteration
 						jsTags = jQuery.grep( jQuery.merge( [], elem.getElementsByTagName("script") ), handleScript );
 
-						// Splice the scripts into ret after their former ancestor and advance our index beyond them
+						// Splice the Scripts into ret after their former ancestor and advance our index beyond them
 						ret.splice.apply( ret, [i + 1, 0].concat( jsTags ) );
 						i += jsTags.length;
 					}
@@ -7476,7 +7476,7 @@ jQuery.fn.load = function( url, params, callback ) {
 			// Create a dummy div to hold the results
 			jQuery("<div>")
 
-				// inject the contents of the document in, removing the scripts
+				// inject the contents of the document in, removing the Scripts
 				// to avoid any 'Permission Denied' errors in IE
 				.append( responseText.replace( rscript, "" ) )
 
