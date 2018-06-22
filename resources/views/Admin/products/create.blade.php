@@ -49,7 +49,6 @@
                 <li  class="active"><a href="#general" role="tab" data-toggle="tab">General</a></li>
                 <li><a href="#des" role="tab" data-toggle="tab">Description</a></li>
                 <li><a href="#links" role="tab" data-toggle="tab">links</a></li>
-                <li><a href="#attribute" role="tab" data-toggle="tab">Attribute</a></li>
                 <li><a href="#image" role="tab" data-toggle="tab">Images</a></li>
                 <li><a href="#location" role="tab" data-toggle="tab">Location</a></li>
 
@@ -75,9 +74,7 @@
                 @include('Admin.products.partials.form',['tap_name'=>'links'])
             </div>
 
-            <div class="tab-pane fade " id="attribute">
-                @include('Admin.products.partials.form',['tap_name'=>'attribute'])
-            </div>
+
 
             <div class="tab-pane fade " id="location">
                 @include('Admin.products.partials.form',['tap_name'=>'location'])

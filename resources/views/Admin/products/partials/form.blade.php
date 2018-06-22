@@ -27,7 +27,7 @@
         @elseif($tap_name=='links')
                 <div class="form-group">
                         {!! Form::label('manufacture', 'Manufacture:') !!}
-                        {!! Form::text('manufacture', null, [ 'class' => 'form-control']) !!}
+                        {!! Form::text('manufacture', null, [ 'class' => 'form-control','name'=>'manufacturer']) !!}
                         {!! $errors->first('manufacture') !!}
                 </div>
 
@@ -37,18 +37,21 @@
                     {!! $errors->first('category') !!}
                 </div>
 
-        @elseif($tap_name=='attribute')
-        <h3>Enter attributes of the products and press enter after each one</h3>
-        <div class="form-group">
-            <select class="js-example-tags form-control" style="width: 100%!important;" multiple="multiple" name="attribute[]">
+                <p class="badge label label-primary">Tags</p>
+                <div class="form-group">
+                    <select class="js-example-tags form-control" style="width: 100%!important;" multiple="multiple" name="tags[]">
 
-            </select>
-        </div>
-
-        @elseif($tap_name=='optional')
+                    </select>
+                </div>
 
 
-        @elseif($tap_name=='image')
+
+        @elseif($tap_name=='location')
+        @include('Admin.products.partials.map',['tap_name'=>'location'])
+
+
+
+    @elseif($tap_name=='image')
 
              <!-- Upload  -->
             <div class="form-group">

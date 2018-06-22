@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProductUserPivotTable extends Migration
+class CreateProductTagPivotTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,12 @@ class CreateProductUserPivotTable extends Migration
      */
     public function up()
     {
-        Schema::create('product_user', function (Blueprint $table) {
+        Schema::create('product_tags', function (Blueprint $table) {
             $table->integer('product_id')->unsigned()->index();
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-
-            $table->integer('user_id')->unsigned()->index();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->primary(['product_id', 'user_id']);
+            $table->integer('tag_id')->unsigned()->index();
+            $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
+            $table->primary(['product_id', 'tag_id']);
         });
     }
 
@@ -29,6 +28,6 @@ class CreateProductUserPivotTable extends Migration
      */
     public function down()
     {
-        Schema::drop('product_user');
+        Schema::drop('product_tag');
     }
 }

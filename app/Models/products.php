@@ -10,7 +10,7 @@ class products extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-       'quantity','manufacturer','title','price','weight','small-description','large_description'
+       'quantity','manufacturer','title','price','weight','small-description','large_description','longitude','latitude'
     ];
 
 
@@ -20,6 +20,9 @@ class products extends Model
     }
 
     public function user(){
-        return $this->belongsTo('App\Models\user','user_id');
+        return $this->belongsTo('App\Models\User');
+    }
+    public function Tags(){
+        return $this->belongsToMany('App\Models\Tags','product_tags','product_id','tag_id');
     }
 }

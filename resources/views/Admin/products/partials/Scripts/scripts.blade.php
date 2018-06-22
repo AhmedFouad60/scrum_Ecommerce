@@ -30,6 +30,50 @@
 
 
 
+{{--Handle Google Maps--}}
+<script>
+    var $long=$('#long').val();
+    var $lat=$('#lat').val();
+
+
+    function test() {
+        $('#locate').click(function () {
+
+            $long=$('#long').val();
+            $lat=$('#lat').val();
+            // console.log($lat);
+            initMap($long,$lat);
+
+        });
+    }
+
+
+
+    function initMap($long,$lat) {
+        console.log($long);
+        console.log($lat);
+
+        var myLatLng = {lat: parseFloat($lat), lng: parseFloat($long)};
+
+        // Create a map object and specify the DOM element
+        // for display.
+        var map = new google.maps.Map(document.getElementById('map'), {
+            center: myLatLng,
+            zoom: 4
+        });
+
+        // Create a marker and set its position.
+        var marker = new google.maps.Marker({
+            map: map,
+            position: myLatLng,
+            // title: 'Hello World!'
+        });
+    }
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABfd_XQPAtDKPVWLHogQOvgBJgJx0wEP4&callback=test"
+        async defer></script>
+
 
 @endpush
 

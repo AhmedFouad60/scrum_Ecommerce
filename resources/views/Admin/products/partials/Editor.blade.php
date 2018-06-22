@@ -21,7 +21,7 @@
                 <!-- /.box-header -->
                 <div class="box-body pad">
 
-                    <textarea id="editor1" name="large_des" rows="10" cols="80">
+                    <textarea id="editor1" name="large_description" rows="10" cols="80">
                                             This is my textarea to be replaced with CKEditor.
                     </textarea>
 
@@ -57,7 +57,7 @@
             <!-- /.box-header -->
             <div class="box-body pad">
 
-                    <textarea id="editor2" name="small_des" rows="10" cols="80">
+                    <textarea id="editor2" name="small-description" rows="10" cols="80">
                                             This is my textarea to be replaced with CKEditor.
                     </textarea>
 

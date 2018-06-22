@@ -7,6 +7,7 @@ use App\Http\Requests\productRequest;
 use App\Models\Categories;
 use App\Models\products;
 use App\Models\ProductsPhoto;
+use App\Models\Tags;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Kalnoy\Nestedset\Collection;
@@ -61,23 +62,35 @@ class ProductsController extends Controller
     public function store(productRequest $input)
 
     {
-
-        //save the product
+        /**save the product**/
         $product=$this->product->create($input->all());
-        //save the product's category to use it in the pivot table
+
+        //product's category to use it in the pivot table
         $category=$input->category;
 
         if($product){
             //get the product
-            $productCat=$this->product->find($product->id);
-            //attach the category to the product in the pivot table
-            $productCat->categories()->attach($category);
+            $RecentProduct=$this->product->find($product->id);
+
+            /** associate the product to the user who enter it **/
+            $RecentProduct->user()->associate(Auth::user()->id);
+            $RecentProduct->save();
+
+            /** attach the category to the product in the pivot table **/
+            $RecentProduct->categories()->attach($category);
 
 
-            //save the images of the product in productsPhoto table
+            /** save the product Tags **/
+            foreach ($input->tags as $tag){
+                $newtag=new Tags();
+                $newtag->tag_name=$tag;
+                $newtag->save();
+                $RecentProduct->Tags()->attach($newtag->id);
+            }
+
+            /**  save the images of the product in productsPhoto table **/
             foreach($input->photo as $photo){
-                $storageFile='products/'.Auth::user()->id.'/'.$productCat->id;
-//                dd($storageFile);
+                $storageFile='products/'.Auth::user()->id.'/'.$RecentProduct->id;
                 $filename=$photo->store($storageFile); //make dir for the user.. and his products
                 //put the photo in pivot table productsPhoto
                 ProductsPhoto::create([
@@ -86,13 +99,9 @@ class ProductsController extends Controller
                 ]);
             }
 
-
-
-
             return redirect()->route('products.index');
 
         }
-
 
     }
 
