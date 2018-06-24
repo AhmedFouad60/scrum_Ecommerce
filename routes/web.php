@@ -22,3 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //login with social networks [twitter,Gmail,Github]
 Route::get('auth/{provider}', 'AuthSocialController@redirectToProvider'); //send request to twitter to get user info
 Route::get('auth/{provider}/callback', 'AuthSocialController@handleProviderCallback');
+
+//product [website part]
+
+Route::resource('products',"WebsiteProductsController");

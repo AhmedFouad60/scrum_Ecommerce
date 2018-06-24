@@ -246,7 +246,7 @@ module.exports = function(grunt){
             if (!grunt.file.exists(outdir))
                 grunt.file.mkdir(outdir);
 
-            // NOTE: For 'zh-TW' and 'ja' locales install adobe-source-han-sans-jp-fonts (Arch Linux)
+            // NOTE: For 'zh-TW' and 'ja' locales install adobe-source-han-sans-jp-fontawesome (Arch Linux)
             grunt.util.spawn({
                 cmd: phantomjs,
                 args: ['docs/_screenshots/script/screenshot.js', abspath, outfile]

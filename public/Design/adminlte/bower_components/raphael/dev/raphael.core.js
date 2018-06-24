@@ -5065,7 +5065,7 @@ define(["eve"], function(eve) {
      * Raphael.registerFont
      [ method ]
      **
-     * Adds given font to the registered set of fonts for Raphaël. Should be used as an internal call from within Cufón’s font file.
+     * Adds given font to the registered set of fontawesome for Raphaël. Should be used as an internal call from within Cufón’s font file.
      * Returns original parameter, so it could be used with chaining.
      # <a href="http://wiki.github.com/sorccu/cufon/about">More about Cufón and how to convert your font form TTF, OTF, etc to JavaScript file.</a>
      **
@@ -5119,7 +5119,7 @@ define(["eve"], function(eve) {
      * Paper.getFont
      [ method ]
      **
-     * Finds font object in the registered fonts by given parameters. You could specify only one word from the font name, like “Myriad” for “Myriad Pro”.
+     * Finds font object in the registered fontawesome by given parameters. You could specify only one word from the font name, like “Myriad” for “Myriad Pro”.
      **
      > Parameters
      **

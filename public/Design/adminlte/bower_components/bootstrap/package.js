@@ -14,11 +14,11 @@ Package.onUse(function (api) {
   api.versionsFrom('METEOR@1.0');
   api.use('jquery', 'client');
   var assets = [
-    'dist/fonts/glyphicons-halflings-regular.eot',
-    'dist/fonts/glyphicons-halflings-regular.svg',
-    'dist/fonts/glyphicons-halflings-regular.ttf',
-    'dist/fonts/glyphicons-halflings-regular.woff',
-    'dist/fonts/glyphicons-halflings-regular.woff2'
+    'dist/fontawesome/glyphicons-halflings-regular.eot',
+    'dist/fontawesome/glyphicons-halflings-regular.svg',
+    'dist/fontawesome/glyphicons-halflings-regular.ttf',
+    'dist/fontawesome/glyphicons-halflings-regular.woff',
+    'dist/fontawesome/glyphicons-halflings-regular.woff2'
   ];
   if (api.addAssets) {
     api.addAssets(assets, 'client');
