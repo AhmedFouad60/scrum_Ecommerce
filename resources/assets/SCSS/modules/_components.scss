@@ -3,9 +3,18 @@
     margin-bottom:20px;
     img{
       padding:3px;
-      @include add-border(1px,#cccccc,'all');
+      //@include add-border(1px,#cccccc,'all');
     }
   }
+  .carousel-control{
+    width: 5%;
+  }
+
+  .img-responsive, .thumbnail > img, .thumbnail a > img, .carousel-inner > .item > img, .carousel-inner > .item > a > img{
+    width: 100%;
+    height: 50%;
+  }
+
 
   /*Tabs*/
   .tab-pane{

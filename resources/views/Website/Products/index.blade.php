@@ -6,6 +6,8 @@
 
     {{--navbar stuff--}}
     @include('Website.Products.Partials.header')
+    @include('Website.Products.Partials.carousel')
+
 
     <div class="content">
         <h3>Sticky Navigation Example</h3>
