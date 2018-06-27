@@ -1,0 +1,51 @@
+
+
+.topbar {
+    background-color: #f1f1f1;
+    /*padding: 30px;*/
+    text-align: center;
+}
+
+
+.navbar-default{
+    background: #00aff0;
+
+}
+.navbar {
+    padding:16px;
+    border:none;
+    border-radius: 0px;
+
+
+}
+.navbar-default .navbar-nav > li > a{
+    color:#FFFFFF;
+}
+.navbar-default .navbar-brand {
+    color: #FFFFFF;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus{
+    background: none;
+}
+
+.content {
+    padding: 16px;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #FFFFFF;
+    border-color: black;
+}
+
+.sticky + .content {
+    padding-top: 60px;
+}
+
+/*.sticky-nav{*/
+    /*background-color: #f8f8f8;*/
+    /*border-color: #e7e7e7;*/
+/*}*/
+

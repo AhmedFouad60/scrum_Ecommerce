@@ -1,35 +1,52 @@
-  //nav
-  .navbar{
-    width:90%;
-    margin:auto;
-    @include add-border(1px,#e7e7e7,'right-left');
-    border-color:#e7e7e7;
-    min-height:60px;
-    background:#FFF;
-    margin-bottom:30px;
-    a{
-      color:$primary-color;
-      font-size:20px;
-      padding-bottom:24px !important;
-      letter-spacing:-0.5px;
-      padding-top:20px !important;
+.yamm .dropdown-menu  {
+
+  h2{
+    font-size: 14px;
+    color: #555;
+    margin-top: 0px;
+    font-weight: bold;
+  }
+  li{
+    line-height: normal;
+    padding: 0px 0px;
+    list-style: none;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+  }
+  .yamm-content{
+    padding: 20px 20px;
+    .links{
+      li{
+        a{
+          padding: 4px 0px;
+          letter-spacing: 0.2px;
+          font-size: 13px;
+          color: #565656;
+          line-height: normal;
+          text-transform: none;
+          display: block;
+        }
+      }
+    }
+    .col-menu{
+      min-width: 150px;
+
     }
   }
-  .navbar-nav > .active > a,  .navbar-nav > .active > a:hover,  .navbar-nav > .active > a:focus{
-    background:$primary-color;
-    color:#FFF;
+  .banner-image{
+    margin-bottom: -20px;
   }
-  .navbar-nav > li > a:hover, .navbar-nav > li > a:focus{
-    background:$secondary-color;
-    color:#FFF;
-  }
-  .navbar-toggle{
-    background:$primary-color;
-    color:#FFF;
-  }
-  .navbar-toggle > span{
-    background:#FFF;
-  }
-  .navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse{
-    max-height:none;
-  }
+
+}
+
+
+
+.yamm .dropdown.yamm-fw .dropdown-menu {
+  padding: 0;
+  margin: 0;
+  margin-top: 0;
+  border: none;
+}
+

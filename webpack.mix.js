@@ -18,13 +18,17 @@ mix.js('resources/assets/js/app.js', 'public/js');
 
   mix.js([
       'resources/assets/js/jquery.min.js',
-      'resources/assets/js/bootstrap.min.js'
+      'resources/assets/js/bootstrap.js',
+      'resources/assets/js/sticynavbar.js',
   ],'public/js/All.js');
 
 
   mix.styles([
       'resources/assets/css/fontawesome-all.min.css',
-      'resources/assets/css/bootstrap.min.css',
+      'resources/assets/css/bootstrap3.css',
+      'public/css/main2.css',
+      'resources/assets/css/stickynavbar.css',
+
 
       // 'public/css/main2.css'
   ],'public/css/All.css');

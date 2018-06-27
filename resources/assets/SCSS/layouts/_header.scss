@@ -1,0 +1,155 @@
+a {
+  transition: all 0.3s ease 0s;
+  text-decoration: none !important;
+  color: #22A7F0;
+}
+
+.header {
+  //position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  transition: all .2s ease-in-out;
+  z-index: 999;
+
+  .topbar {
+    position: relative;
+    z-index: 11;
+    background-color: #333;
+  }
+  .topbar-contact-info {
+    padding: 13px 15px;
+    text-align: left;
+    ul{
+
+      li{
+
+        padding: 0px 20px;
+        @include add-border(1px,#e7e7e7,'right');
+
+        a{
+          color: #888;
+          span{
+            font-size: 18px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+            text-transform: capitalize;
+          }
+        }
+
+        &:first-child{
+          padding-left: 0;
+        }
+        &:last-child{
+          border-right: none;
+        }
+      }
+
+
+    }
+  }
+  .top-right-menu{
+    position: relative;
+    padding: 10px 15px;
+    text-align: right;
+    ul{
+      li{
+        padding: 0px 20px;
+        @include add-border(1px,#e7e7e7,'right');
+
+        a{
+          color: #888;
+
+        }
+
+        span{
+          font-size: 18px;
+          display: inline-block;
+          vertical-align: middle;
+          margin-right: 10px;
+          text-transform: capitalize;
+        }
+        &:first-child{
+          padding-left: 0;
+        }
+
+        &:last-child{
+          border-right: none;
+        }
+      }
+    }
+    .dropdown-menu{
+      border: none;
+      margin-top: 8px;
+      li{
+        display: block;
+        border: none;
+        padding: 0;
+        &:last-child{
+          a{
+            border-bottom: none;
+          }
+          &:hover{
+            background-color: transparent;
+            color: #22A7F0;
+          }
+        }
+
+        a{
+          padding: 8px 15px;
+          text-transform: capitalize;
+          font-size: 13px;
+          border-bottom: 1px dashed #eee;
+        }
+      }
+    }
+
+    .search-filed{
+      .fa{
+        color: #999;
+        cursor: pointer;
+      }
+    }
+
+    .search-box{
+      position: absolute;
+      right: 130px;
+      top: 52px;
+      background-color: #22A7F0;
+      padding: 15px 35px;
+      z-index: 99;
+      display: none;
+      transition: all .2s ease-in-out;
+    }
+
+
+  }
+
+}
+
+.rel-ls-none {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.rel-ls-inline li {
+  display: inline-block;
+}
+
+ul{
+  .top-right-menu{
+    li{
+      padding: 0px 20px;
+      @include add-border(1px,#e7e7e7,'right');
+      span{
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 10px;
+        text-transform: capitalize;
+      }
+    }
+  }
+}
+
