@@ -20,6 +20,8 @@ mix.js('resources/assets/js/app.js', 'public/js');
       'resources/assets/js/jquery.min.js',
       'resources/assets/js/bootstrap.js',
       'resources/assets/js/sticynavbar.js',
+      'resources/assets/js/owl.carousel.min.js',
+      'resources/assets/js/plugins.js',
   ],'public/js/All.js');
 
 
@@ -28,6 +30,9 @@ mix.js('resources/assets/js/app.js', 'public/js');
       'resources/assets/css/bootstrap3.css',
       'public/css/main2.css',
       'resources/assets/css/stickynavbar.css',
+      'resources/assets/css/owl.carousel.min.css',
+      'resources/assets/css/owl.theme.default.min.css',
+
 
 
       // 'public/css/main2.css'

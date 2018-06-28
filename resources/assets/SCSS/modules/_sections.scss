@@ -35,3 +35,12 @@
   .section-dark{
     @include add-background($dark-color);
   }
+  .section-title{
+    color: #333;
+    text-align: center;
+    margin: 0 0 30px;
+    line-height: 1;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 20px;
+  }

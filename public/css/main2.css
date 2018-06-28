@@ -231,6 +231,16 @@ section {
   color: #FFF;
 }
 
+.section-title {
+  color: #333;
+  text-align: center;
+  margin: 0 0 30px;
+  line-height: 1;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
 /* start list*/
 .list, .list-feature {
   margin-bottom: 30px;
