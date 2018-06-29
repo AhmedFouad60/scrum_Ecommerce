@@ -8,7 +8,7 @@
     @include('Website.Products.Partials.header')
     @include('Website.Products.Partials.HomeCarousel')
 
-    <section class="hot-deals">
+    <section class="hot-deals bg-grey">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -24,6 +24,23 @@
             </div>
         </div>
 
+    </section>
+
+    <section class="offers">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="#">
+                        <img src="images/banner2.jpg"  class="img-responsive" alt="offer1">
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a href="#">
+                        <img src="images/banner3.jpg" class="img-responsive" alt="offer3">
+                    </a>
+                </div>
+            </div>
+        </div>
     </section>
 
 
