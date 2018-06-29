@@ -34823,18 +34823,36 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
-    // Owl carousel
-    $('#trending-slider').owlCarousel({
-        autoPlay: 5000, //Set AutoPlay to 3 seconds
-        items: 4,
-        itemsDesktop: [1199, 3],
-        itemsDesktopSmall: [991, 2],
-        itemsMobile: [650, 1],
-        navigation: true,
-        pagination: false,
-        navigationText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"]
 
-    });
+    // Owl carousel
+    if ($('#trending-slider').length) {
+        $("#trending-slider").owlCarousel({
+            // rtl:true,
+            rewind: true,
+            loop: true,
+            margin: 10,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: true
+                },
+                600: {
+                    items: 3,
+                    nav: false
+                },
+                1000: {
+                    items: 5,
+                    nav: true,
+                    loop: false
+                }
+            }
+
+        });
+    }
 });
 
 /***/ })
