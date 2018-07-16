@@ -11,6 +11,7 @@
     <!-- Styles -->
 
     <link href="{{ asset('css/All.css') }}" rel="stylesheet">
+
     @stack('cs')
 
 </head>

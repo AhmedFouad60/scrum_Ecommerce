@@ -32,7 +32,8 @@ mix.js('resources/assets/js/app.js', 'public/js');
       'resources/assets/css/stickynavbar.css',
       'resources/assets/css/owl.carousel.min.css',
       'resources/assets/css/owl.theme.default.min.css',
-      'resources/assets/css/trending-section.css'
+      'resources/assets/css/trending-section.css',
+      'resources/assets/css/latest-news.css'
 
 
 
