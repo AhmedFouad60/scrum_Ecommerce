@@ -1,0 +1,91 @@
+.top-cart-row {
+    padding-top:8px;
+    padding-left:0px
+}
+.top-cart-row .dropdown-cart {
+    float: right;
+    margin-top: -5px;
+}
+
+.top-cart-row .dropdown-cart img {width:100%}
+
+.top-cart-row .dropdown-cart .lnk-cart {
+    padding: 0px;
+    background: #167dcc;
+    border: 1px solid #167dcc;
+    border-radius: 3px;
+    display: inline-block;
+    color: #ffffff;
+}
+.top-cart-row .dropdown-cart .lnk-cart:hover, .top-cart-row .dropdown-cart .lnk-cart:focus {
+    background: #167dcc;
+    border: 1px solid #167dcc;
+    border-radius: 3px;
+    display: inline-block;
+    color: #ffffff;
+}
+.top-cart-row .dropdown-cart .lnk-cart .items-cart-inner {
+    position: relative;
+}
+.top-cart-row .dropdown-cart .lnk-cart .items-cart-inner .total-price-basket {
+    padding: 12px 12px 13px 15px;
+    text-transform: uppercase;
+    float: left;
+    letter-spacing: 0.5px;
+}
+.top-cart-row .dropdown-cart .lnk-cart .items-cart-inner .basket {
+    float: left;
+    padding: 12px;
+    border-right: 1px solid #22a7f0;
+    padding: 12px 18px 13px 12px;
+}
+.top-cart-row .dropdown-cart .lnk-cart .items-cart-inner .basket-item-count {
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+    height: 18px;
+    position: absolute;
+    left: 34px;
+    top: 13px;
+    width: 18px;
+    background: #0f6cb2;
+    color: #fff;
+    font-size: 11px;
+    text-align: center;
+    line-height: 17px;
+}
+.top-cart-row .dropdown-cart .dropdown-menu {
+    float: right;
+    left: auto;
+    min-width: 0;
+    padding: 24px 22px;
+    border: none;
+    right: 0;
+    width: 230px;
+}
+.top-cart-row .dropdown-cart .dropdown-menu .cart-item.product-summary .name {
+    font-size: 13px;
+    margin-top: 0px;
+}
+.top-cart-row .dropdown-cart .dropdown-menu .cart-item.product-summary .name a {
+    color: #666666;
+}
+.top-cart-row .dropdown-cart .dropdown-menu .cart-item.product-summary .action {
+    padding: 0;
+    position: relative;
+    font-size: 15px;
+    right: 8px;
+    top: 8px;
+}
+.top-cart-row .dropdown-cart .dropdown-menu .cart-item.product-summary .action a {
+    color: #898989;
+}
+.top-cart-row .dropdown-cart .dropdown-menu .cart-total .text {
+    font-size: 13px;
+    font-family: 'Open Sans', sans-serif;
+    color: #666666;
+    margin-right: 10px;
+}
+.top-cart-row .dropdown-cart .dropdown-menu .cart-total .price {
+    font-weight: 700;
+}

@@ -63,8 +63,8 @@
 
 
 
-
-
+    {{--include the script that handle the cart --}}
+@include('Website.Products.Partials.CartScript')
 
 
 

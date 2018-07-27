@@ -26,3 +26,14 @@ Route::get('auth/{provider}/callback', 'AuthSocialController@handleProviderCallb
 //product [website part]
 
 Route::resource('products',"WebsiteProductsController");
+
+// website  routes for cart
+Route::group(['prefix' => '/carts'], function () {
+    Route::post('cart/add', 'CartWebsiteController@addCart');
+    Route::post('cart/delete', 'CartWebsiteController@deleteCart');
+    Route::post('cart/edit', 'CartWebsiteController@editCart');
+    Route::post('cart/update', 'CartWebsiteController@updateCart');
+    Route::get('/cart/latest', 'CartWebsiteController@latest');
+
+
+});

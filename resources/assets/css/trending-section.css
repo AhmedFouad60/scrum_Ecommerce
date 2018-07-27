@@ -37,7 +37,7 @@
     background: none repeat scroll 0 0 #fff;
     padding: 25px 0;
     text-align: center;
-    border:1px solid #dcbbbb57;
+    /*border:1px solid #dcbbbb57;*/
 }
 .product-item .item-sub a h5{
     color: #333333;
@@ -54,7 +54,7 @@
 }
 .product-item .item-links{
     position: absolute;
-    top: 27%;
+    top: 42%;
     right: 0;
     left: 0;
     margin: auto;

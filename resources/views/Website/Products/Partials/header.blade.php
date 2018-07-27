@@ -99,6 +99,13 @@
                     <li class=""><a href="#">About Us </a></li>
                     <li class=""><a href="#">Blog </a></li>
                     <li class=""><a href="#">Contact </a></li>
+                    <li class="top-cart-row">
+
+                        @include('Website.Products.Partials.cart')
+                    </li>
+
+
+
                 </ul>
             </div>
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\products;
 use Illuminate\Http\Request;
 
 class WebsiteProductsController extends Controller
@@ -13,7 +14,8 @@ class WebsiteProductsController extends Controller
      */
     public function index()
     {
-        return view('Website.Products.index');
+        $products=products::paginate(5);
+        return view('Website.Products.index',compact('products'));
     }
 
     /**
