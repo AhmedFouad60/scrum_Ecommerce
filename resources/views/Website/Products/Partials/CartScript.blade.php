@@ -12,24 +12,23 @@
         //your code here
 
 
-        $(".add-cart").click(function () {
-           var id=$(this).attr('id');
-           console.log('id is: '+id);
-           //make ajax request to add item in the cart
+
+
+
+    $(".remove-cart").click(function(){
+            var str = $(this).prop('id');
+            var res = str.split("-");
+            var id = res[1];
+
             $.ajax({
                 type:'POST',
-                url:"{{URL::to('carts/cart/add')}}",
+                url:"{{URL::to('carts/cart/delete')}}",
                 data:{id:id, _token: '{{csrf_token()}}'},
                 dataType:'html',
-                success:function (data,textStatus) {
-                    //do what you want ...inform user with success message or do something with the front-end
-
-                    /** The load() method loads data from a server and puts the returned data into the selected element.*/
-                    $('.top-cart-row').load('{{url("carts/cart/latest")}}');
-                    toastr.success('product added to cart successfully.');
-
-
-
+                success:function(data, textStatus, jqXHR)
+                {
+                    $(".top-cart-row").load('{{url("carts/cart/latest")}}');
+                    toastr.success('Product deleted successfully.');
                 },
                 error:function () {
                     //do what you want ...inform user with Error message or do something with the front-end
@@ -37,43 +36,17 @@
                 }
             });
 
+
         });
-
-
-/**
- * This is bad choice for me .... to implement this function in this file
- * ... the best implement in cart.blade.php*/
-
-    {{--$(".remove-cart").click(function(){--}}
-            {{--var str = $(this).prop('id');--}}
-            {{--var res = str.split("-");--}}
-            {{--var id = res[1];--}}
-
-            {{--$.ajax({--}}
-                {{--type:'POST',--}}
-                {{--url:"{{URL::to('carts/cart/delete')}}",--}}
-                {{--data:{id:id, _token: '{{csrf_token()}}'},--}}
-                {{--dataType:'html',--}}
-                {{--success:function(data, textStatus, jqXHR)--}}
-                {{--{--}}
-                    {{--$(".top-cart-row").load('{{url("carts/cart/latest")}}');--}}
-                    {{--toastr.success('Product deleted successfully.');--}}
-                {{--},--}}
-                {{--error:function () {--}}
-                    {{--//do what you want ...inform user with Error message or do something with the front-end--}}
-
-                {{--}--}}
-            {{--});--}}
-
-
-        {{--});--}}
 
 
 
     });
 
-
-
+    // .edit-cart
+    // #clear-cart
+    // #update-cart
+    // #apply-coupon
 
 
 

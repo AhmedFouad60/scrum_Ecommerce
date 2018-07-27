@@ -50,7 +50,7 @@
                 <a href="{!!url('orders')!!}" class="btn btn-upper btn-primary btn-block mt20">Checkout</a>
                 <div class="clearfix"></div>
                 <div class="text-center mt10">
-                    <a href="{!!url('carts')!!}" > View Cart</a>
+                    <a href="{!!url('products/cart')!!}" > View Cart</a>
                 </div>
             </div>
         </li>

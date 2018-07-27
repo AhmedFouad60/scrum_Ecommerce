@@ -25,7 +25,10 @@ Route::get('auth/{provider}/callback', 'AuthSocialController@handleProviderCallb
 
 //product [website part]
 
-Route::resource('products',"WebsiteProductsController");
+Route::get('products',"WebsiteProductsController@index");
+Route::get('products/cart',function (){
+    return view('Website.Products.DetailedCartpage');
+});
 
 // website  routes for cart
 Route::group(['prefix' => '/carts'], function () {
