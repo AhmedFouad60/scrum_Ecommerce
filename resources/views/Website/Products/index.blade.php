@@ -25,7 +25,7 @@
         </div>
 
     </section>
-
+{{--banner ...i will make it custom ads for companies ..this will be added by admin--}}
     <section class="offer-section" style="background: #00BCD4;">
         <div class="container">
             <div class="row">

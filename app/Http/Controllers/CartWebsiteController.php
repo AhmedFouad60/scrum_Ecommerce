@@ -27,7 +27,10 @@ class CartWebsiteController extends Controller
 
         return response()->view('Website.Products.Partials.cart');
     }
-    public function deleteCart(){}
+    public function deleteCart(Request $request){
+        $row_id=$request->get('id');
+        Cart::remove($row_id);
+    }
     public function editCart(){}
     public function updateCart(){}
 }

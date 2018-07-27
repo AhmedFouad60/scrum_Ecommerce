@@ -22,7 +22,7 @@
                         <a href="#" class="links-item">
                             <i class="fa fa-eye"></i>
                         </a>
-                        <a id="{{$product->id}}" href="#" class="links-item links-item-main add-cart">
+                        <a id="{{$product->id}}" style="cursor: pointer" class="links-item links-item-main add-cart">
                             Add to cart
                         </a>
                         <a href="#">
