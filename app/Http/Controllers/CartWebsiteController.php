@@ -31,7 +31,7 @@ class CartWebsiteController extends Controller
         $row_id=$request->get('id');
         Cart::remove($row_id);
     }
-    public function editCart(){}
+//    public function editCart(){}
     public function updateCart(Request $request){
         $cart=$request->all();
         foreach ($cart['qty'] as $key=>$val){

@@ -61,7 +61,7 @@
                                                 <input type="number" name="qty[{{$key}}]" value="{{$row->qty}}" id="qty{{$row->rowId}}" min="1" class="form-control">
 
                                             </div>
-                                            <div class="col-md-2"><a><i style="zoom:2;" class="fa fa-refresh edit-cart" aria-hidden="true"></i></a></div>
+                                            {{--<div class="col-md-2"><a><i style="zoom:2;" class="fa fa-refresh edit-cart" aria-hidden="true"></i></a></div>--}}
                                         </td>
                                         <td class="cart-product-sub-total"><span class="cart-sub-total-price">${{$row->price}} USD</span></td>
                                         <td class="cart-product-grand-total"><span class="cart-grand-total-price">${{$row->total}} USD</span></td>
