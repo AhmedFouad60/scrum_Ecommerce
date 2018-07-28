@@ -41,4 +41,10 @@ class CartWebsiteController extends Controller
         return 'true';
 
     }
+    public function clearCart(){
+        Cart::destroy();
+        return 'true';
+    }
+
+
 }

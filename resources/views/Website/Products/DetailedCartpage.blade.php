@@ -91,6 +91,7 @@
     $(document).ready(function () {
         //your code here
 
+
         $("#update-cart").click(function(){
         console.log("fuck you test ");
         var form=$('#cart-cart-update');
@@ -119,7 +120,53 @@
             }
         });
         });
+
+        // #clear-cart
+        $("#clear-cart").click(function(){
+            console.log("fuck you clear cart ");
+
+            if(!confirm("Do You want to clear the cart!")){
+                return false;
+            }
+
+
+            var form=$('#cart-cart-update');
+            var formData=new FormData();
+
+            params=form.serializeArray();
+            console.log(params);
+            $.each(params, function(i, val) {
+                formData.append(val.name, val.value);
+            });
+
+            $.ajax({
+                type: 'POST',
+                url: "{{URL::to('carts/cart/clear')}}",
+                data:formData,
+                cache: false,
+                processData: false,
+                contentType: false,
+                dataType: 'json',
+                success: function (data, textStatus, jqXHR) {
+                    toastr.success('Cart cleared successfully.');
+                    setTimeout(function(){
+                        window.location.reload(1);
+                    }, 1000);
+                },
+                error: function () {
+                    //do what you want ...inform user with Error message or do something with the front-end
+
+                }
+            });
         });
+
+
+
+        }); /** end of JQuery****/
+
+
+
+
 </script>
 
 @include('Website.Products.Partials.CartScript')

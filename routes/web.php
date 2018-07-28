@@ -36,6 +36,8 @@ Route::group(['prefix' => '/carts'], function () {
     Route::post('cart/delete', 'CartWebsiteController@deleteCart');
     Route::post('cart/edit', 'CartWebsiteController@editCart');
     Route::post('cart/update', 'CartWebsiteController@updateCart');
+    Route::post('cart/clear', 'CartWebsiteController@clearCart');
+
     Route::get('/cart/latest', 'CartWebsiteController@latest');
 
 
