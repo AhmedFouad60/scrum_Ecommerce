@@ -46,6 +46,35 @@
     // .edit-cart
     // #clear-cart
     // #update-cart
+
+    $("#update-cart").click(function(){
+        console.log("fuck you test ");
+        var form=$('#cart-cart-update');
+        var formData=new FormData();
+        params=form.serializeArray();
+
+        $.ajax({
+            type:'POST',
+            url:"{{URL::to('carts/cart/update')}}",
+            data:{formData, _token: '{{csrf_token()}}'},
+            cache: false,
+            processData: false,
+            contentType: false,
+            dataType:'json',
+            success:function(data, textStatus, jqXHR)
+            {
+                toastr.success('Product deleted successfully.');
+            },
+            error:function () {
+                //do what you want ...inform user with Error message or do something with the front-end
+
+            }
+        });
+
+
+    });
+
+
     // #apply-coupon
 
 

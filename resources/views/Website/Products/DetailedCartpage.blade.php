@@ -9,7 +9,7 @@
                 <div class="shopping-cart">
                     <div class="shopping-cart-table ">
                         <div class="table-responsive">
-                            {!!Form::open()
+                            {!!Form::open(['id'=>'cart-cart-update'])
                                    !!}
                             <table class="table">
                                 <thead>
@@ -31,7 +31,7 @@
                                                         <a href="{!!url('/products')!!}" class="btn btn-upper btn-primary outer-left-xs">Continue Shopping</a>
 
                                                         <a id="update-cart" class="btn btn-upper btn-primary pull-right outer-right-xs">Update shopping cart</a>
-                                                        <a id="clear-cart" class="btn btn-upper btn-primary pull-right mr10 outer-right-xs" ">Clear shopping cart</a>
+                                                        <a id="clear-cart" class="btn btn-upper btn-primary pull-right mr10 outer-right-xs">Clear shopping cart</a>
                                                     </span>
                                         </div>
                                     </td>
@@ -82,5 +82,44 @@
     </section>
 
 @endsection
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+</script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js">
+</script>
+<script>
+    $(document).ready(function () {
+        //your code here
+
+        $("#update-cart").click(function(){
+        console.log("fuck you test ");
+        var form=$('#cart-cart-update');
+        var formData=new FormData();
+
+        params=form.serializeArray();
+            console.log(params);
+            $.each(params, function(i, val) {
+                formData.append(val.name, val.value);
+            });
+
+        $.ajax({
+            type: 'POST',
+            url: "{{URL::to('carts/cart/update')}}",
+            data:formData,
+            cache: false,
+            processData: false,
+            contentType: false,
+            dataType: 'json',
+            success: function (data, textStatus, jqXHR) {
+                toastr.success('Product updated successfully.');
+            },
+            error: function () {
+                //do what you want ...inform user with Error message or do something with the front-end
+
+            }
+        });
+        });
+        });
+</script>
 
 @include('Website.Products.Partials.CartScript')
