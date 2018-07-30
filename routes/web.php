@@ -38,7 +38,7 @@ Route::group(['prefix' => '/carts'], function () {
     Route::post('cart/update', 'CartWebsiteController@updateCart');
     Route::post('cart/clear', 'CartWebsiteController@clearCart');
 
-    Route::get('/cart/latest', 'CartWebsiteController@latest');
+    Route::get('/cart/latest{page?}', 'CartWebsiteController@latest');
 
 
 });

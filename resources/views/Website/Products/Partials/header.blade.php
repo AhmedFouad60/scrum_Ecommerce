@@ -92,8 +92,10 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class=""><a href="#">Home </a></li>
-                    <li class=""><a href="#">Search </a></li>
+                    <li class="active">
+                        <a href="{{URL::to('/products')}}" >Home </a>
+                    </li>
+                    <li class=""><a href="#" >Search </a></li>
                     <li class=""><a href="#">Clothing </a></li>
                     <li class=""><a href="#">Electronics </a></li>
                     <li class=""><a href="#">About Us </a></li>
@@ -101,7 +103,7 @@
                     <li class=""><a href="#">Contact </a></li>
                     <li class="top-cart-row">
 
-                        @include('Website.Products.Partials.cart')
+                        @include('Website.Products.Partials.latest')
                     </li>
 
 

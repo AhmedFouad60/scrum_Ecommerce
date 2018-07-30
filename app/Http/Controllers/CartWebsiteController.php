@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\products;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+
 use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CartWebsiteController extends Controller
@@ -23,9 +25,14 @@ class CartWebsiteController extends Controller
     }
     public function latest(Request $request)
     {
-//        return "latest is good";
+//        dd($request->all());
 
-        return response()->view('Website.Products.Partials.cart');
+        if ($request['page']){
+            return response()->view('Website.Products.Partials.cartView');
+//            dd($pageName);
+        }
+
+        return response()->view('Website.Products.Partials.latest');
     }
     public function deleteCart(Request $request){
         $row_id=$request->get('id');

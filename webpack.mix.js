@@ -22,6 +22,8 @@ mix.js('resources/assets/js/app.js', 'public/js');
       'resources/assets/js/sticynavbar.js',
       'resources/assets/js/owl.carousel.min.js',
       'resources/assets/js/plugins.js',
+      'resources/assets/js/cart.js',
+      'resources/assets/js/toastr.js',
   ],'public/js/All.js');
 
 
@@ -35,6 +37,7 @@ mix.js('resources/assets/js/app.js', 'public/js');
       'resources/assets/css/trending-section.css',
       'resources/assets/css/latest-news.css',
       'resources/assets/css/cart.css',
+      'resources/assets/css/toastr.css',
 
 
 

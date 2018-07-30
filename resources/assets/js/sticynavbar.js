@@ -4,15 +4,16 @@ $(document).ready(function() {
 
 
 $('.navbar-nav li a').click(function (e) {
-    e.preventDefault()
+    // e.preventDefault()
         // If this isn't already active
         if (!$(this).hasClass("active")) {
             // Remove the class from anything that is active
             $("li.active").removeClass("active");
-            window.onbeforeunload = null;
+            // window.onbeforeunload = null;
             // And make this active
             $(this).parent().addClass("active");
-            window.onbeforeunload = null;
+
+            // window.onbeforeunload = null;
         }
 
 });
