@@ -1,4 +1,50 @@
 <?php
+/** checkout process*/
+        //what i need now
+        /** Stage 01**/
+        //01-button or link  to get me to the checkout page ...[.. orders model ..]
+        //02-The Design of the page ...[.. 6panels ..]
+
+        /** Stage 02**/
+        //03-create model for orders
+        //04-create controller for the orders
+        //05-set relations between the user and orders
+        /** Stage 03**/
+
+        //06- think about page as form [create order] action =>payment/post
+        //07- billing Method
+        /**
+         **** as Guest
+         **** login for future convenience  [order-History]
+         ****
+         */
+        //08-billing info
+        /**
+         **** use the same registered address
+         **** Enter another address
+         ****
+         */
+        //09-Shipping info
+        /**
+         **** use the same registered address for Shipping
+         **** Enter another address
+         *********** Tell the user if the shipping for free or not
+         *********** important... associate each product with shipping info
+         ****
+         */
+        //10-payment Method
+        /**
+         **** cash on Delivery
+         **** Paypal
+         *
+         */
+
+        //11-view all cart items
+
+        //12-confirm the order
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -46,42 +92,7 @@ Route::group(['prefix' => '/carts'], function () {
 //  checkout process:
 Route::group(['prefix' => '/orders'], function () {
 
-    //what i need now
-    //01-button or link  to get me to the checkout page ...[.. orders model ..]
-    //02-The Design of the page ...[.. 6panels ..]
-    //03-create model for orders
-    //04-create controller for the orders
-    //05-set relations between the user and orders
-    //06- think about page as form [create order] action =>payment/post
-    //07- billing Method
-        /**
-         **** as Guest
-         **** login for future convenience  [order-History]
-         ****
-         */
-    //08-billing info
-        /**
-         **** use the same registered address
-         **** Enter another address
-         ****
-         */
-    //09-Shipping info
-        /**
-         **** use the same registered address for Shipping
-         **** Enter another address
-         *********** Tell the user if the shipping for free or not
-         *********** important... associate each product with shipping info
-         ****
-         */
-    //10-payment Method
-        /**
-         **** cash on Delivery
-         **** Paypal
-         *
-         */
-
-     //11-view all cart items
-
-     //12-confirm the order
+    Route::get('/','OrdersController@index');
+    Route::post('/order/payment/post','OrdersController@payment');
 
 });
