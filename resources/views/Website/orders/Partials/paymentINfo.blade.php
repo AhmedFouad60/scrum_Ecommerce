@@ -2,11 +2,11 @@
 
 
 
-<div class="panel panel-default checkout-step-05">
+<div class="panel panel-default checkout-step-04">
     <div class="panel-heading">
         <h4 class="unicase-checkout-title">
-            <a data-toggle="collapse" class="collapsed collapseFive" data-parent="#accordion" href="#">
-                <span>5</span>Payment Information
+            <a data-toggle="collapse" class="collapsed collapseFive" data-parent="#accordion" href="#collapseFour">
+                <span>4</span>Payment Information
             </a>
         </h4>
     </div>
@@ -24,4 +24,4 @@
             <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" class="collapsed btn-upper btn btn-primary checkout-page-button checkout-continue " data-key="collapseSix">Continue</a>
         </div>
     </div>
-</div>{{--End of step05--}}
+</div>

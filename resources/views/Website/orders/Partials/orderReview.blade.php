@@ -3,8 +3,8 @@
 <div class="panel panel-default checkout-step-06">
     <div class="panel-heading">
         <h4 class="unicase-checkout-title">
-            <a data-toggle="collapse" class="collapsed collapseSix" data-parent="#accordion" href="#" >
-                <span>6</span>Order Review
+            <a data-toggle="collapse" class="collapsed collapseSix" data-parent="#accordion" href="#collapseFive" >
+                <span>5</span>Order Review
             </a>
         </h4>
     </div>

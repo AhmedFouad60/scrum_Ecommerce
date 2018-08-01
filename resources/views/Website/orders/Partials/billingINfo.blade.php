@@ -1,4 +1,4 @@
-{{--checkout step02--}}
+
 <div class="panel panel-default checkout-step-02">
 
     {!!Form::open([
@@ -11,7 +11,7 @@
 
     <div class="panel-heading">
         <h4 class="unicase-checkout-title">
-            <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#">
+            <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseTwo">
                 <span>2</span>Billing Information
             </a>
         </h4>
@@ -73,4 +73,7 @@
 
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" class="collapsed btn-upper btn btn-primary checkout-page-button checkout-continue" data-key="collapseThree">Continue</a>
     </div>
+
+    {!! Form::close() !!}
+
 </div>{{---End of step02 --}}
