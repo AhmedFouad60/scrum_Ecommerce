@@ -9,4 +9,8 @@ class OrdersController extends Controller
     public function index(){
         return view('Website.orders.index');
     }
+
+    public function payment(){
+
+    }
 }
