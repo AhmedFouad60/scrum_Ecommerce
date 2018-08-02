@@ -24,6 +24,7 @@ mix.js('resources/assets/js/app.js', 'public/js');
       'resources/assets/js/plugins.js',
       'resources/assets/js/cart.js',
       'resources/assets/js/toastr.js',
+      'resources/assets/js/order.js',
   ],'public/js/All.js');
 
 
