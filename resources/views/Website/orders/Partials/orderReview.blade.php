@@ -40,10 +40,7 @@
                 </tr>
 
 
-                <tr>
-                    <td colspan="3" class="text-right">Total</td>
-                    {{--<td class="text-right">${{number_format($result,2)}} USD</td>--}}
-                </tr>
+
 
                 </tbody>
 
