@@ -31826,7 +31826,8 @@ __webpack_require__(47);
 __webpack_require__(48);
 __webpack_require__(49);
 __webpack_require__(50);
-module.exports = __webpack_require__(51);
+__webpack_require__(51);
+module.exports = __webpack_require__(53);
 
 
 /***/ }),
@@ -35069,6 +35070,37 @@ module.exports = function() {
 	throw new Error("define cannot be used indirect");
 };
 
+
+/***/ }),
+/* 53 */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+    //your code here
+
+    $(".billing-address").click(function (e) {
+        if ($("#address-new").prop("checked") == true) {
+            $("#payment-new").removeClass('hide');
+            $("#payment-existing").addClass('hide');
+        }
+        if ($("#address-exist").prop("checked") == true) {
+            $("#payment-existing").removeClass('hide');
+            $("#payment-new").addClass('hide');
+        }
+    });
+
+    $(".shipping-address").click(function (e) {
+        if ($("#shippingaddress-new").prop("checked") == true) {
+            $("#shipping-new").removeClass('hide');
+            $("#shipping-existing").addClass('hide');
+        }
+        if ($("#shippingaddress-exist").prop("checked") == true) {
+            $("#shipping-existing").removeClass('hide');
+            $("#shipping-new").addClass('hide');
+        }
+    });
+});
+/** end of JQuery **/
 
 /***/ })
 /******/ ]);
