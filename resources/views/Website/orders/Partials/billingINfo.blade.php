@@ -24,6 +24,20 @@
                 <input id="address-exist" type="radio" name="billingaddress" value="guest" checked class="billing-address">
                 <label class="radio-button guest-check" for="address-exist">I want to use an existing address</label>
                 <br>
+                {{--if the user logged in --}}
+                @if (Auth::check())
+                    <div class="row" id="payment-existing">
+                        <select name="address_id" class="form-control">
+                            <option value="{!!Auth::user()->name!!},{!!Auth::user()->email!!}" selected="selected">{!!Auth::user()->name!!},{!!Auth::user()->email!!}</option>
+                            {{--<option value="{!!Auth::user()->name!!},{!!user('client.web')->address!!},{!!user('client.web')->district!!},{!!user('client.web')->city!!},{!!user('client.web')->country!!},{!!user('client.web')->state!!}" selected="selected">{!!@user('client.web')->name!!},{!!@user('client.web')->address!!},{!!@user('client.web')->district!!},{!!@user('client.web')->city!!},{!!@user('client.web')->country!!},{!!@user('client.web')->state!!}</option>--}}
+                        </select>
+                    </div>
+                @else
+                    <p class="alert alert-info">you are not logged in yet :)</p>
+                @endif
+
+
+
                 <br>
                 <input id="address-new" type="radio" name="billingaddress" value="register" name="billingaddress" class="billing-address">
                 <label class="radio-button" for="address-new">I want to use a new address</label>
