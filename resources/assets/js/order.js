@@ -24,6 +24,11 @@ $(document).ready(function () {
         }
     });
 
+    // $('.checkout-continue').on('click', function () {
+    //     var key = $(this).data('key');
+    //     $('.'+key).attr('href','#'+key);
+    // });
+
 
 });
 /** end of JQuery **/

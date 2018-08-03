@@ -94,5 +94,6 @@ Route::group(['prefix' => '/orders'], function () {
 
     Route::get('/','OrdersController@index');
     Route::post('/order/payment/post','OrdersController@payment');
+    Route::get('/payment/success','OrderController@getpayment');
 
 });

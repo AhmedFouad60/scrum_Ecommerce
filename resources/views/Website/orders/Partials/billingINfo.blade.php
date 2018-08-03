@@ -1,13 +1,6 @@
 
 <div class="panel panel-default checkout-step-02">
 
-    {!!Form::open([
-                    'id'=>'create-order-order',
-                     'method'=>'post',
-                     'class'=>'dashboard-form',
-                     'action'=>'OrdersController@payment'
-
-    ])!!}
 
     <div class="panel-heading">
         <h4 class="unicase-checkout-title">
@@ -88,6 +81,5 @@
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" class="collapsed btn-upper btn btn-primary checkout-page-button checkout-continue" data-key="collapseThree">Continue</a>
     </div>
 
-    {!! Form::close() !!}
 
 </div>{{---End of step02 --}}

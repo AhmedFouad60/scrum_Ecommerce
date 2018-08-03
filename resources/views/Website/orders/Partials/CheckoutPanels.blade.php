@@ -12,6 +12,14 @@
                             @include('Website.orders.Partials.CheckoutMethod')
           {{--------------------------------- End step01 -----------------------------}}
 
+                            {!!Form::open([
+                                                'id'=>'create-order-order',
+                                                 'method'=>'post',
+                                                 'class'=>'dashboard-form',
+                                                 'action'=>'OrdersController@payment'
+
+                                ])!!}
+
                             @include('Website.orders.Partials.billingINfo')
 
            {{--------------------------------- End step02 -----------------------------}}
@@ -28,6 +36,8 @@
                             @include('Website.orders.Partials.orderReview')
 
             {{--------------------------------- End step05 -----------------------------}}
+
+                            {!! Form::close() !!}
 
 
 
