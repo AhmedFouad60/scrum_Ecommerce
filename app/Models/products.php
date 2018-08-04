@@ -25,4 +25,8 @@ class products extends Model
     public function Tags(){
         return $this->belongsToMany('App\Models\Tags','product_tags','product_id','tag_id');
     }
+
+    public function orders(){
+        $this->belongsToMany('App\Models\Orders');
+    }
 }

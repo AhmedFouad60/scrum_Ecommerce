@@ -16,13 +16,17 @@
                     <input id="shippingaddress-exist" type="radio" name="shippingaddress" value="guest" checked class="shipping-address">
                     <label class="radio-button guest-check" for="shippingaddress-exist">I want to use an existing address</label>
                     <br>
-                    {{--@if(user('client.web'))--}}
-                    {{--<div class="row" id="shipping-existing">--}}
-                    {{--<select name="shippingaddress_id" class="form-control">--}}
-                    {{--<option value="{!!user('client.web')->name!!},{!!user('client.web')->address!!},{!!user('client.web')->district!!},{!!user('client.web')->city!!},{!!user('client.web')->country!!},{!!user('client.web')->state!!}" selected="selected">{!!@user('client.web')->name!!},{!!@user('client.web')->address!!},{!!@user('client.web')->district!!},{!!@user('client.web')->city!!},{!!@user('client.web')->country!!},{!!@user('client.web')->state!!}</option>--}}
-                    {{--</select>--}}
-                    {{--</div>--}}
-                    {{--@endif--}}
+                    {{--if the user logged in --}}
+                    @if (Auth::check())
+                        <div class="row" id="payment-existing">
+                            <select name="shipping_address_id" class="form-control">
+                                <option value="{!!Auth::user()->name!!},{!!Auth::user()->email!!}" selected="selected">{!!Auth::user()->name!!},{!!Auth::user()->email!!}</option>
+                                {{--<option value="{!!Auth::user()->name!!},{!!user('client.web')->address!!},{!!user('client.web')->district!!},{!!user('client.web')->city!!},{!!user('client.web')->country!!},{!!user('client.web')->state!!}" selected="selected">{!!@user('client.web')->name!!},{!!@user('client.web')->address!!},{!!@user('client.web')->district!!},{!!@user('client.web')->city!!},{!!@user('client.web')->country!!},{!!@user('client.web')->state!!}</option>--}}
+                            </select>
+                        </div>
+                    @else
+                        <p class="alert alert-info">you are not logged in yet :)</p>
+                    @endif
                     <br>
                     <input id="shippingaddress-new" type="radio" name="shippingaddress" value="register"  class="shipping-address">
                     <label class="radio-button" for="shippingaddress-new">I want to use a new address</label>

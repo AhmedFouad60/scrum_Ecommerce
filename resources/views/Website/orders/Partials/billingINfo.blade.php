@@ -32,7 +32,7 @@
 
 
                 <br>
-                <input id="address-new" type="radio" name="billingaddress" value="register" name="billingaddress" class="billing-address">
+                <input id="address-new" type="radio" name="billingaddress" value="register"  class="billing-address">
                 <label class="radio-button" for="address-new">I want to use a new address</label>
             </div>
 
@@ -56,7 +56,7 @@
                 </div>
                 <div class="col-md-6">
                     {{Form::label(trans('order.label.payment_address_2'))}}
-                    {{Form::text('payment[payment[payment_address_2]',null,['placeholder' => trans('order.placeholder.payment_address_2')]) }}
+                    {{Form::text('payment[payment_address_2]',null,['placeholder' => trans('order.placeholder.payment_address_2')]) }}
 
                 </div>
                 <div class="col-md-6">
