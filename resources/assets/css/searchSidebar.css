@@ -1,0 +1,26 @@
+.widget {
+    background-color: #ecf0f1;
+    margin:0px;
+}
+
+.sidebar .widget{
+    margin-top:50px;
+    padding: 20px;
+    background-color: #fff;
+    margin-bottom: 20px;
+    border: 1px solid #ededed;
+}
+
+.tags a {
+    padding: 4px 13px;
+    border: 1px solid #ededed;
+    display: inline-block;
+    margin: 0 0 5px 0
+}
+
+
+
+.course-custom-meta hr {
+    border-color: #ededed;
+    margin: 10px 0
+}

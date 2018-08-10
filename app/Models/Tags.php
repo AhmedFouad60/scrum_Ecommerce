@@ -12,4 +12,8 @@ class Tags extends Model
     ];
     public $timestamps = false;
 
+    public function products(){
+        return $this->belongsToMany('App\Models\products','product_tags','product_id','tag_id');
+    }
+
 }

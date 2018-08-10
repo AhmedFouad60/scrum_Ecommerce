@@ -97,3 +97,7 @@ Route::group(['prefix' => '/orders'], function () {
     Route::get('/payment/success','OrderController@getpayment');
 
 });
+
+//search
+
+Route::get('/search','SearchController@search');

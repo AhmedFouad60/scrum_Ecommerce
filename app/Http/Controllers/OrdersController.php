@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Orders;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Omnipay\Omnipay;
 use Gloudemans\Shoppingcart\Facades\Cart;
+
 
 
 
@@ -74,7 +76,7 @@ class OrdersController extends Controller
 
 
         }else{
-            dd("fuck you");
+            $this->storePayment($attributes);
         }
     }
 
@@ -121,10 +123,10 @@ class OrdersController extends Controller
 
         /**  if the user want to use another address  for shipping not the one that he enter with registration */
 
-            if($attributes['shipping_address']=='register'){
-                $attributes['shipping_address']= implode(',',$attributes['shipping']);
+            if($attributes['shippingaddress']=='register'){
+                $attributes['shippingaddress']= implode(',',$attributes['shipping']);
             }else{
-                $attributes['shipping_address']= $attributes['shipping_address_id'];
+                $attributes['shippingaddress']= $attributes['shipping_address_id'];
 
             }
 
@@ -133,7 +135,7 @@ class OrdersController extends Controller
         $attributes['total']=Cart::subtotal();
 
         /** Assign the order to the user who ordered it  */
-        $attributes['user_id'] = Auth::user()->id?Auth::user()->id:null;
+        $attributes['user_id'] = !Auth::id()?Auth::id():99;
         $attributes['order_status_id'] = '1';
         $attributes['payment_status'] = 'Success';
 

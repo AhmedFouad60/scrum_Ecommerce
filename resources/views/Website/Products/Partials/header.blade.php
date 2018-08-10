@@ -26,13 +26,13 @@
                     <ul class="rel-ls-none rel-ls-inline">
 
                         <li>
-                            <div class="search-filed"><i class="fa fa-search"></i></div>
-                            <div class="search-box col-xs-12 col-sm-12">
-                                <form action="" method="get">
-                                    <input type="text" name="search[q]" placeholder="Search" class="form-control">
-                                </form>
-                                <i class="fa fa-times"></i>
-                            </div>
+                            <form class="search-filed" action="{{url('/search')}}" method="get">
+
+                                <div class="search__wrapper">
+                                    <input type="text" name="search" placeholder="Search for..." class="search__field form-control">
+                                    <button type="submit" class="fa fa-search search__icon"></button>
+                                </div>
+                            </form>
                         </li>
 
                         <li class="dropdown pull-right">

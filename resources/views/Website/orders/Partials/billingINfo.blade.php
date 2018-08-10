@@ -21,7 +21,7 @@
                 @if (Auth::check())
                     <div class="row" id="payment-existing">
                         <select name="address_id" class="form-control">
-                            <option value="{!!Auth::user()->name!!},{!!Auth::user()->email!!}" selected="selected">{!!Auth::user()->name!!},{!!Auth::user()->email!!}</option>
+                            <option value="{!!Auth::user()->address!!},{!!Auth::user()->country!!},{!!Auth::user()->city!!},{!!Auth::user()->distinct!!}" selected="selected">{!!Auth::user()->country!!},{!!Auth::user()->address!!}</option>
                             {{--<option value="{!!Auth::user()->name!!},{!!user('client.web')->address!!},{!!user('client.web')->district!!},{!!user('client.web')->city!!},{!!user('client.web')->country!!},{!!user('client.web')->state!!}" selected="selected">{!!@user('client.web')->name!!},{!!@user('client.web')->address!!},{!!@user('client.web')->district!!},{!!@user('client.web')->city!!},{!!@user('client.web')->country!!},{!!@user('client.web')->state!!}</option>--}}
                         </select>
                     </div>

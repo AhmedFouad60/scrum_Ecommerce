@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 
 
-    @stack('cs')
+    @stack('css')
 
 </head>
 
