@@ -33,7 +33,7 @@ class OrdersController extends Controller
             }
 
             $params = array(
-                'cancelUrl'=> url('/products'),
+                'cancelUrl'=> url('/'),
                 'returnUrl'=> url('/orders/payment/success'),
                 'amount'   => str_replace(',','',Cart::subtotal()),
                 'currency' => 'USD',
@@ -146,9 +146,9 @@ class OrdersController extends Controller
             $order->products()->attach($row->id,['quantity' => $row->qty]);
         }
         Cart::destroy();
-        return redirect('/products')->with('success', ['your message,here']);
+        return redirect('/')->with('success', ['your message,here']);
         }catch (Exception $e){
-            return redirect('/products')->with('fail', ['your message,here']);
+            return redirect('/')->with('fail', ['your message,here']);
 
         }
 

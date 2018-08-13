@@ -1,7 +1,9 @@
 <?php
 /** checkout process*/
         //what i need now
-        /** Stage 01**/
+use App\Models\products;
+
+/** Stage 01**/
         //01-button or link  to get me to the checkout page ...[.. orders model ..]
         //02-The Design of the page ...[.. 6panels ..]
 
@@ -58,12 +60,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // redirect to the website at the first time  ... from the website the user will login and register
+    $products=products::paginate(5);
+    return view('Website.Products.index',compact('products'));
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
 //login with social networks [twitter,Gmail,Github]
 Route::get('auth/{provider}', 'AuthSocialController@redirectToProvider'); //send request to twitter to get user info
@@ -71,7 +74,6 @@ Route::get('auth/{provider}/callback', 'AuthSocialController@handleProviderCallb
 
 //product [website part]
 
-Route::get('products',"WebsiteProductsController@index");
 Route::get('products/cart',function (){
     return view('Website.Products.DetailedCartpage');
 });

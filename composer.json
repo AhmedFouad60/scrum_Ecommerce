@@ -15,6 +15,7 @@
         "laravelcollective/html": "~5.0",
         "league/omnipay": "^3.0",
         "omnipay/paypal": "^3.0",
+        "spatie/laravel-permission": "^2.14",
         "yajra/laravel-datatables": "^1.0",
         "yajra/laravel-datatables-oracle": "^8.0"
     },

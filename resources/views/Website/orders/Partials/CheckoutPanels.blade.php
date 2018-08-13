@@ -52,7 +52,7 @@
                     <div class="col-md-12">
                         <p>Your cart is empty!</p>
                         <br>
-                        <a href="{!!url('/products')!!}" class="btn btn-upper btn-primary outer-left-xs">Continue</a>
+                        <a href="{!!url('/')!!}" class="btn btn-upper btn-primary outer-left-xs">Continue</a>
                                     </div>
 
                 @endif

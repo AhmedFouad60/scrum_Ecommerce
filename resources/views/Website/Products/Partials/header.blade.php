@@ -40,24 +40,50 @@
                                 <span class="fa fa-user-circle"></span>My Account
                             </a>
                             <ul class="dropdown-menu">
-                                <li>
-                                    <a href="#">Login</a>
-                                </li>
-                                <li>
-                                    <a href="#">Register</a>
-                                </li>
-                                <li>
-                                    <a href="#">Wishlist</a>
-                                </li>
-                                <li>
-                                    <a href="#">My Cart</a>
-                                </li>
-                                <li>
-                                    <a href="#">Track my order</a>
-                                </li>
-                                <li>
-                                    <a href="#">Checkout</a>
-                                </li>
+                                @guest
+                                    <li><a href="{{ route('login') }}">Login</a></li>
+                                    <li><a href="{{ route('register') }}">Register</a></li>
+                                    <li>
+                                        <a href="#">Wishlist</a>
+                                    </li>
+                                    <li>
+                                        <a href="{!!url('products/cart')!!}" > My Cart</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Track my order</a>
+                                    </li>
+                                    <li>
+                                        <a href="{!!url('orders')!!}" > Checkout</a>
+
+                                    </li>
+                                @else
+                                    <li>
+                                        <a href="#">Wishlist</a>
+                                    </li>
+                                    <li>
+                                        <a href="{!!url('products/cart')!!}" > My Cart</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Track my order</a>
+                                    </li>
+                                    <li>
+                                        <a href="{!!url('orders')!!}" > Checkout</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                @endguest
+
+
                             </ul>
 
                         </li>
@@ -93,7 +119,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active">
-                        <a href="{{URL::to('/products')}}" >Home </a>
+                        <a href="{{URL::to('/')}}" >Home </a>
                     </li>
                     <li class=""><a href="#" >Search </a></li>
                     <li class=""><a href="#">Clothing </a></li>

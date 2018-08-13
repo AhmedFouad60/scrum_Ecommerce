@@ -26,7 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-//    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -38,18 +38,18 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function redirectPath()
-    {
-        if (Auth::user() &&  Auth::user()->group_id == 0) {
-            return '/home';
-        }else{
-            return '/admin/home';
-
-        }
-    }
+//    public function redirectPath()
+//    {
+//        if (Auth::user() &&  Auth::user()->group_id == 0) {
+//            return '/home';
+//        }else{
+//            return '/admin/home';
+//
+//        }
+//    }
     public function showLoginForm()
     {
-        return view('Website.Users.auth.login');
+        return view('Admin.Users.auth.login');
     }
 
 
