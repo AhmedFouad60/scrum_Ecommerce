@@ -54,6 +54,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+
         //Validate name, email and password fields
         $this->validate($request, [
             'name'=>'required|max:120',
@@ -73,7 +74,7 @@ class UserController extends Controller
             }
         }
         //Redirect to the Admin.Users.index view and display message
-        return redirect()->route('Admin.Users.index')
+        return redirect()->route('users.index')
             ->with('flash_message',
                 'User successfully added.');
     }
@@ -100,7 +101,7 @@ class UserController extends Controller
         $user = User::findOrFail($id); //Get user with specified id
         $roles = Role::get(); //Get all roles
 
-        return view('users.edit', compact('user', 'roles')); //pass user and roles data to view
+        return view('Admin.Users.edit', compact('user', 'roles')); //pass user and roles data to view
 
     }
 
@@ -131,7 +132,7 @@ class UserController extends Controller
         else {
             $user->roles()->detach(); //If no role is selected remove exisiting role associated to a user
         }
-        return redirect()->route('Admin.Users.index')
+        return redirect()->route('users.index')
             ->with('flash_message',
                 'User successfully edited.');
     }
@@ -148,7 +149,7 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
 
-        return redirect()->route('Admin.Users.index')
+        return redirect()->route('users.index')
             ->with('flash_message',
                 'User successfully deleted.');
 

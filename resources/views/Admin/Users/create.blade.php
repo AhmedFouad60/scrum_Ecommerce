@@ -1,16 +1,17 @@
-{{-- \resources\views\users\create.blade.php --}}
-@extends('layouts.app')
-
-@section('title', '| Add User')
-
+@extends('Admin.AdminPanel.index')
 @section('content')
+
+
+
+
+
 
     <div class='col-lg-4 col-lg-offset-4'>
 
         <h1><i class='fa fa-user-plus'></i> Add User</h1>
         <hr>
 
-        {{ Form::open(array('url' => 'users')) }}
+        {{ Form::open(array('url' => 'admin/users')) }}
 
         <div class="form-group">
             {{ Form::label('name', 'Name') }}
@@ -49,3 +50,4 @@
     </div>
 
 @endsection
+

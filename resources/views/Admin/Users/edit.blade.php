@@ -1,10 +1,7 @@
-{{-- \resources\views\users\edit.blade.php --}}
-
-@extends('layouts.app')
-
-@section('title', '| Edit User')
-
+@extends('Admin.AdminPanel.index')
 @section('content')
+
+
 
     <div class='col-lg-4 col-lg-offset-4'>
 
