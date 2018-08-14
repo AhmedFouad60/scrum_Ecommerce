@@ -8,15 +8,12 @@
         body {
             font-family: 'Cairo', sans-serif;
         }
-
-
-
     </style>
 
 @endsection
 
 
-    @section('title') All products @endsection
+@section('title') All Users @endsection
 
 
 
@@ -25,7 +22,7 @@
 
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">products</li>
+            <li class="active">Users</li>
         </ol>
     </section>
 
@@ -35,13 +32,13 @@
 
 @section('Buttons')
     <div class="row">
-    <div class="pull-right">
-        <a class="btn btn-primary" href="products\create"> +</a>
+        <div class="pull-right">
+            <a href="{{ route('users.create') }}" class="btn btn-info" style="margin-right: 30px;"> + Add User</a>
 
-        {{--<i class="btn btn-default">-> </i>--}}
+            {{--<i class="btn btn-default">-> </i>--}}
 
 
-    </div>
+        </div>
 
     </div>
 @endsection
@@ -49,7 +46,7 @@
 
 @section('body')
 
-{{--this class to perform the padding to show the + and --> Buttons in the layout.blade.php--}}
+    {{--this class to perform the padding to show the + and --> Buttons in the layout.blade.php--}}
 
 
 
@@ -73,8 +70,8 @@
 
     </div>
 @endsection
-{{--Required libraries for datatables--}}
 
+{{--Required libraries for datatables--}}
 @section('footer')
 
     {{--File that contain button of ..print pdf,xlsheet ...--}}
@@ -96,4 +93,3 @@
     @endpush
 
 @endsection
-

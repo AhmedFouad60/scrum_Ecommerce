@@ -2,11 +2,10 @@
 
 namespace App\DataTables;
 
-use App\Models\products;
-use App\Provider;
+use App\Models\User;
 use Yajra\DataTables\Services\DataTable;
 
-class productDatatable extends DataTable
+class userDatatable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -17,9 +16,9 @@ class productDatatable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
-            ->addColumn('action', 'Admin.products.partials.btnAction')
+            ->addColumn('action', 'Admin.Users.Partials.btnAction')
             ->rawColumns([
-                'action'
+               'action'
             ]);
     }
 
@@ -29,10 +28,10 @@ class productDatatable extends DataTable
      * @param \App\User $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(products $model)
+    public function query(User $model)
     {
         return $model->query();
-//        return $model->newQuery()->select('id', 'add-your-columns-here', 'created_at', 'updated_at');
+        //return $model->newQuery()->select('id', 'add-your-columns-here', 'created_at', 'updated_at');
     }
 
     /**
@@ -45,13 +44,13 @@ class productDatatable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            //->addAction(['width' => '80px','title' => 'التحكم'])
-            //->parameters($this->getBuilderParameters());
+//            ->addAction(['width' => '80px','title' => 'control'])
+//            ->parameters($this->getBuilderParameters());
             ->parameters([
                 'dom' => 'Blfrtip',
                 'buttons' => [
                     // ['extend'=>'csv','text'=>'test'],
-                    [ 'extend'=>'excel','text'=>'<i class="fa fa-file-excel-o" style=" cursor: pointer;"></i>&nbsp;XL '],
+                    [ 'extend'=>'excel','text'=>'<i class="fa fa-file-excel-o"  style="cursor: pointer;"></i>&nbsp;XL '],
                     //  ['extend'=> 'pdf','text'=>'test'],
                     [ 'extend'=>'print','text'=>'<i class="fa fa-print" style="cursor: pointer;"></i>&nbsp;print  ']
                     //   ,['extend'=> 'reset','text'=>'test'],
@@ -72,42 +71,34 @@ class productDatatable extends DataTable
     protected function getColumns()
     {
 
-        return [
+       return [
 
 
-            [
-                'name'=>'id',
-                'data'=>'id',
-                'title'=>'ID'
-            ], [
-                'name'=>'title',
-                'data'=>'title',
-                'title'=>'Title'
-            ], [
-                'name'=>'quantity',
-                'data'=>'quantity',
-                'title'=>'Quantity'
-            ],
-            [
-                'name'=>'weight',
-                'data'=>'weight',
-                'title'=>'Weight'
-            ], [
-                'name'=>'action',
-                'data'=>'action',
-                'title'=>'action',
-                'exportable'=>false,
-                'printable'=>false,
-                'orderable'=>false,
-                'searchable'=>false,
+           [
+               'name'=>'id',
+               'data'=>'id',
+               'title'=>'ID'
+           ], [
+               'name'=>'name',
+               'data'=>'name',
+               'title'=>'Name'
+           ], [
+               'name'=>'email',
+               'data'=>'email',
+               'title'=>'Email'
+           ], [
+               'name'=>'action',
+               'data'=>'action',
+               'title'=>'action',
+               'exportable'=>false,
+               'printable'=>false,
+               'orderable'=>false,
+               'searchable'=>false,
 
-            ],
+           ],
 
 
         ];
-
-
-
     }
 
     /**
@@ -117,6 +108,6 @@ class productDatatable extends DataTable
      */
     protected function filename()
     {
-        return 'product_' . date('YmdHis');
+        return 'user_' . date('YmdHis');
     }
 }

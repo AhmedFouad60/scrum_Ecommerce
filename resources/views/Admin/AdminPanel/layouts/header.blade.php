@@ -29,7 +29,8 @@
       <link rel="stylesheet" href="{{URL::to('Design/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
       {{--custom css --}}
       <link rel="stylesheet" href="{{URL::to('Design/adminlte/custom/css/custom.css')}}">
-          @yield('stylesheet')
+
+        @yield('stylesheet')
 
 
           <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

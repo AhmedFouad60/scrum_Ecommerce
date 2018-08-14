@@ -15,6 +15,7 @@
             return view('Admin.AdminPanel.index');
         })->middleware('admin');
 
+        Route::resource('users', 'UserController');
 
         Route::resource('categories','CategoriesController')->middleware('admin');
 
