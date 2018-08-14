@@ -28,7 +28,8 @@ class UserController extends Controller
      */
     public function index(userDatatable $userDatatable)
     {
-        return $userDatatable->render('Admin.Users.index',['title'=>'test yajara datatables']);
+
+        return $userDatatable->render('Admin.Users.index');
 //        //Get all users and pass it to the view
 //        $users = User::all();
 //        return view('Admin.Users.index')->with('users', $users);

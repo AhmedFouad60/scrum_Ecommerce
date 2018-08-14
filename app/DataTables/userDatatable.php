@@ -3,7 +3,9 @@
 namespace App\DataTables;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Services\DataTable;
+use Spatie\Permission\Models\Role;
 
 class userDatatable extends DataTable
 {
@@ -17,6 +19,8 @@ class userDatatable extends DataTable
     {
         return datatables($query)
             ->addColumn('action', 'Admin.Users.Partials.btnAction')
+//            ->addColumn('role', 'Admin.Users.Partials.Role')
+
             ->rawColumns([
                'action'
             ]);
@@ -30,8 +34,23 @@ class userDatatable extends DataTable
      */
     public function query(User $model)
     {
-        return $model->query();
-        //return $model->newQuery()->select('id', 'add-your-columns-here', 'created_at', 'updated_at');
+//        return $model->query();
+//        return $model->newQuery()->select('id','name','email');
+
+        $users=$model->select([
+            'users.id',
+            'users.name',
+            'users.email',
+            'roles.name as role'
+        ])
+            ->leftJoin('model_has_roles','users.id','=','model_has_roles.model_id')
+            ->leftJoin('roles','roles.id','=','model_has_roles.role_id');
+
+
+
+
+        return $users;
+
     }
 
     /**
@@ -90,6 +109,17 @@ class userDatatable extends DataTable
                'name'=>'action',
                'data'=>'action',
                'title'=>'action',
+               'exportable'=>false,
+               'printable'=>false,
+               'orderable'=>false,
+               'searchable'=>false,
+
+           ],
+
+           [
+               'name'=>'role',
+               'data'=>'role',
+               'title'=>'role',
                'exportable'=>false,
                'printable'=>false,
                'orderable'=>false,
