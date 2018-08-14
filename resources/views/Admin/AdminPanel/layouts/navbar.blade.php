@@ -44,6 +44,8 @@
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
               <li class="header">MAIN NAVIGATION</li>
+
+
               <li class="treeview">
                 <a href="#">
                   <i class="fa fa-dashboard"></i> <span>Users</span>
@@ -52,10 +54,13 @@
                   </span>
                 </a>
                 <ul class="treeview-menu">
-                  <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-                  <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+                  <li class="active"><a href="/admin/users"><i class="fa fa-circle-o"></i> All User</a></li>
+                  <li><a href="/admin/users/create"><i class="fa fa-circle-o"></i> Create User</a></li>
                 </ul>
               </li>
+
+
+
               <li class="treeview">
                 <a href="#">
                   <i class="fa fa-dashboard"></i> <span>Categories</span>
@@ -64,10 +69,12 @@
                   </span>
                 </a>
                 <ul class="treeview-menu">
-                  <li class="active"><a href="#"><i class="fa fa-circle-o"></i> All Categories</a></li>
-                  <li><a href="#"><i class="fa fa-circle-o"></i> Create Category</a></li>
+                  <li class="active"><a href="/admin/categories"><i class="fa fa-circle-o"></i> All Categories</a></li>
+                  <li><a href="/admin/categories/create"><i class="fa fa-circle-o"></i> Create Category</a></li>
                 </ul>
               </li>
+
+
 
                 <li class="treeview">
                     <a href="#">
@@ -77,8 +84,35 @@
                   </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li class="active"><a href="#"><i class="fa fa-circle-o"></i> All Products</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i> Create new Product</a></li>
+                        <li class="active"><a href="/admin/products"><i class="fa fa-circle-o"></i> All Products</a></li>
+                        <li><a href="/admin/products/create"><i class="fa fa-circle-o"></i> Create new Product</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i> <span>Roles</span>
+                        <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                  </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li class="active"><a href="/admin/roles"><i class="fa fa-circle-o"></i> All Roles</a></li>
+                        <li><a href="/admin/roles/create"><i class="fa fa-circle-o"></i> Create Role</a></li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i> <span>Permissions</span>
+                        <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                  </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li class="active"><a href="/admin/permissions"><i class="fa fa-circle-o"></i> All Permissions</a></li>
+                        <li><a href="/admin/permissions/create"><i class="fa fa-circle-o"></i> Create permission</a></li>
                     </ul>
                 </li>
 
