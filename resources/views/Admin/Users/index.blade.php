@@ -25,6 +25,14 @@
             <li class="active">Users</li>
         </ol>
     </section>
+    <section style="margin-right: 20px;">
+        <div class="container">
+            <h1 class="text-left"><i class="fa fa-users"></i> Available Users</h1>
+
+        </div>
+        <a href="{{ route('roles.index') }}" class="btn btn-default pull-right">Roles</a>
+        <a href="{{ route('permissions.index') }}" class="btn btn-default pull-right">permissions</a>
+    </section>
 
 
 @endsection
@@ -56,7 +64,7 @@
         {{--.....Render the Datatables of the products--}}
 
         <div class="box-header">
-            <h3 class="box-title">All Products</h3>
+            <h3 class="box-title">All Users</h3>
         </div>
 
         <div class="box-body">

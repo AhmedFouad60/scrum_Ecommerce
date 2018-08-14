@@ -2,12 +2,11 @@
 
 namespace App\DataTables;
 
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Services\DataTable;
 use Spatie\Permission\Models\Role;
 
-class userDatatable extends DataTable
+class rolesDatatable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -18,11 +17,9 @@ class userDatatable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
-            ->addColumn('action', 'Admin.Users.Partials.btnAction')
-//            ->addColumn('role', 'Admin.Users.Partials.Role')
-
+            ->addColumn('action', 'Admin.roles.Partials.btnAction')
             ->rawColumns([
-               'action'
+                'action'
             ]);
     }
 
@@ -32,24 +29,23 @@ class userDatatable extends DataTable
      * @param \App\User $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(User $model)
+    public function query()
     {
 //        return $model->query();
 //        return $model->newQuery()->select('id','name','email');
 
-        $users=$model->select([
-            'users.id',
-            'users.name',
-            'users.email',
-            'roles.name as role'
+        $roles=Role::select([
+            'roles.id',
+            'roles.name',
+            'permissions.name as permission',
         ])
-            ->leftJoin('model_has_roles','users.id','=','model_has_roles.model_id')
-            ->leftJoin('roles','roles.id','=','model_has_roles.role_id');
+            ->leftJoin('role_has_permissions','roles.id','=','role_has_permissions.role_id')
+            ->leftJoin('permissions','permissions.id','=','role_has_permissions.permission_id');
 
 
 
 
-        return $users;
+        return $roles;
 
     }
 
@@ -90,42 +86,38 @@ class userDatatable extends DataTable
     protected function getColumns()
     {
 
-       return [
+        return [
 
 
-           [
-               'name'=>'id',
-               'data'=>'id',
-               'title'=>'ID'
-           ], [
-               'name'=>'name',
-               'data'=>'name',
-               'title'=>'Name'
-           ], [
-               'name'=>'email',
-               'data'=>'email',
-               'title'=>'Email'
-           ],
+            [
+                'name'=>'id',
+                'data'=>'id',
+                'title'=>'ID'
+            ], [
+                'name'=>'name',
+                'data'=>'name',
+                'title'=>'role'
+            ], [
+                'name'=>'permission',
+                'data'=>'permission',
+                'title'=>'permission',
+                'exportable'=>false,
+                'printable'=>false,
+                'orderable'=>false,
+                'searchable'=>false,
 
-           [
-               'name'=>'role',
-               'data'=>'role',
-               'title'=>'role',
-               'exportable'=>false,
-               'printable'=>false,
-               'orderable'=>false,
-               'searchable'=>false,
+            ],[
+                'name'=>'action',
+                'data'=>'action',
+                'title'=>'action',
+                'exportable'=>false,
+                'printable'=>false,
+                'orderable'=>false,
+                'searchable'=>false,
 
-           ], [
-               'name'=>'action',
-               'data'=>'action',
-               'title'=>'action',
-               'exportable'=>false,
-               'printable'=>false,
-               'orderable'=>false,
-               'searchable'=>false,
+            ],
 
-           ]
+
 
 
         ];
@@ -138,6 +130,6 @@ class userDatatable extends DataTable
      */
     protected function filename()
     {
-        return 'user_' . date('YmdHis');
+        return 'role_' . date('YmdHis');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\rolesDatatable;
 use Illuminate\Http\Request;
 
 use Auth;
@@ -22,10 +23,11 @@ class RoleController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-        $roles = Role::all();//Get all roles
+    public function index(rolesDatatable $rolesDatatable) {
+//        $roles = Role::all();//Get all roles
 
-        return view('Admin.roles.index')->with('roles', $roles);
+//        return view('Admin.roles.index')->with('roles', $roles);
+        return $rolesDatatable->render('Admin.roles.index');
     }
 
     /**

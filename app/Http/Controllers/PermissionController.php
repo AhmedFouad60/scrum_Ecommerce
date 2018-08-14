@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\permissionsDatatable;
 use Illuminate\Http\Request;
 
 use Auth;
@@ -23,10 +24,12 @@ class PermissionController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-        $permissions = Permission::all(); //Get all permissions
+    public function index(permissionsDatatable $permissionsDatatable) {
+        return $permissionsDatatable->render('Admin.permissions.index');
 
-        return view('Admin.permissions.index')->with('permissions', $permissions);
+//        $permissions = Permission::all(); //Get all permissions
+
+//        return view('Admin.permissions.index')->with('permissions', $permissions);
     }
 
     /**
