@@ -4,10 +4,16 @@ namespace App\Http\Controllers;
 
 use App\DataTables\couponDatatable;
 use App\Models\Coupons;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class CouponsController extends Controller
 {
+
+    public function __construct() {
+        $this->middleware(['isAdmin'])->except('checkCoupon'); //isAdmin middleware lets only users with a //specific permission permission to access these resources
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -41,7 +47,7 @@ class CouponsController extends Controller
         $this->validate($request, [
             'name'=>'required|max:120',
             'code'=>'required',
-            'description'=>'required|max:225',
+//            'description'=>'required|max:225',
             'discount'=>'numeric',
             'type'=>'required',
             'end_date'=> 'required|date|date_format:Y-m-d',
@@ -98,7 +104,7 @@ class CouponsController extends Controller
         $this->validate($request, [
             'name'=>'required|max:120',
             'code'=>'required',
-            'description'=>'required|max:225',
+//            'description'=>'required|max:225',
             'discount'=>'numeric',
             'type'=>'required',
             'end_date'=> 'required|date|date_format:Y-m-d',
@@ -129,5 +135,40 @@ class CouponsController extends Controller
         return redirect()->route('coupons.index')
         ->with('flash_message',
             'coupon successfully deleted.');
+    }
+
+
+    public function checkCoupon(Request $request){
+
+
+        $coupon=Coupons::where('code','=',$request['coupon_code'])->get();//validate the coupon code
+
+        if($coupon){ //the code is exists already
+
+            dd(Carbon::parse($request->end_date));
+            dd(Carbon::now());
+            //validate the date
+            if( Carbon::now()->between( Carbon::parse($request->start_date),Carbon::parse($request->end_date) ) ){
+
+                //update the total price of the invoice [checkout] in the cart .. provide info about the discount to paypal api
+
+                dd("date is ok");
+
+            }else{
+                // say the coupon expired already
+
+                dd('coupon expired already');
+
+            }
+
+
+
+
+        }else{
+            //the coupon code not exists
+        }
+
+
+
     }
 }

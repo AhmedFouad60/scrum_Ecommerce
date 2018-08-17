@@ -33,6 +33,7 @@
             {{--------------------------------- End step04 -----------------------------}}
 
 
+
                             @include('Website.orders.Partials.orderReview')
 
             {{--------------------------------- End step05 -----------------------------}}
@@ -46,6 +47,9 @@
 
 
                     </div> {{-- col-md-8--}}
+
+                    @include('Website.orders.Partials.coupon')
+
 
 
                 @else

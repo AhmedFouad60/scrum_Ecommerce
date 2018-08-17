@@ -105,3 +105,8 @@ Route::group(['prefix' => '/orders'], function () {
 //search
 
 Route::get('/search','SearchController@search');
+
+//coupons
+Route::post('/coupons','CouponsController@checkCoupon');
+
+
