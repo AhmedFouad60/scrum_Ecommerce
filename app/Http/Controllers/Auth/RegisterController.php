@@ -81,6 +81,6 @@ class RegisterController extends Controller
     }
     public function showRegistrationForm()
     {
-        return view('Website.Users.auth.register');
+        return view('Admin.Users.auth.register');
     }
 }

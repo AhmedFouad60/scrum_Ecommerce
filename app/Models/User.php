@@ -37,6 +37,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Orders');
     }
 
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
+    }
 
 
 }

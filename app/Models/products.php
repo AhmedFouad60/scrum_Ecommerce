@@ -29,4 +29,10 @@ class products extends Model
     public function orders(){
         return $this->belongsToMany('App\Models\Orders')->withPivot('quantity');
     }
+
+    public function coupons(){
+        return $this->belongsToMany('App\Models\Coupons','product_coupons','product_id','coupon_id');
+    }
+
+
 }

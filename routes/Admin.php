@@ -25,6 +25,8 @@
 
         Route::resource('products',"ProductsController")->middleware('admin');
 
+        Route::resource('coupons',"CouponsController")->middleware('admin');
+
 
 
     });

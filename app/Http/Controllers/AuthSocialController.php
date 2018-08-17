@@ -65,7 +65,7 @@ class AuthSocialController extends Controller
             //Already registered before  ->Make him/her login
             $loginUser=User::find($selectProvider->user_id);
             auth()->login($loginUser );
-            return Redirect('/home');
+            return Redirect('/');
         }
 
 
