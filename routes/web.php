@@ -65,7 +65,7 @@ Route::get('/', function () {
     // redirect to the website at the first time  ... from the website the user will login and register
     $products=products::paginate(5);
     return view('Website.Products.index',compact('products'));
-});
+})->name('home');
 
 
 

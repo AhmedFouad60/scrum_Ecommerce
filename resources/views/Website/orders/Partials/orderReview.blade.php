@@ -25,18 +25,40 @@
                         <td>{{$row->name}}</td>
                         <td>{{$row->qty}}</td>
                         <td class="text-right">${{number_format($row->price,2)}} USD</td>
-                        <td class="text-right">${{number_format($row->total,2)}} USD</td>
+                        <td class="text-right">${{number_format($row->price,2)}} USD</td>
                     </tr>
                 @empty
                 @endif
                 <tr>
                     <td colspan="3" class="text-right">Subtotal</td>
-                    <td class="text-right">${{Cart::total()}} USD</td>
+                    <td class="text-right">${{Cart::subtotal()}} USD</td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="text-right">Discount</td>
+                    @if($type!=null &&$type=="Percentage")
+                    <td class="text-right">{{$discount}} %</td>
+                        @else
+                        <td class="text-right">${{$discount}} USD</td>
+
+                    @endif
                 </tr>
 
                 <tr>
                     <td colspan="3" class="text-right">Total</td>
+                    @if($total !='')
+                        {{ Form::hidden('coupon_total', $total) }}
+                        {{ Form::hidden('discount', $discount) }}
+                        {{ Form::hidden('type', $type) }}
+
+
+                        <td class="text-right">${{$total}} USD</td>
+
+                    @else
                     <td class="text-right">${{Cart::subtotal()}} USD</td>
+                    @endif
+
+
+
                 </tr>
 
 

@@ -15,30 +15,94 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 class OrdersController extends Controller
 {
     public function index(){
-        return view('Website.orders.index');
+        //sorry for putting these variable here it's only for coupon .. with the orderReview
+        $total='';
+        $type='';
+        $discount="";
+        return view('Website.orders.index',compact('total','type','discount'));
     }
 
     public function payment(Request $request){
 
         $attributes=$request->all();
+        dd($attributes);
+
+        if ($request['coupon_total']){ //if there is a coupon discount
+
+            $attributes['total'] =$request['coupon_total'];
+
+        }
+
 
         if($attributes['payment_method']=='Paypal'){
-            $items=array();
-            foreach (Cart::content() as $item){
-                $items[]=array(
-                    'name'      => $item->name,
-                    'quantity'  => $item->qty,
-                    'price'     =>$item->price
+
+
+
+            if ($request['coupon_total']) { //if there is a coupon discount
+
+
+                    //check discount type
+                if($request['type'] == "Percentage"){
+                    $items=array();
+                    foreach (Cart::content() as $item){
+                        $items[]=array(
+                            'name'      => $item->name,
+                            'quantity'  => $item->qty,
+                            'price'     => $item->price - $request['discount']/100 *(1/Cart::count())
+
+                        );
+                    }
+                }else{
+
+                    $items=array();
+                    foreach (Cart::content() as $item){
+                        $items[]=array(
+                            'name'      => $item->name,
+                            'quantity'  => $item->qty,
+                            'price'     => $item->price - $request['discount'] /Cart::count()
+
+                        );
+                    }
+
+                }
+
+
+
+
+
+
+
+                $params = array(
+                    'cancelUrl'=> url('/'),
+                    'returnUrl'=> url('/orders/payment/success'),
+                    'amount'   => str_replace(',','',$attributes['total']),
+//                    'shippingDiscount'=>number_format(Cart::total()-$attributes['total']),
+                    'currency' => 'USD',
+                    'data' => $attributes
                 );
             }
 
-            $params = array(
-                'cancelUrl'=> url('/'),
-                'returnUrl'=> url('/orders/payment/success'),
-                'amount'   => str_replace(',','',Cart::subtotal()),
-                'currency' => 'USD',
-                'data' => $attributes
-            );
+            else{
+
+                $items=array();
+                foreach (Cart::content() as $item){
+                    $items[]=array(
+                        'name'      => $item->name,
+                        'quantity'  => $item->qty,
+                        'price'     => $item->price
+
+                    );
+                }
+
+                $params = array(
+                    'cancelUrl'=> url('/'),
+                    'returnUrl'=> url('/orders/payment/success'),
+                    'amount'   => str_replace(',','',Cart::total() ),
+                    'currency' => 'USD',
+                    'data' => $attributes
+                );
+            }
+
 
             Session::put('params', $params);
             Session::save();
@@ -75,8 +139,15 @@ class OrdersController extends Controller
 //            }
 
 
+
+
+
+
+
         }else{
             $this->storePayment($attributes);
+            return redirect()->route('home');
+
         }
     }
 
@@ -146,7 +217,7 @@ class OrdersController extends Controller
             $order->products()->attach($row->id,['quantity' => $row->qty]);
         }
         Cart::destroy();
-        return redirect('/')->with('success', ['your message,here']);
+
         }catch (Exception $e){
             return redirect('/')->with('fail', ['your message,here']);
 

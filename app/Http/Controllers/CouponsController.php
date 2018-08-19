@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\DataTables\couponDatatable;
 use App\Models\Coupons;
 use Carbon\Carbon;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 
 class CouponsController extends Controller
@@ -141,24 +142,53 @@ class CouponsController extends Controller
     public function checkCoupon(Request $request){
 
 
+        if ($request['coupon_code'] == null){
+          return redirect('/orders');
+        }
+
+
         $coupon=Coupons::where('code','=',$request['coupon_code'])->get();//validate the coupon code
 
         if($coupon){ //the code is exists already
 
-            dd(Carbon::parse($request->end_date));
-            dd(Carbon::now());
+            $startDate=$coupon->pluck('start_date')[0];
+            $endDate=$coupon->pluck('end_date')[0];
+
             //validate the date
-            if( Carbon::now()->between( Carbon::parse($request->start_date),Carbon::parse($request->end_date) ) ){
+            if( Carbon::now()->between( Carbon::parse($startDate),Carbon::parse($endDate) ) ){
 
                 //update the total price of the invoice [checkout] in the cart .. provide info about the discount to paypal api
 
-                dd("date is ok");
+                if($coupon->pluck('type')[0] == "Percentage"){ //determine the discount type [percentage or fixed amount]
+
+                    $subtotal = floatval(preg_replace( '#[^\d.]#', '', Cart::subtotal()));
+
+
+                    $total =  number_format(($subtotal - $subtotal * ( $coupon->pluck('discount')[0] / 100 )),2);
+                    $discount=$coupon->pluck('discount')[0];
+                    $type=$coupon->pluck('type')[0];
+                    return view("Website.orders.index",compact('total','discount','type'));
+
+
+
+                }else{ //the discount is fixed price
+
+                    $subtotal = floatval(preg_replace( '#[^\d.]#', '', Cart::subtotal()));
+
+                    $total =  number_format($subtotal-$coupon->pluck('discount')[0],2);
+                    $discount=$coupon->pluck('discount')[0];
+                    $type=$coupon->pluck('type')[0];
+                    return view("Website.orders.index",compact('total','discount','type'));
+
+
+                }
+
+
+
 
             }else{
                 // say the coupon expired already
-
-                dd('coupon expired already');
-
+                return view("Website.orders.index")->with('flash_message','coupon expired already');
             }
 
 
@@ -166,6 +196,8 @@ class CouponsController extends Controller
 
         }else{
             //the coupon code not exists
+            return view("Website.orders.index")->with('flash_message','the coupon code not exists');
+
         }
 
 
