@@ -25,7 +25,7 @@ class OrdersController extends Controller
     public function payment(Request $request){
 
         $attributes=$request->all();
-        dd($attributes);
+//        dd($attributes);
 
         if ($request['coupon_total']){ //if there is a coupon discount
 
@@ -45,10 +45,12 @@ class OrdersController extends Controller
                 if($request['type'] == "Percentage"){
                     $items=array();
                     foreach (Cart::content() as $item){
+
+                        $ModifiedPrice=number_format( $item->price - $request['discount']/100 *(1/Cart::count()),2);
                         $items[]=array(
                             'name'      => $item->name,
                             'quantity'  => $item->qty,
-                            'price'     => $item->price - $request['discount']/100 *(1/Cart::count())
+                            'price'     =>floatval($ModifiedPrice)
 
                         );
                     }
@@ -56,10 +58,12 @@ class OrdersController extends Controller
 
                     $items=array();
                     foreach (Cart::content() as $item){
+                        $ModifiedPrice=number_format( $item->price - $request['discount'] /Cart::count(),2);
+
                         $items[]=array(
                             'name'      => $item->name,
                             'quantity'  => $item->qty,
-                            'price'     => $item->price - $request['discount'] /Cart::count()
+                            'price'     => floatval($ModifiedPrice)
 
                         );
                     }
@@ -110,9 +114,9 @@ class OrdersController extends Controller
             //use Omnipay for gateway payment processing
             $gateway = Omnipay::create('PayPal_Express');
 
-            $gateway->setUsername('mr.fouad992-facilitator_api1.gmail.com');
-            $gateway->setPassword('BLB98ZZKQN4S762D');
-            $gateway->setSignature('Al1ekGWEdlMNUAGGaAmtpVxAoXHgAY0n6kdFzKwVOdaFgC2CDw4G.AB0');
+            $gateway->setUsername('foushFacilator_api1.gmail.com');
+            $gateway->setPassword('WG6D654ZQPZZ6M3G');
+            $gateway->setSignature('AMB-WyAI36HdTdmnzqRkcPtW-4QpAyFD91odlkalNZv.B.kBWPYR7aQR');
             $gateway->setTestMode(true);
 //            try {
                 $response = $gateway->purchase($params)->setItems($items)->send();
@@ -155,9 +159,9 @@ class OrdersController extends Controller
 
         $gateway = Omnipay::create('PayPal_Express');
 
-        $gateway->setUsername('mr.fouad992-facilitator_api1.gmail.com');
-        $gateway->setPassword('BLB98ZZKQN4S762D');
-        $gateway->setSignature('Al1ekGWEdlMNUAGGaAmtpVxAoXHgAY0n6kdFzKwVOdaFgC2CDw4G.AB0');
+        $gateway->setUsername('foushFacilator_api1.gmail.com');
+        $gateway->setPassword('WG6D654ZQPZZ6M3G');
+        $gateway->setSignature('AMB-WyAI36HdTdmnzqRkcPtW-4QpAyFD91odlkalNZv.B.kBWPYR7aQR');
         $gateway->setTestMode(true);
 
 
@@ -171,6 +175,8 @@ class OrdersController extends Controller
 //
         if(isset($paypalResponse['PAYMENTINFO_0_ACK']) && $paypalResponse['PAYMENTINFO_0_ACK'] === 'Success') {
                 $this->storePayment($attributes);
+            return redirect()->route('home');
+
         } else {
             echo $response->getMessage();
             //Failed transaction
