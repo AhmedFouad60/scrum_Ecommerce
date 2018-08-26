@@ -31,7 +31,7 @@ class CategoriesController extends Controller
         $categories=Categories::get()->toTree();
         return view('Admin.Categories.index',compact('categories'));
 
-        return view('Admin.Categories.index');
+//        return view('Admin.Categories.index');
     }
 
     /**

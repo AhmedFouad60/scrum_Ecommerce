@@ -28,7 +28,7 @@ class SearchController extends Controller
         $total=$product->total() + $productCategories->total() + $productTags->total();
 
         $items=array_merge($product->items(),$productTags->items(),$productCategories->items());
-        $itemsCollection=collect($items)->unique();
+            $itemsCollection=collect($items)->unique();
 
         $currentPage=\Illuminate\Pagination\LengthAwarePaginator::resolveCurrentPage();
 

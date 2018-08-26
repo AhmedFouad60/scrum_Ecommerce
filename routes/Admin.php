@@ -27,6 +27,9 @@
 
         Route::resource('coupons',"CouponsController")->middleware('admin');
 
+        Route::resource('blog',"AdminBlogController");
 
 
     });
+
+

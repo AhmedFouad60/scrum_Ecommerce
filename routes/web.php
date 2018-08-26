@@ -1,6 +1,7 @@
 <?php
 /** checkout process*/
         //what i need now
+use App\Models\Post;
 use App\Models\products;
 
 /** Stage 01**/
@@ -64,7 +65,8 @@ Auth::routes();
 Route::get('/', function () {
     // redirect to the website at the first time  ... from the website the user will login and register
     $products=products::paginate(5);
-    return view('Website.Products.index',compact('products'));
+    $posts=Post::orderBy('id', 'DESC')->paginate(5);
+    return view('Website.Products.index',compact('products','posts'));
 })->name('home');
 
 
@@ -109,4 +111,18 @@ Route::get('/search','SearchController@search');
 //coupons
 Route::post('/coupons','CouponsController@checkCoupon');
 
+//blog
 
+
+Route::get('/blog','BlogController@index')->name('websiteBlog');
+
+Route::get('/blog/{id}/{slug?}','BlogController@article');
+
+Route::get('/search/blog/{word}','BlogController@search');
+
+
+
+
+//Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+//    \UniSharp\LaravelFilemanager\Lfm::routes();
+//});

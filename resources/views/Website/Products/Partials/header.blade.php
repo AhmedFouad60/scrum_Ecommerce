@@ -125,7 +125,7 @@
                     <li class=""><a href="#">Clothing </a></li>
                     <li class=""><a href="#">Electronics </a></li>
                     <li class=""><a href="#">About Us </a></li>
-                    <li class=""><a href="#">Blog </a></li>
+                    <li class=""><a href="{{route('websiteBlog')}}">Blog </a></li>
                     <li class=""><a href="#">Contact </a></li>
                     <li class="top-cart-row">
 
