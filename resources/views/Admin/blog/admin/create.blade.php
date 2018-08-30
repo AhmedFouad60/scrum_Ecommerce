@@ -199,6 +199,10 @@
 @include('Admin.blog.admin.Partials.scripts')
 
 
+
+
+
+
 {{--<div class='col-lg-11 col-lg-offset-1'>--}}
 
     {{--<h1><i class='fa fa-user-plus'></i> Add Coupon</h1>--}}

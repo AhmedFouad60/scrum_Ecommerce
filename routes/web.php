@@ -120,6 +120,12 @@ Route::get('/blog/{id}/{slug?}','BlogController@article');
 
 Route::get('/search/blog/{word}','BlogController@search');
 
+Route::get('/profile/edit/{id}','profileController@edit')->name('profileEdit');
+
+Route::put('/profile/{id}','profileController@update')->name('profileStore');
+
+
+//Route::resource('profile', 'profileController');
 
 
 
