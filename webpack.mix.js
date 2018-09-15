@@ -42,6 +42,7 @@ mix.js('resources/assets/js/app.js', 'public/js');
       'resources/assets/css/checkout.css',
       'resources/assets/css/animatedSearch.css',
       'resources/assets/css/searchSidebar.css',
+      'resources/assets/css/singleProduct.css',
 
 
 

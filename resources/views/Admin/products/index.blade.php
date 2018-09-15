@@ -34,14 +34,15 @@
 
 
 @section('Buttons')
+   
     <div class="row">
-    <div class="pull-right">
-        <a class="btn btn-primary" href="products\create"> +</a>
+        <div class="pull-right">
+            <a href="products\create" class="btn btn-info" style="margin-right: 30px;"> + Add Product</a>
 
-        {{--<i class="btn btn-default">-> </i>--}}
+            {{--<i class="btn btn-default">-> </i>--}}
 
 
-    </div>
+        </div>
 
     </div>
 @endsection

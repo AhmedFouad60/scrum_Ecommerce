@@ -53,17 +53,9 @@
 
     @elseif($tap_name=='image')
 
-             <!-- Upload  -->
-            <div class="form-group">
+             <div class="form-group">
                 <input type="file"  name="photo[]" multiple />
-            </div>
-            <div class="form-group">
-                <input type="file"  name="photo[]" multiple />
-            </div>
-            <div class="form-group">
-                <input type="file"  name="photo[]" multiple />
-            </div>
-
+            </div> 
         @else
 
 

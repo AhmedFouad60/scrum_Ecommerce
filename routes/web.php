@@ -77,6 +77,10 @@ Route::get('auth/{provider}', 'AuthSocialController@redirectToProvider'); //send
 Route::get('auth/{provider}/callback', 'AuthSocialController@handleProviderCallback');
 
 //product [website part]
+Route::get('/product/{id}',function($id){
+    $product=products::findOrFail($id);
+    return view('Website.Products.show',compact('product'));
+});
 
 Route::get('products/cart',function (){
     return view('Website.Products.DetailedCartpage');

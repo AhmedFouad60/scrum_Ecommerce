@@ -11,6 +11,8 @@ use App\Models\Tags;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Kalnoy\Nestedset\Collection;
+use Image; //Intervention Image
+use Illuminate\Support\Facades\Storage; //Laravel Filesystem
 
 
 
@@ -73,8 +75,8 @@ class ProductsController extends Controller
             $RecentProduct=$this->product->find($product->id);
 
             /** associate the product to the user who enter it **/
-            $RecentProduct->user()->associate(Auth::user()->id);
-            $RecentProduct->save();
+            // $RecentProduct->user()->associate(Auth::user()->id);
+            // $RecentProduct->save();
 
             /** attach the category to the product in the pivot table **/
             $RecentProduct->categories()->attach($category);
@@ -87,16 +89,9 @@ class ProductsController extends Controller
                 $newtag->save();
                 $RecentProduct->Tags()->attach($newtag->id);
             }
-
-            /**  save the images of the product in productsPhoto table **/
-            foreach($input->photo as $photo){
-                $storageFile='products/'.Auth::user()->id.'/'.$RecentProduct->id;
-                $filename=$photo->store($storageFile); //make dir for the user.. and his products
-                //put the photo in pivot table productsPhoto
-                ProductsPhoto::create([
-                    'product_id'=>$product->id,
-                    'filename'=>$filename
-                ]);
+            //store Multi photoes for the product 
+            if ($input->hasFile('photo')) {
+                $this->storeMultImages($input,$RecentProduct->id);
             }
 
             return redirect()->route('products.index');
@@ -192,6 +187,47 @@ class ProductsController extends Controller
         return $this->makeOptions($query->get());
     }
 
+public function storeMultImages($input,$ProductID){
+
+    $i=1;
+    $storageFileLg='public/products/Lg/';
+    $storageFileXs='public/products/Xs/';
+
+    /**  save the images of the product in productsPhoto table **/
+    foreach($input->photo as $photo){
+        
+        //get file extension
+        $extension = $photo->getClientOriginalExtension();
+
+        Storage::put($storageFileLg.$ProductID."_" .$i. "." .$extension, fopen($photo, 'r+'));
+        Storage::put($storageFileXs.$ProductID."_" .$i. "." .$extension, fopen($photo, 'r+'));
+
+        
+
+        // dd($extension);
+            //Resize image here
+            $thumbnailpath = public_path('storage/products/Xs/'.$ProductID."_".$i. "." .$extension);
+
+            // $thumbnailpath= "/storage/app/".$storageFileXs.$ProductID."_".$i;
+            // dd($thumbnailpath);
+            $img = Image::make($thumbnailpath)->resize(400, 150, function($constraint) {
+                $constraint->aspectRatio();
+            });
+            $filename=$img->save($thumbnailpath);
+
+            $i+=1;
+
+        
+        //put the photo in pivot table productsPhoto
+        ProductsPhoto::create([
+            'product_id'=>$ProductID,
+            'filename'=>$filename
+        ]);
+
+    }
+
+}
+    
 
 
 
