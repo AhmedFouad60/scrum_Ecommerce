@@ -4,9 +4,10 @@
 {{--select2 library    --}}
     <script src="{{URL::to('js/select2.min.js')}}"></script>
     <script type="text/javascript">
-        $(".js-example-tags").select2({
-            tags: true
-        });
+    
+    $("#state").select2({
+      tags: true
+    });
     </script>
 
     <!-- CK Editor -->

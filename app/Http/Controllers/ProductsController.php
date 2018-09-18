@@ -119,7 +119,31 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product=products::findOrFail($id);
+        $productCateID=$product->categories()->where('product_id',$product->id)->first()->id;
+
+        //i'll make it as array -->Many Tags 
+        $productTags=$product->Tags;
+
+        foreach($productTags as $tag){
+            $productTagsIDs[]=$tag->id;
+        }
+        foreach($productTags as $tag){
+            $productTagsName[]=$tag->tag_name;
+        }
+        
+
+        $Photos=$product->photos;
+        
+        foreach($Photos as $photo){
+            $productPhotos[]=$photo->filename;
+        }
+        // dd($productPhotos);
+        
+        $AllTags=Tags::all();
+        // dd($Tags);
+        $categories=Categories::all();
+        return view('Admin.products.edit',compact('product','categories','productCateID','AllTags','productTagsIDs','productPhotos','productTagsName'));
     }
 
     /**
@@ -142,7 +166,11 @@ class ProductsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product=products::findOrFail($id);
+        $product->delete();
+        return redirect()->route('products.index')
+        ->with('flash_message',
+            'product successfully deleted.');
     }
 
 
@@ -213,7 +241,19 @@ public function storeMultImages($input,$ProductID){
             $img = Image::make($thumbnailpath)->resize(400, 150, function($constraint) {
                 $constraint->aspectRatio();
             });
-            $filename=$img->save($thumbnailpath);
+            $img->save($thumbnailpath);
+
+
+            //store the product image => for showcase in the product page Website part
+            if($i==1){
+             $product=products::findOrFail($ProductID);
+             $product->image=$thumbnailpath;
+             $product->save();
+//             dd($product->image);
+            }
+
+
+            $filename=$ProductID."_" .$i. "." .$extension;
 
             $i+=1;
 

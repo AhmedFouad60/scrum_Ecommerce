@@ -10,7 +10,7 @@ class products extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-       'quantity','manufacturer','title','price','weight','small-description','large_description','longitude','latitude'
+       'quantity','manufacturer','title','price','weight','small_description','large_description','longitude','latitude'
     ];
 
 
@@ -32,6 +32,10 @@ class products extends Model
 
     public function coupons(){
         return $this->belongsToMany('App\Models\Coupons','product_coupons','product_id','coupon_id');
+    }
+    public function photos()
+    {
+        return $this->hasMany('App\Models\ProductsPhoto','product_id');
     }
 
 

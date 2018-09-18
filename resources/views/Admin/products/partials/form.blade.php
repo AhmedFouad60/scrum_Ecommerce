@@ -17,46 +17,121 @@
             {!! Form::label('weight', 'Weight:') !!}
             {!! Form::text('weight', null, [ 'class' => 'form-control']) !!}
             {!! $errors->first('weight') !!}
-         </div>
+        </div>
         <div class="form-group">
             {!! Form::label('quantity', 'Quantity:') !!}
             {!! Form::text('quantity', null, [ 'class' => 'form-control']) !!}
             {!! $errors->first('quantity') !!}
-         </div>
+        </div>
 
-        @elseif($tap_name=='links')
-                <div class="form-group">
-                        {!! Form::label('manufacture', 'Manufacture:') !!}
-                        {!! Form::text('manufacture', null, [ 'class' => 'form-control','name'=>'manufacturer']) !!}
-                        {!! $errors->first('manufacture') !!}
-                </div>
+    @elseif($tap_name=='links')
+        <div class="form-group">
+            {!! Form::label('manufacturer', 'Manufacture:') !!}
+            {!! Form::text('manufacturer', null, [ 'class' => 'form-control','name'=>'manufacturer']) !!}
+            {!! $errors->first('manufacture') !!}
+        </div>
 
-                <div class="form-group">
-                    {!! Form::label('category', 'Category') !!}
-                    {!! Form::select('category', $categories, null, [ 'class' => 'form-control' ]) !!}
-                    {!! $errors->first('category') !!}
-                </div>
+       <div class="form-group">
 
-                <p class="badge label label-primary">Tags</p>
-                <div class="form-group">
-                    <select class="js-example-tags form-control" style="width: 100%!important;" multiple="multiple" name="tags[]">
+            @if($mode=='edit')
+            <select class="form-control" name="category_id">
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id }}"{{ ( $category->id == $productCateID ) ? 'selected' : '' }}>{{ $category->title }}</option>
+                @endforeach
+            </select>
+            @else
 
-                    </select>
-                </div>
+                {!! Form::label('category', 'Category') !!}
+                {!! Form::select('category', $categories, null, [ 'class' => 'form-control' ]) !!}
+                {!! $errors->first('category') !!}
+
+            @endif
+            
+
+
+        </div>
+
+        <p class="badge label label-primary">Tags</p>
+        <div class="form-group">
+            @if($mode =='edit')
+
+                <select id="state" class="js-example-basic-single" multiple="multiple" type="text" style="width:90%" name="tags[]">
+                
+                    @for($i=0;$i < count($productTagsIDs) ;$i++)
+                        
+                            <option value="{{ $productTagsIDs[$i] }}" selected>
+                                    {{$productTagsName[$i]}}
+                            </option>
+                        
+                    @endfor
+
+                    @foreach($AllTags as $Tag)
+                        <option value="{{$Tag->id}}">{{$Tag->tag_name}}</option>
+                    @endforeach
+
+
+                </select>
+
+           
+            @else
+            <select id="state" class="js-example-basic-single" multiple="multiple" type="text" style="width:90%" name="tags[]">
+
+                </select>
+            @endif
+            
+
+        </div>
 
 
 
-        @elseif($tap_name=='location')
+    @elseif($tap_name=='location')
         @include('Admin.products.partials.map',['tap_name'=>'location'])
 
 
 
     @elseif($tap_name=='image')
+        @if($mode=='edit')
 
-             <div class="form-group">
-                <input type="file"  name="photo[]" multiple />
-            </div> 
+          <div class="row">
+          <div class="col-md-4">
+                <!-- <p>You can replace these photos</p> -->
+
+                <div class="form-group">
+                    <input type="file"  name="photo[]" multiple />
+                </div>
+            </div>
+
+
+          
+
+
+           
+          </div>
+
+<br>
+<br>
+<br>
+          <div class="row">
+          @for($i=0; $i < count($productPhotos);$i++) 
+           <div class="col-md-4">
+                <img  class="img-thumbnail" src="{{asset("storage/products/Xs/".$productPhotos[$i])}}" alt="product image">          
+
+           </div>
+       
+       @endfor
+          </div>
+         
+                   
+            
+
         @else
+        <div class="form-group">
+            <input type="file"  name="photo[]" multiple />
+        </div>
+        @endif
+
+        
+    @else
 
 
 
@@ -66,3 +141,9 @@
 
 
 </div>
+
+
+
+
+
+

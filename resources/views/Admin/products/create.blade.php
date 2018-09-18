@@ -62,26 +62,26 @@
 
 
             <div class="tab-pane fade in active" id="general">
-                @include('Admin.products.partials.form',['tap_name'=>'general'])
+                @include('Admin.products.partials.form',['tap_name'=>'general','mode'=>'add'])
             </div>
 
             <div class="tab-pane fade" id="des">
-                @include('Admin.products.partials.Editor')
+                @include('Admin.products.partials.Editor',['mode'=>'add'])
             </div>
 
 
             <div class="tab-pane fade " id="links">
-                @include('Admin.products.partials.form',['tap_name'=>'links'])
+                @include('Admin.products.partials.form',['tap_name'=>'links','mode'=>'add'])
             </div>
 
 
 
             <div class="tab-pane fade " id="location">
-                @include('Admin.products.partials.form',['tap_name'=>'location'])
+                @include('Admin.products.partials.form',['tap_name'=>'location','mode'=>'add'])
             </div>
 
             <div class="tab-pane fade " id="image">
-                @include('Admin.products.partials.form',['tap_name'=>'image'])
+                @include('Admin.products.partials.form',['tap_name'=>'image','mode'=>'add'])
             </div>
 
         </div>

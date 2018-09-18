@@ -20,10 +20,18 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body pad">
-
+                    <!-- for edit page -->
+                    @if($mode == 'edit')
+                    <textarea id="editor1" name="large_description" rows="10" cols="80">
+                    {!!$product->small_description!!}
+                    </textarea>
+                    <!-- for create page -->
+                    @else
                     <textarea id="editor1" name="large_description" rows="10" cols="80">
                                             This is my textarea to be replaced with CKEditor.
                     </textarea>
+                    @endif
+                    
 
                 </div>
             </div>
@@ -57,9 +65,18 @@
             <!-- /.box-header -->
             <div class="box-body pad">
 
+                    @if($mode=='edit')
+                    
+                    <textarea id="editor2" name="small-description" rows="10" cols="80">
+                    {!!$product->large_description!!}
+                    </textarea>
+
+                    @else
                     <textarea id="editor2" name="small-description" rows="10" cols="80">
                                             This is my textarea to be replaced with CKEditor.
                     </textarea>
+                    @endif
+                    
 
             </div>
         </div>

@@ -17,12 +17,14 @@
 
 
 <div class="form-group">
-    <input class="form-control" type="text" id="long" name="longitude" placeholder="longitude">
+    {!! Form::text('longitude', null, [ 'class' => 'form-control', 'autofocus' => true,'id'=>'long','placeholder'=>'longitude' ]) !!}
+              
 
 </div>
 
 <div class="form-group">
-    <input class="form-control" type="text" id="lat" name="latitude" placeholder="latitude">
+    <!-- <input class="form-control" type="text" id="lat" name="latitude" placeholder="latitude"> -->
+    {!! Form::text('latitude', null, [ 'class' => 'form-control','id'=>'lat','placeholder'=>'latitude' ]) !!}
 
 </div>
 
