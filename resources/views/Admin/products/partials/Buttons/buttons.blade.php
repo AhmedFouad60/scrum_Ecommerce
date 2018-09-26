@@ -5,10 +5,13 @@
 
     {{--i decided to remove the button below because this may be miss leading to the user--}}
 
+    @if($mode=='edit')
+        {{ Form::model($product, array('route' => array('products.update', $product->id), 'method' => 'PUT','files'=>true)) }}{{-- Form model binding to automatically populate our fields with permission data --}}
+    @else
+        {!! Form::open(['url' => 'admin/products','method'=>'post','enctype'=>'multipart/form-data']) !!}
 
 
-
-    {!! Form::open(['url' => 'admin/products','method'=>'post','enctype'=>'multipart/form-data']) !!}
+    @endif
 
 
 
@@ -30,3 +33,25 @@
         </div>
 
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

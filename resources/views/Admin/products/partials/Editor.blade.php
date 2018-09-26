@@ -4,7 +4,7 @@
         <div class="col-md-12">
             <div class="box box-default collapsed-box">
                 <div class="box-header">
-                    <h3 class="box-title">Small Description
+                    <h3 class="box-title">Large Description
                         <small>Detailed description</small>
                     </h3>
                     <!-- tools box -->
@@ -23,7 +23,7 @@
                     <!-- for edit page -->
                     @if($mode == 'edit')
                     <textarea id="editor1" name="large_description" rows="10" cols="80">
-                    {!!$product->small_description!!}
+                    {!!$product->large_description!!}
                     </textarea>
                     <!-- for create page -->
                     @else
@@ -67,12 +67,12 @@
 
                     @if($mode=='edit')
                     
-                    <textarea id="editor2" name="small-description" rows="10" cols="80">
-                    {!!$product->large_description!!}
+                    <textarea id="editor2" name="small_description" rows="10" cols="80">
+                    {!!$product->small_description!!}
                     </textarea>
 
                     @else
-                    <textarea id="editor2" name="small-description" rows="10" cols="80">
+                    <textarea id="editor2" name="small_description" rows="10" cols="80">
                                             This is my textarea to be replaced with CKEditor.
                     </textarea>
                     @endif

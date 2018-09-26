@@ -4,9 +4,11 @@
 
 @endpush
 
+ {{-- TODO: for all views in the project ::=> alert to show the errors of the validation i.e(the filed is required ..)  --}}
 
+ 
 
-@section('title') All products
+@section('title') Create product
 
 @overwrite
 
@@ -25,9 +27,10 @@
 
 
 
+
 {{--Add and back buttons--}}
 @section('Buttons')
-    @include('Admin.products.partials.Buttons.buttons')
+    @include('Admin.products.partials.Buttons.buttons',['mode'=>'add'])
 @endsection
 
 
@@ -37,6 +40,15 @@
 
     {{--<p>Please, insert new product </p>--}}
     <h3 class="page-header heading-primary-a">+ New product</h3>
+
+    @if(!empty($errors->first()))
+    <div class="row col-lg-12">
+        <div class="alert alert-danger">
+            <span>{{ $errors->first() }}</span>
+        </div>
+    </div>
+@endif
+
 
     <!-- start nav-taps -->
 

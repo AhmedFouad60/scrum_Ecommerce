@@ -102,7 +102,10 @@ return [
     'custom' => [
         'attribute-name' => [
             'rule-name' => 'custom-message',
-        ],
+        ]
+        // ,'category_id' => [
+        //     'required' => 'You should select category for the product',
+        // ],
     ],
 
     /*

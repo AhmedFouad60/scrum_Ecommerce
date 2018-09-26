@@ -64,37 +64,19 @@ class ProductsController extends Controller
     public function store(productRequest $input)
 
     {
-        /**save the product**/
-        $product=$this->product->create($input->all());
+        //TODO: add General tag to the product that the user doesn't add tag to them OR Don't add General tag but handle the empty $productTags in the blade file of edit [Admin]
+        
+        
+        $product=$this->product->create($input->all()); //save the product
+        $category=$input->category;//product's category to use it in the pivot table
 
-        //product's category to use it in the pivot table
-        $category=$input->category;
+        if($product){//check if  the product saved already
+            //TODO: Associate the product to the user who enter it
 
-        if($product){
-            //get the product
-            $RecentProduct=$this->product->find($product->id);
-
-            /** associate the product to the user who enter it **/
-            // $RecentProduct->user()->associate(Auth::user()->id);
-            // $RecentProduct->save();
-
-            /** attach the category to the product in the pivot table **/
-            $RecentProduct->categories()->attach($category);
-
-
-            /** save the product Tags **/
-            foreach ($input->tags as $tag){
-                $newtag=new Tags();
-                $newtag->tag_name=$tag;
-                $newtag->save();
-                $RecentProduct->Tags()->attach($newtag->id);
-            }
-            //store Multi photoes for the product 
-            if ($input->hasFile('photo')) {
-                $this->storeMultImages($input,$RecentProduct->id);
-            }
-
-            return redirect()->route('products.index');
+            /**=====attach the category and tags to the product========*/
+            // dd($input);
+            $this->AttachTagCat($product,$input,$category);
+            
 
         }
 
@@ -143,6 +125,7 @@ class ProductsController extends Controller
         $AllTags=Tags::all();
         // dd($Tags);
         $categories=Categories::all();
+//        dd( $Photos);
         return view('Admin.products.edit',compact('product','categories','productCateID','AllTags','productTagsIDs','productPhotos','productTagsName'));
     }
 
@@ -153,9 +136,35 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(productRequest $request, $id)
     {
-        //
+
+        $product=products::findOrFail($id);
+         
+         /*=========== update the product General info ============= */
+
+            $input=$request->only('title','price','weight','quantity','small_description',  'large_description',
+            'manufacturer');
+            $product->fill($input)->save();
+
+        /*=========== update the product category ================ */
+
+        $categoryExists=Categories::findOrFail($request->category_id);
+        if ($categoryExists){
+            $product->categories()->sync([$request->category_id]);
+        }
+
+        /**================== update the product_tags ============= */
+        $this->updateProductTags($request,$product);
+
+        /**======== update the image part [delete the old ones,and replace it with new]===== */
+        if($request->photo != null)
+            $this->updateProductImgs($product,$request);
+
+            return redirect()->route('products.index')
+            ->with('flash_message',
+                'product successfully updated.');
+        
     }
 
     /**
@@ -223,14 +232,14 @@ public function storeMultImages($input,$ProductID){
 
     /**  save the images of the product in productsPhoto table **/
     foreach($input->photo as $photo){
-        
+        // dd($photo);
         //get file extension
         $extension = $photo->getClientOriginalExtension();
 
         Storage::put($storageFileLg.$ProductID."_" .$i. "." .$extension, fopen($photo, 'r+'));
         Storage::put($storageFileXs.$ProductID."_" .$i. "." .$extension, fopen($photo, 'r+'));
 
-        
+       
 
         // dd($extension);
             //Resize image here
@@ -265,15 +274,114 @@ public function storeMultImages($input,$ProductID){
         ]);
 
     }
+    return redirect()->route('products.index')
+    ->with('flash_message',
+        'product successfully updated.');
 
 }
     
 
 
+public function updateProductTags($request,$product){
+
+    $productTags[]=$request->tags;
+        for($i=0;$i<count($productTags[0]);$i++){
+
+            //check if the tag is int & in the tag table
+            if( is_numeric( $productTags[0][$i]) ){
+                $tag=Tags::findOrFail($productTags[0][$i]);
+
+                if ($tag){ // if the tag is exists in tags table ... then update the pivit table product_tag
+                    //check if the product_tag row exists in the pivate for the selected product  if not exists add it
+
+                     $productTag=$product->Tags()->where('tag_id',$tag->id)->first();
+
+                     if($productTag == null){
+                         $product->Tags()->attach($tag->id);
+                     }
+                }
+            }else{
+                $newtag=new Tags();
+                $newtag->tag_name=$productTags[0][$i];
+                $newtag->save();
+                $product->Tags()->attach($newtag->id);
+
+            }
+
+        }
+
+} 
+
+public function updateProductImgs($product,$input){
+
+/**======Delete the product images from the storage and from the products_photos table==*/
+
+    //get the photos names from the products_photos table
+    $productPhotos=$product->photos;
+     foreach($productPhotos as $productPhoto){
+         $photos[]=$productPhoto->filename;
+     }
+    
+     //Delete the photos from the storage if exists
+     for($i=0;$i<count($productPhotos);$i++){
+
+        if(Storage::exists('public/products/Lg/'.$photos[$i])){
+            Storage::delete('public/products/Lg/'.$photos[$i]);
+        }
+        if(Storage::exists('public/products/Xs/'.$photos[$i])){
+            Storage::delete('public/products/Xs/'.$photos[$i]);
+        }
+            
+     }
+
+     
+     //Delete the photos rows from the products_photos table
+     for($i=0;$i<count($productPhotos);$i++){
+         $photoRow=ProductsPhoto::where('filename',$photos[$i]);
+        $photoRow->delete();
+     }
+
+        
+    
+
+    //store the new product photos
+    $this->storeMultImages($input,$product->id);
+
+    
+    // return redirect()->route('products.index')
+    // ->with('flash_message',
+    //     'product successfully updated.');
 
 
 
+}
 
+
+public function AttachTagCat($product,$input,$category){
+    $product->categories()->attach($category);// attach the category to the product
+        //   dd($input->tags);
+            foreach ($input->tags as $tag){// save the product Tags 
+                    //if the tag exists before don't add it if not add it   
+                $tagQuery=Tags::where('tag_name',$tag)->first();
+                
+                if($tagQuery==null){
+                    $newtag=new Tags();
+                    $newtag->tag_name=$tag;
+                    $newtag->save();
+                    $product->Tags()->attach($newtag->id);
+                }else{
+                    //attach the product to the previous stored tag
+                    $product->Tags()->attach($tagQuery->id);
+                }
+               
+            }
+            //store Multi photoes for the product 
+            if ($input->hasFile('photo')) {
+                $this->storeMultImages($input,$product->id);
+            }
+
+           
+}
 
 
 

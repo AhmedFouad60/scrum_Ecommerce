@@ -26,7 +26,7 @@
 
 <!-- {{--Add and back buttons--}}
 @section('Buttons')
-    @include('Admin.products.partials.Buttons.buttons')
+    @include('Admin.products.partials.Buttons.buttons',['mode'=>'edit'])
 @endsection -->
 
 
@@ -56,9 +56,8 @@
 
         <div id="myTabContent" class="tab-content">
 
-        {{ Form::model($product, array('route' => array('products.update', $product->id), 'method' => 'PUT')) }}{{-- Form model binding to automatically populate our fields with permission data --}}
+        {!! Form::model($product,['method' => 'PUT', 'route' => ['products.update', $product->id],'files' => true]) !!}{{-- Form model binding to automatically populate our fields with permission data --}}
 
-            <!-- {!! Form::open(['url' => 'admin/products','method'=>'post']) !!} -->
 
 
             <div class="tab-pane fade in active" id="general">
@@ -89,7 +88,7 @@
     </div>
 
     {!! Form::close() !!}
-
+   
 
 {{--scripts for ... select2 lib ,html editors--}}
     @include('Admin.products.partials.Scripts.scripts')
