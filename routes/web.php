@@ -78,9 +78,17 @@ Route::get('auth/{provider}/callback', 'AuthSocialController@handleProviderCallb
 
 //product [website part]
 Route::get('/product/{id}',function($id){
+    //get the product
     $product=products::findOrFail($id);
-    return view('Website.Products.show',compact('product'));
+    //get the product images
+    $photos=$product->photos;
+    foreach($photos as $photo){
+        $productPhotos[]=$photo->filename;
+    }
+    return view('Website.Products.show',compact('product','productPhotos'));
 });
+//product review
+Route::post('/product/review','ReviewController@store');
 
 Route::get('products/cart',function (){
     return view('Website.Products.DetailedCartpage');

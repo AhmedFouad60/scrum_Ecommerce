@@ -40,8 +40,8 @@ class productRequest extends FormRequest
             'photo[]' => 'image',
             // 'photo[]' => 'image|mimes:jpeg,bmp,png|size:2000',
             // 'category_id'=>'required',
-            'small_description'=>'required|min:20|max:50',
-            'large_description'=>'required|min:30|max:255'
+            'small_description'=>'required|min:20|max:100',
+            'large_description'=>'required|min:30|max:500'
             
            
 

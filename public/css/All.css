@@ -8104,7 +8104,7 @@ shopping-cart .estimate-ship-tax table tbody tr td .form-group label span,
     border-color: #ededed;
     margin: 10px 0
 }
-product-detail-wraper {
+.product-detail-wraper {
     background-color: #fff;
     padding: 30px;
 }
@@ -8239,4 +8239,66 @@ product-detail-wraper {
     color: #999;
     font-weight: 700;
     margin-bottom: 0;
+}
+/*Rate the product*/
+/*span.review-rating {*/
+    /*padding-top: 5px;*/
+    /*display: block;*/
+    /*color: #f1b717;*/
+    /*font-size: 14px;*/
+    /*font-weight: 700;*/
+    /*line-height: 20px;*/
+    /*text-transform: uppercase;*/
+/*}*/
+.star-rate {
+    font-size: 8px;
+    color: #f1b717;
+    display: inline-block;
+    padding-left: 10px;
+}
+.cancel-on-png, .cancel-off-png, .star-on-png, .star-off-png, .star-half-png {
+    font-size: 2em;
+}
+
+@font-face {
+    font-family: "raty";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/raty/raty.eot");
+    src: url("../fonts/raty/raty.eot?#iefix") format("embedded-opentype");
+    src: url("../fonts/raty/raty.svg#raty") format("svg");
+    src: url("../fonts/raty/raty.ttf") format("truetype");
+    src: url("../fonts/raty/raty.woff") format("woff");
+}
+
+.cancel-on-png, .cancel-off-png, .star-on-png, .star-off-png, .star-half-png {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-family: "raty";
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    speak: none;
+    text-transform: none;
+}
+
+.cancel-on-png:before {
+    content: "\e600";
+}
+
+.cancel-off-png:before {
+    content: "\e601";
+}
+
+.star-on-png:before {
+    content: "\f005";
+}
+
+.star-off-png:before {
+    content: "\f006";
+}
+
+.star-half-png:before {
+    content: "\f123";
 }

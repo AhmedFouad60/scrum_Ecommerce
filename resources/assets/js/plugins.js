@@ -30,6 +30,13 @@ $(document).ready(function(){
         });
     }
 
+    //Raty plugin
+    $('.star-rate').raty({
+        // This is the config you need to change the tag from image to icon
+        starType : 'i',
+        // half:true,
+    });
+
 });
 
 

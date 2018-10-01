@@ -15,6 +15,9 @@ use Image; //Intervention Image
 use Illuminate\Support\Facades\Storage; //Laravel Filesystem
 
 
+//TODO:optimize the product edit in this controller make the details in traits file or  create function in this class
+
+//TODO:optimize the functions in this class and put them in another [class,traits,Repository pattern] choose the best choice
 
 class ProductsController extends Controller
 {
@@ -79,6 +82,9 @@ class ProductsController extends Controller
             
 
         }
+        return redirect()->route('products.index')
+            ->with('flash_message',
+                'product successfully stored.');
 
     }
 
@@ -123,9 +129,7 @@ class ProductsController extends Controller
         // dd($productPhotos);
         
         $AllTags=Tags::all();
-        // dd($Tags);
         $categories=Categories::all();
-//        dd( $Photos);
         return view('Admin.products.edit',compact('product','categories','productCateID','AllTags','productTagsIDs','productPhotos','productTagsName'));
     }
 

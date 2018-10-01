@@ -25,6 +25,8 @@ mix.js('resources/assets/js/app.js', 'public/js');
       'resources/assets/js/cart.js',
       'resources/assets/js/toastr.js',
       'resources/assets/js/order.js',
+      'resources/assets/js/jquery.raty.js',
+      'resources/assets/js/review.js',
   ],'public/js/All.js');
 
 
@@ -43,6 +45,8 @@ mix.js('resources/assets/js/app.js', 'public/js');
       'resources/assets/css/animatedSearch.css',
       'resources/assets/css/searchSidebar.css',
       'resources/assets/css/singleProduct.css',
+      'resources/assets/css/jquery.raty.css',
+
 
 
 
