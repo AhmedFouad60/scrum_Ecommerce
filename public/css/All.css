@@ -8241,15 +8241,15 @@ shopping-cart .estimate-ship-tax table tbody tr td .form-group label span,
     margin-bottom: 0;
 }
 /*Rate the product*/
-/*span.review-rating {*/
-    /*padding-top: 5px;*/
-    /*display: block;*/
-    /*color: #f1b717;*/
-    /*font-size: 14px;*/
-    /*font-weight: 700;*/
-    /*line-height: 20px;*/
-    /*text-transform: uppercase;*/
-/*}*/
+span.review-rating {
+    padding-top: 5px;
+    display: block;
+    color: #f1b717;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    text-transform: uppercase;
+}
 .star-rate {
     font-size: 8px;
     color: #f1b717;

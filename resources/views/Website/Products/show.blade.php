@@ -130,9 +130,9 @@
                                 <div class="product-reviews">
                                     <h4 class="title">Customer Reviews</h4>
                                 </div>
-                                <div class="product-review">
+                                <div class="product-review reviews-show">
                                     {{--TODO: show all reviews--}}
-                                    {{--@include('Website.Products.Partials.ReviewShow',['store'])--}}
+                                    @include('Website.Products.Partials.ReviewShow')
 
 
                                 </div>

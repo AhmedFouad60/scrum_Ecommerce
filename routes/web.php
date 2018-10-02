@@ -85,10 +85,16 @@ Route::get('/product/{id}',function($id){
     foreach($photos as $photo){
         $productPhotos[]=$photo->filename;
     }
-    return view('Website.Products.show',compact('product','productPhotos'));
+    $reviews=$product->reviews;
+
+    return view('Website.Products.show',compact('product','productPhotos','reviews'));
 });
+
 //product review
 Route::post('/product/review','ReviewController@store');
+//product review latest
+Route::get('reviews/review/latest/{id}', 'ReviewController@latest');
+
 
 Route::get('products/cart',function (){
     return view('Website.Products.DetailedCartpage');

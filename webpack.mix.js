@@ -26,7 +26,6 @@ mix.js('resources/assets/js/app.js', 'public/js');
       'resources/assets/js/toastr.js',
       'resources/assets/js/order.js',
       'resources/assets/js/jquery.raty.js',
-      'resources/assets/js/review.js',
   ],'public/js/All.js');
 
 

@@ -37,6 +37,9 @@ class products extends Model
     {
         return $this->hasMany('App\Models\ProductsPhoto','product_id');
     }
+    public function reviews(){
+        return $this->hasMany('App\Models\review','product_id');
+    }
 
 
 }

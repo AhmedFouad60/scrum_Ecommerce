@@ -31828,8 +31828,7 @@ __webpack_require__(49);
 __webpack_require__(50);
 __webpack_require__(51);
 __webpack_require__(53);
-__webpack_require__(54);
-module.exports = __webpack_require__(55);
+module.exports = __webpack_require__(54);
 
 
 /***/ }),
@@ -35871,49 +35870,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         targetType: 'hint'
     };
 })(jQuery);
-
-/***/ }),
-/* 55 */
-/***/ (function(module, exports) {
-
-
-$(".add-review").click(function () {
-    var form = $('#product-review');
-    var formData = new FormData();
-    params = form.serializeArray();
-
-    $.each(params, function (i, val) {
-        formData.append(val.name, val.value);
-    });
-    /**console log for formdata*/
-    // for (var pair of formData.entries()) {
-    //     console.log(pair[0]+ ', ' + pair[1]);
-    // }
-
-    // make ajax request to add review to the product
-    $.ajax({
-        type: 'POST',
-        url: "/product/review",
-        data: formData,
-        cache: false,
-        processData: false,
-        contentType: false,
-        dataType: 'json',
-        success: function success(data, textStatus) {
-            //do what you want ...inform user with success message or do something with the front-end
-            $.each(data.errors, function (key, value) {
-                toastr.error(value);
-            });
-            if (data.success) {
-                setTimeout(function () {
-                    window.location.reload(1);
-                }, 1000);
-                toastr.success('Review submitted successfully.');
-            }
-        }
-
-    });
-});
 
 /***/ })
 /******/ ]);
