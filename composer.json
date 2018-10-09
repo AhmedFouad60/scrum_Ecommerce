@@ -19,6 +19,7 @@
         "omnipay/paypal": "^3.0",
         "spatie/laravel-newsletter": "^4.2",
         "spatie/laravel-permission": "^2.14",
+        "tymon/jwt-auth": "dev-develop",
         "unisharp/laravel-filemanager": "~1.8",
         "yajra/laravel-datatables": "^1.0",
         "yajra/laravel-datatables-oracle": "^8.0"

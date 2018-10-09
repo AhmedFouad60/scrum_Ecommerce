@@ -167,6 +167,8 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
 
+//        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+
 
 
         /*
