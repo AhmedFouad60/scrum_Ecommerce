@@ -68,17 +68,19 @@ class ProductsController extends Controller
 
     {
         //TODO: add General tag to the product that the user doesn't add tag to them OR Don't add General tag but handle the empty $productTags in the blade file of edit [Admin]
-        
-        
+
+        $input['category_id']=$input['category'];
+
+//        dd($input);
         $product=$this->product->create($input->all()); //save the product
-        $category=$input->category;//product's category to use it in the pivot table
+//        $category=$input->category;//product's category to use it in the pivot table
 
         if($product){//check if  the product saved already
             //TODO: Associate the product to the user who enter it
 
             /**=====attach the category and tags to the product========*/
             // dd($input);
-            $this->AttachTagCat($product,$input,$category);
+            $this->AttachTags($product,$input);
             
 
         }
@@ -108,7 +110,7 @@ class ProductsController extends Controller
     public function edit($id)
     {
         $product=products::findOrFail($id);
-        $productCateID=$product->categories()->where('product_id',$product->id)->first()->id;
+        $productCateID=$product->category_id;
 
         //i'll make it as array -->Many Tags 
         $productTags=$product->Tags;
@@ -260,7 +262,7 @@ public function storeMultImages($input,$ProductID){
             //store the product image => for showcase in the product page Website part
             if($i==1){
              $product=products::findOrFail($ProductID);
-             $product->image=$thumbnailpath;
+             $product->image= $ProductID."_".$i. "." .$extension;
              $product->save();
 //             dd($product->image);
             }
@@ -361,8 +363,14 @@ public function updateProductImgs($product,$input){
 }
 
 
-public function AttachTagCat($product,$input,$category){
-    $product->categories()->attach($category);// attach the category to the product
+public function AttachTags($product,$input){
+
+
+
+
+
+//    $product->categories()->attach($category);// attach the category to the product
+
         //   dd($input->tags);
             foreach ($input->tags as $tag){// save the product Tags 
                     //if the tag exists before don't add it if not add it   

@@ -24,3 +24,6 @@ Route::post('users/logout','AuthController@login');
 
 //Home page in the Mobile
 Route::get('home','productApiController@home');
+
+//Get the products of each category
+Route::get('category/{id}','productApiController@categoryProducts');

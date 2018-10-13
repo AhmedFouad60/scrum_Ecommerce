@@ -10,14 +10,15 @@ class products extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-       'quantity','manufacturer','title','price','weight','small_description','large_description','longitude','latitude'
+        'category_id','quantity','manufacturer','title','price','weight','small_description','large_description','longitude','latitude'
     ];
 
 
+ 
 
-    public function categories(){
-        return $this->belongsToMany('App\Models\Categories','products_categories','product_id','category_id');
-    }
+//    public function categories(){
+//        return $this->belongsToMany('App\Models\Categories','products_categories','product_id','category_id');
+//    }
 
     public function user(){
         return $this->belongsTo('App\Models\User');

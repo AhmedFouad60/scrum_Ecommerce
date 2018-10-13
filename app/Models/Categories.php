@@ -18,9 +18,13 @@ class Categories extends Model
         'title', 'parent_id',
     ];
 
-    public function products(){
+//    public function products(){
+//
+//        return $this->belongsToMany('App\Models\products','products_categories');
+//    }
 
-        return $this->belongsToMany('App\Models\products','products_categories');
+    public function products(){
+        return $this->hasMany('App\Models\products','category_id');
     }
 
 }

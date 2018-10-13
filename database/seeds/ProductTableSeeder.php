@@ -15,7 +15,8 @@ class ProductTableSeeder extends Seeder
             'image' => 'http://ecx.images-amazon.com/images/I/51ZU%2BCvkTyL.jpg',
             'title' => 'Harry Potter',
             'small-description' => 'Super cool - at least as a child.',
-            'price' => 10
+            'price' => 10,
+
         ]);
         $product->save();
 

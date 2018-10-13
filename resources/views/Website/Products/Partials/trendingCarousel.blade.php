@@ -7,7 +7,7 @@
         <div class="product-item">
 
             <div class="item-image">
-                <img class="thumbnail" src="{{$product->image}}" alt="test">
+                <img class="thumbnail" src="{{asset("storage/products/Xs/".$product->image)}}" alt="test">
             </div>
 
             <div class="item-links">

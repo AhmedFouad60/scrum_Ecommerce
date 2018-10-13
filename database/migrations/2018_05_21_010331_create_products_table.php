@@ -15,15 +15,21 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('quantity')->nullable();
             $table->string('title','50');
-            $table->string('small-description','50')->nullable();
+            $table->integer('quantity')->nullable();
+
+            $table->string('small_description','50')->nullable();
             $table->longText('large_description')->nullable();
             $table->text('image');
             $table->enum('status',['waitting','approved','rejected'])->nullable();
             $table->string('longitude','50')->nullable();
             $table->string('latitude','50')->nullable();
             $table->float('price')->nullable();
+            $table->integer('category_id')->unsigned()->nullable();
+
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+
+
             $table->enum('outofstock_status',['in stock','out of stock','pre-order'])->nullable();
             $table->dateTime('date_available')->nullable();
             $table->enum('weight_class',['kilogram','gram','pound'])->nullable();

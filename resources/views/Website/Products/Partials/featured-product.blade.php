@@ -15,7 +15,7 @@
                 <div class="product-item">
 
                     <div class="item-image">
-                        <img src="{{$product->image}}" alt="test">
+                        <img src="{{asset("storage/products/Xs/".$product->image)}}" alt="test">
                     </div>
 
                     <div class="item-links">
