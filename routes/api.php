@@ -21,3 +21,6 @@ use Illuminate\Http\Request;
 Route::post('users/signup','UsersController@signup');
 Route::post('users/login','AuthController@login');
 Route::post('users/logout','AuthController@login');
+
+//Home page in the Mobile
+Route::get('home','productApiController@home');
