@@ -27,3 +27,6 @@ Route::get('home','productApiController@home');
 
 //Get the products of each category
 Route::get('category/{id}','productApiController@categoryProducts');
+
+//Detailed info about each product [ single product screen ]
+Route::get('product/{id}','productApiController@singleProduct');
