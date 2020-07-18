@@ -1,58 +1,178 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+# Sorry i will update the readme.md ,i wrote this sideproject 2years ago but not make any updates ... i'll be back soon and start with this readme template 
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+<a href="https://aimeos.org/">
+    <img src="https://aimeos.org/fileadmin/template/icons/logo.png" alt="Aimeos logo" title="Aimeos" align="right" height="60" />
+</a>
 
-## About Laravel
+Aimeos TYPO3 extension
+======================
+[![Total Downloads](https://poser.pugx.org/aimeos/aimeos-typo3/d/total.svg)](https://packagist.org/packages/aimeos/aimeos-typo3)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/aimeos/aimeos-typo3/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/aimeos/aimeos-typo3/?branch=master)
+[![License](https://poser.pugx.org/aimeos/aimeos-typo3/license.svg)](https://packagist.org/packages/aimeos/aimeos-typo3)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+:star: Star us on GitHub — it helps!
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+[Aimeos](https://aimeos.org/TYPO3) is THE professional, full-featured and
+high performance e-commerce extension for TYPO3!  You can install it in your
+existing TYPO3 web site within 5 minutes and can adapt, extend, overwrite
+and customize anything to your needs.
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
+[![Aimeos TYPO3 demo](https://aimeos.org/fileadmin/user_upload/typo3-demo.jpg)](http://typo3.demo.aimeos.org/)
 
-## Learning Laravel
+## Table of content
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
+- [Installation](#installation)
+    - [TER](#typo3-extension-repository)
+    - [Composer](#composer)
+- [TYPO3 setup](#typo3-setup)
+    - [Extension](#extension)
+    - [Database](#database)
+- [Page setup](#page-setup)
+    - [Upload the page tree file](#upload-the-page-tree-file)
+    - [Go to the import view](#go-to-the-import-view)
+    - [Import the uploaded page tree file](#import-the-uploaded-page-tree-file)
+- [License](#license)
+- [Links](#links)
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+## Installation
 
-## Laravel Sponsors
+This document is for the latest Aimeos TYPO3 **19.10 release and later**.
 
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
+- Stable release: 20.7 (TYPO3 9/10 LTS)
+- LTS release: 19.10 (TYPO3 7/8/9 LTS)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Pulse Storm](http://www.pulsestorm.net/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
+### TYPO3 extension repository
 
-## Contributing
+If you want to install Aimeos into your existing TYPO3 installation, the [Aimeos extension from the TER](https://typo3.org/extensions/repository/view/aimeos) is recommended. You can download and install it directly from the Extension Manager of your TYPO3 instance.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+For new TYPO3 installations, there's a 1-click [Aimeos distribution](https://typo3.org/extensions/repository/view/aimeos_dist) available too. Choose the Aimeos distribution from the list of available distributions in the Extension Manager and you will get a completely set up shop system including demo data for a quick start.
 
-## Security Vulnerabilities
+### Composer
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+The latest version can be installed via composer too. This is especially useful if you want to create new TYPO3 installations automatically or play with the latest code. You need to install the composer package first if it isn't already available:
+
+`php -r "readfile('https://getcomposer.org/installer');" | php -- --filename=composer`
+
+In order to tell install TYPO3, you have to execute
+
+`composer create-project typo3/cms-base-distribution myshop`
+
+This will install TYPO3 into the ''./myshop/'' directory. Afterwards, you have to edit the composer.json file and add the ''post-install-cmd'' and ''post-update-cmd'' scripts:
+
+```
+    "scripts": {
+        "post-install-cmd": [
+            "Aimeos\\Aimeos\\Custom\\Composer::install"
+        ],
+        "post-update-cmd": [
+            "Aimeos\\Aimeos\\Custom\\Composer::install"
+        ]
+    }
+```
+
+Then, install the Aimeos extension for TYPO3 with:
+
+`composer req aimeos/aimeos-typo3:~20.7`
+
+This will install TYPO3 9.5 and the latest Aimeos TYPO3 extension. The Aimeos composer script will be executed automatically, which copies some required files and adds a link to the Aimeos extensions placed in the ./ext/ directory.
+
+## TYPO3 setup
+
+### Database setup
+
+If you use MySQL < 5.7.8, you have to use `utf8` and `utf8_unicode_ci` instead because those MySQL versions can't handle the long indexes created by `utf8mb4` (up to four bytes per character) and you will get errors like
+
+```
+1071 Specified key was too long; max key length is 767 bytes
+```
+
+To avoid that, change your database settings in your `./typo3conf/LocalConfiguration.php` to:
+
+```
+'DB' => [
+    'Connections' => [
+        'Default' => [
+            'tableoptions' => [
+                'charset' => 'utf8',
+                'collate' => 'utf8_unicode_ci',
+            ],
+            // ...
+        ],
+    ],
+],
+```
+
+### Security
+
+Since **TYPO3 9.5.14+** implements **SameSite cookie handling** and restricts when browsers send cookies to your site. This is a problem when customers are redirected from external payment provider domain. Then, there's no session available on the confirmation page. To circumvent that problem, you need to set the configuration option `cookieSameSite` to `none` in your `./typo3conf/LocalConfiguration.php`:
+
+```
+    'FE' => [
+        'cookieSameSite' => 'none'
+    ]
+```
+
+### Extension
+
+* Log into the TYPO3 back end
+* Click on ''Admin Tools::Extension Manager'' in the left navigation
+* Click the icon with the little plus sign left from the Aimeos list entry (looks like a lego brick)
+
+**Caution:** For TYPO3 8.7, install the **RealURL extension before the Aimeos extension** to get nice looking URLs. Otherwise, RealURL doesn't rewrite the parameters even if you install RealURL afterwards! TYPO3 9.5 and later creates SEO friendly URLs itself by adding rules to the site config (https://aimeos.org/docs/TYPO3/Route_configuration).
+
+![Install Aimeos TYPO3 extension](https://aimeos.org/docs/images/Aimeos-typo3-extmngr-install.png)
+
+### Database
+
+Afterwards, you have to execute the update script of the extension to create the required database structure:
+
+![Execute update script](https://aimeos.org/docs/images/Aimeos-typo3-extmngr-update-7.x.png)
+
+## Page setup
+
+The page setup for an Aimeos web shop is easy if you import the [standard page tree for TYPO3 8.7/9.5](https://aimeos.org/docs/TYPO3/Install_Aimeos/Setup_pages#Download) into your TYPO3 installation.
+
+### Go to the import view
+
+* In Web::Page, root page (the one with the globe)
+* Right click on the globe
+* Move the cursor to "Branch actions"
+* In the sub-menu, click on "Import from .t3d"
+
+![Go to the import view](https://aimeos.org/docs/images/Aimeos-typo3-pages-menu.png)
+
+### Upload the page tree file
+
+* In the page import dialog
+* Select the "Upload" tab (2nd one)
+* Click on the "Select" dialog
+* Choose the file you've downloaded
+* Press the "Upload files" button
+
+![Upload the page tree file](https://aimeos.org/docs/images/Aimeos-typo3-pages-upload.png)
+
+### Import the uploaded page tree file
+
+* In Import / Export view
+* Select the uploaded file from the drop-down menu
+* Click on the "Preview" button
+* The pages that will be imported are shown below
+* Click on the "Import" button that has appeared
+* Confirm to import the pages
+
+![Import the uploaded page tree file](https://aimeos.org/docs/images/Aimeos-typo3-pages-import.png)
+
+Now you have a new page "Shop" in your page tree including all required sub-pages.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The Aimeos TYPO3 extension is licensed under the terms of the GPL Open Source
+license and is available for free.
+
+## Links
+
+* [Web site](https://aimeos.org/integrations/typo3-shop-extension/)
+* [Documentation](https://aimeos.org/docs/TYPO3)
+* [Forum](https://aimeos.org/help/typo3-extension-f16/)
+* [Issue tracker](https://github.com/aimeos/aimeos-typo3/issues)
+* [Source code](https://github.com/aimeos/aimeos-typo3)
